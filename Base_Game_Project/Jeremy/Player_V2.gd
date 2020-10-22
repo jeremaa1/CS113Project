@@ -30,7 +30,7 @@ func _physics_process(delta):
 		motion.x = -SPEED
 		if sign($Position2D.position.x) == 1:
 			$Position2D.position.x *= -1
-			
+
 	else:
 		motion.x = 0
 	

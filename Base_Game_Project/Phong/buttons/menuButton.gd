@@ -10,7 +10,8 @@ func _ready():
 
 func _on_Button_Pressed():
 	if (ref_path != ""):
-		get_tree().change_scene(ref_path)
+		FadeEffect.scene_change(ref_path, 'fade')
+		#get_tree().change_scene(ref_path)
 	else:
 		get_tree().quit()
 

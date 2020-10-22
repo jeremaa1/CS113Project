@@ -27,7 +27,7 @@ alignment = 1
 [node name="newGame" parent="CenterContainer/VBoxContainer" instance=ExtResource( 1 )]
 margin_right = 195.0
 text = "New Game"
-ref_path = "res://Jeremy/worldProjectile.tscn"
+ref_path = "res://An/move.tscn"
 
 [node name="exit" parent="CenterContainer/VBoxContainer" instance=ExtResource( 1 )]
 margin_top = 73.0
