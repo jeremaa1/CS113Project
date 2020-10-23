@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/pixelated_mushroom.PNG-4a2e5da55e6e20b7122a4099b6756aed.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Miriya/GroundImages/pixelated_mushroom.PNG"
+dest_files=[ "res://.import/pixelated_mushroom.PNG-4a2e5da55e6e20b7122a4099b6756aed.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0
