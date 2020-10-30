@@ -24,10 +24,11 @@ animations = [ {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
 "name": "shoot",
-"speed": 18.0
+"speed": 21.0
 } ]
 
 [sub_resource type="CircleShape2D" id=6]
+radius = 16.245
 
 [node name="BaseSpell" type="Area2D"]
 position = Vector2( 42.4653, 91.6577 )
@@ -37,14 +38,16 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 2, 2 )
 frames = SubResource( 5 )
 animation = "shoot"
-frame = 2
+playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 6.13787, 0 )
+position = Vector2( 16.4389, 1.52588e-05 )
 shape = SubResource( 6 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 16.8179, 0 )
 [connection signal="body_entered" from="." to="." method="_on_BaseSpell_body_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
