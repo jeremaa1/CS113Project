@@ -18,6 +18,7 @@ func _on_continue_pressed():
 	
 func _on_quit_pressed():
 	_on_continue_pressed()
+	AudContainer.stop_aud()
 	get_tree().change_scene("res://Phong/menu/titleScreen.tscn")
 	
 

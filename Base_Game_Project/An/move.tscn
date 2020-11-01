@@ -73,7 +73,7 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 70.7476, 71.6715 )
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 resource_name = "free_fall"
 length = 0.15
 step = 0.075
@@ -90,7 +90,7 @@ tracks/0/keys = {
 "values": [ 7, 6 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 resource_name = "idle"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -105,7 +105,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=8]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -121,7 +121,7 @@ tracks/0/keys = {
 "values": [ 4 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=9]
 length = 0.8
 loop = true
 step = 0.2
@@ -138,7 +138,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 32, 32 )
 
 [node name="World" type="Node2D"]
@@ -192,10 +192,10 @@ hframes = 8
 frame = 7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Character2"]
-anims/free_fall = SubResource( 7 )
-anims/idle = SubResource( 8 )
-anims/jump = SubResource( 9 )
-anims/run = SubResource( 10 )
+anims/free_fall = SubResource( 6 )
+anims/idle = SubResource( 7 )
+anims/jump = SubResource( 8 )
+anims/run = SubResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Character2"]
 position = Vector2( 1.41583, 1.88776 )
@@ -223,7 +223,7 @@ scale = Vector2( 0.264463, 0.262295 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blocks/Wall"]
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="Wall3" type="StaticBody2D" parent="blocks"]
 position = Vector2( 320, 544 )
@@ -237,7 +237,7 @@ scale = Vector2( 0.264463, 0.262295 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blocks/Wall3"]
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="Wall5" type="StaticBody2D" parent="blocks"]
 position = Vector2( 256, 544 )
@@ -251,7 +251,7 @@ scale = Vector2( 0.264463, 0.262295 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blocks/Wall5"]
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="Wall4" type="StaticBody2D" parent="blocks"]
 position = Vector2( 448, 544 )
@@ -265,7 +265,7 @@ scale = Vector2( 0.264463, 0.262295 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blocks/Wall4"]
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="Wall10" type="StaticBody2D" parent="blocks"]
 position = Vector2( 384, 544 )
@@ -279,7 +279,7 @@ scale = Vector2( 0.264463, 0.262295 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blocks/Wall10"]
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="Wall11" type="StaticBody2D" parent="blocks"]
 position = Vector2( 576, 544 )
@@ -293,7 +293,7 @@ scale = Vector2( 0.264463, 0.262295 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blocks/Wall11"]
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="Wall12" type="StaticBody2D" parent="blocks"]
 position = Vector2( 512, 544 )
@@ -307,7 +307,7 @@ scale = Vector2( 0.264463, 0.262295 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blocks/Wall12"]
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="Wall13" type="StaticBody2D" parent="blocks"]
 position = Vector2( 704, 544 )
@@ -321,7 +321,7 @@ scale = Vector2( 0.264463, 0.262295 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blocks/Wall13"]
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="Wall14" type="StaticBody2D" parent="blocks"]
 position = Vector2( 640, 544 )
@@ -335,7 +335,7 @@ scale = Vector2( 0.264463, 0.262295 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blocks/Wall14"]
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="Wall15" type="StaticBody2D" parent="blocks"]
 position = Vector2( 832, 544 )
@@ -349,7 +349,7 @@ scale = Vector2( 0.264463, 0.262295 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blocks/Wall15"]
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="Wall16" type="StaticBody2D" parent="blocks"]
 position = Vector2( 768, 544 )
@@ -363,7 +363,7 @@ scale = Vector2( 0.264463, 0.262295 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blocks/Wall16"]
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="Wall17" type="StaticBody2D" parent="blocks"]
 position = Vector2( 960, 544 )
@@ -377,7 +377,7 @@ scale = Vector2( 0.264463, 0.262295 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blocks/Wall17"]
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="Wall18" type="StaticBody2D" parent="blocks"]
 position = Vector2( 896, 544 )
@@ -391,7 +391,7 @@ scale = Vector2( 0.264463, 0.262295 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blocks/Wall18"]
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="Wall19" type="StaticBody2D" parent="blocks"]
 position = Vector2( 1088, 544 )
@@ -405,7 +405,7 @@ scale = Vector2( 0.264463, 0.262295 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blocks/Wall19"]
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="Wall20" type="StaticBody2D" parent="blocks"]
 position = Vector2( 1024, 544 )
@@ -419,7 +419,7 @@ scale = Vector2( 0.264463, 0.262295 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blocks/Wall20"]
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="Wall21" type="StaticBody2D" parent="blocks"]
 position = Vector2( 1216, 544 )
@@ -433,7 +433,7 @@ scale = Vector2( 0.264463, 0.262295 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blocks/Wall21"]
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="Wall22" type="StaticBody2D" parent="blocks"]
 position = Vector2( 1152, 544 )
@@ -447,7 +447,7 @@ scale = Vector2( 0.264463, 0.262295 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blocks/Wall22"]
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="Wall23" type="StaticBody2D" parent="blocks"]
 position = Vector2( 1280, 544 )
@@ -461,7 +461,7 @@ scale = Vector2( 0.264463, 0.262295 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blocks/Wall23"]
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="Wall24" type="StaticBody2D" parent="blocks"]
 position = Vector2( 1408, 544 )
@@ -475,7 +475,7 @@ scale = Vector2( 0.264463, 0.262295 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blocks/Wall24"]
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="Wall25" type="StaticBody2D" parent="blocks"]
 position = Vector2( 1344, 544 )
@@ -489,7 +489,7 @@ scale = Vector2( 0.264463, 0.262295 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blocks/Wall25"]
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="Wall26" type="StaticBody2D" parent="blocks"]
 position = Vector2( 1536, 544 )
@@ -503,7 +503,7 @@ scale = Vector2( 0.264463, 0.262295 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blocks/Wall26"]
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="Wall28" type="StaticBody2D" parent="blocks"]
 position = Vector2( 1536, 480 )
@@ -517,7 +517,7 @@ scale = Vector2( 0.264463, 0.262295 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blocks/Wall28"]
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="Wall29" type="StaticBody2D" parent="blocks"]
 position = Vector2( 1536, 416 )
@@ -531,7 +531,7 @@ scale = Vector2( 0.264463, 0.262295 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blocks/Wall29"]
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="Wall30" type="StaticBody2D" parent="blocks"]
 position = Vector2( 1536, 352 )
@@ -545,7 +545,7 @@ scale = Vector2( 0.264463, 0.262295 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blocks/Wall30"]
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="Wall31" type="StaticBody2D" parent="blocks"]
 position = Vector2( 1536, 288 )
@@ -559,7 +559,7 @@ scale = Vector2( 0.264463, 0.262295 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blocks/Wall31"]
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="Wall27" type="StaticBody2D" parent="blocks"]
 position = Vector2( 1472, 544 )
@@ -573,7 +573,7 @@ scale = Vector2( 0.264463, 0.262295 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blocks/Wall27"]
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="Wall6" type="StaticBody2D" parent="blocks"]
 position = Vector2( 192, 544 )
@@ -587,7 +587,7 @@ scale = Vector2( 0.264463, 0.262295 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blocks/Wall6"]
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="Wall7" type="StaticBody2D" parent="blocks"]
 position = Vector2( 128, 544 )
@@ -601,7 +601,7 @@ scale = Vector2( 0.264463, 0.262295 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blocks/Wall7"]
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="Wall8" type="StaticBody2D" parent="blocks"]
 position = Vector2( 64, 544 )
@@ -615,7 +615,7 @@ scale = Vector2( 0.264463, 0.262295 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blocks/Wall8"]
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="Wall9" type="StaticBody2D" parent="blocks"]
 position = Vector2( 0, 544 )
@@ -629,7 +629,7 @@ scale = Vector2( 0.264463, 0.262295 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blocks/Wall9"]
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="teleport" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1440, 384 )
