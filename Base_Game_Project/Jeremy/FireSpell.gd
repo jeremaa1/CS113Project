@@ -1,6 +1,6 @@
 extends Area2D
 
-const SPEED = 700
+const SPEED = 420
 var velocity = Vector2()
 var direction = 1
 #1 is right, -1 is left
@@ -16,7 +16,7 @@ func set_direction(dir):
 func _process(delta):
 	velocity.x = SPEED * delta * direction
 	translate(velocity)
-	$AnimatedSprite.play("shoot")
+	$AnimatedSprite.play("fireshoot")
 
 
 func _on_VisibilityNotifier2D_screen_exited():
@@ -28,5 +28,6 @@ func _on_VisibilityNotifier2D_screen_exited():
 	"""
 
 #Function makes spell destroy self on any form of collision
-func _on_BaseSpell_body_entered(body):
+func _on_FireSpell_body_entered(body):
 	queue_free()
+	

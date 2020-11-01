@@ -40,7 +40,7 @@ zoom = Vector2( 1.25, 1.25 )
 smoothing_enabled = true
 
 [node name="Position2D" type="Position2D" parent="World/JPlayer"]
-position = Vector2( 46.6298, -0.374573 )
+position = Vector2( 86.2236, -2.38419e-07 )
 
 [node name="Wall" type="StaticBody2D" parent="World"]
 position = Vector2( -64, 544 )
