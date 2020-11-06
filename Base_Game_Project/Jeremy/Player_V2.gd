@@ -13,6 +13,9 @@ var motion = Vector2()
 
 #Loads the BaseSpell object for optimization
 const SPELL = preload("res://Jeremy/BaseSpell.tscn")
+const FIRE_SPELL = preload("res://Jeremy/FireSpell.tscn")
+const ICE_SPELL = preload("res://Jeremy/IceSpell.tscn")
+const ELEC_SPELL = preload("res://Jeremy/ElecSpell.tscn")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -34,13 +37,39 @@ func _physics_process(delta):
 	else:
 		motion.x = 0
 	
-	#Spell currently set to TAB
-	if Input.is_action_just_pressed("ui_focus_next"):
+	# Basic set to J
+	if Input.is_action_just_pressed("ui_shoot"):
 		var spell = SPELL.instance()
 		spell.set_direction(sign($Position2D.position.x))
 		get_parent().add_child(spell)
 		spell.position = $Position2D.global_position
 	#End of spawning a spell instance
+	
+	# Fire set to K
+	if Input.is_action_just_pressed("ui_shoot2"):
+		var fire_spell = FIRE_SPELL.instance()
+		fire_spell.set_direction(sign($Position2D.position.x))
+		get_parent().add_child(fire_spell)
+		fire_spell.position = $Position2D.global_position
+	#End of spawning a spell instance
+	
+	# Ice set to L
+	if Input.is_action_just_pressed("ui_shoot3"):
+		var ice_spell = ICE_SPELL.instance()
+		ice_spell.set_direction(sign($Position2D.position.x))
+		get_parent().add_child(ice_spell)
+		ice_spell.position = $Position2D.global_position
+	#End of spawning a spell instance
+	
+	# Elec set to ;
+	if Input.is_action_just_pressed("ui_shoot4"):
+		var elec_spell = ELEC_SPELL.instance()
+		elec_spell.set_direction(sign($Position2D.position.x))
+		get_parent().add_child(elec_spell)
+		elec_spell.position = $Position2D.global_position
+		
+	
+	
 	
 	if is_on_floor():
 		if Input.is_action_just_pressed("ui_up"):

@@ -1,6 +1,6 @@
 extends Area2D
 
-const SPEED = 700
+const SPEED = 300
 var velocity = Vector2()
 var direction = 1
 #1 is right, -1 is left
@@ -28,5 +28,5 @@ func _on_VisibilityNotifier2D_screen_exited():
 	"""
 
 #Function makes spell destroy self on any form of collision
-func _on_BaseSpell_body_entered(body):
+func _on_IceSpell_body_entered(body):
 	queue_free()
