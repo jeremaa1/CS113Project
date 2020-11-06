@@ -53,4 +53,5 @@ margin_top = -35.915
 margin_right = 45.159
 margin_bottom = 4.08505
 rect_scale = Vector2( 0.03, 0.05 )
+[connection signal="update_health" from="." to="." method="_on_Enemy_update_health"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

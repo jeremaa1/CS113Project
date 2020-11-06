@@ -80,6 +80,13 @@ func _physics_process(delta):
 		_float()
 	
 
-
 func _on_Timer_timeout():
 	queue_free()
+
+func take_damage(value):
+	_set_health(health - value)
+	print(health)
+	
+
+func _on_Enemy_update_health(health):
+	health_bar.value = health

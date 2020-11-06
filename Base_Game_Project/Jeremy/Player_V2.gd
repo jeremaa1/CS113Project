@@ -5,6 +5,15 @@
 
 extends KinematicBody2D
 
+signal update_health(health)
+signal char_died()
+
+onready var health_bar = $HealthBar/HealthBar
+export (float) var max_health = 100
+
+onready var health = max_health setget _set_health
+
+
 const UP = Vector2(0, -1)
 const GRAVITY = 20
 const SPEED = 200
@@ -19,6 +28,19 @@ const ELEC_SPELL = preload("res://Jeremy/ElecSpell.tscn")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+
+func _set_health(value):
+	var prev_health = health
+	health = clamp(value, 0, max_health)
+	if health != prev_health:
+		emit_signal("update_health", health)
+		if health == 0:
+			dead()
+			emit_signal("char_died")
+			
+func dead():
+	pass
+
 func _physics_process(delta):
 	motion.y += GRAVITY
 	
@@ -75,5 +97,9 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("ui_up"):
 			motion.y = JUMP_HEIGHT
 	motion = move_and_slide(motion, UP)
-	print(motion)
+	#print(motion)
 	pass
+
+
+func _on_JPlayer_update_health(health):
+	health_bar.value = health
