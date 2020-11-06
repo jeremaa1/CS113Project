@@ -1,4 +1,5 @@
 extends KinematicBody2D
+# Character that the player controls
 
 signal update_health(health)
 signal char_died()

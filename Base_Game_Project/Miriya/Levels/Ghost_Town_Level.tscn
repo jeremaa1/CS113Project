@@ -1,17 +1,14 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
-[ext_resource path="res://KinematicBody2D.gd" type="Script" id=2]
-[ext_resource path="res://grass_block.PNG" type="Texture" id=3]
-[ext_resource path="res://forest_background.png" type="Texture" id=4]
-[ext_resource path="res://Miriya/BackgroundImages/fire_scene_larger_pixelated.png" type="Texture" id=5]
-[ext_resource path="res://Miriya/BackgroundImages/forest_background1_pixelated.PNG" type="Texture" id=6]
-[ext_resource path="res://Miriya/BackgroundImages/stormy_image_large_pixelated.PNG" type="Texture" id=7]
-[ext_resource path="res://Miriya/GroundImages/sidewalk.png" type="Texture" id=8]
+[ext_resource path="res://Miriya/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Miriya/BackgroundImages/stormy_image_large_pixelated.PNG" type="Texture" id=3]
+[ext_resource path="res://Miriya/GroundImages/sidewalk.png" type="Texture" id=4]
+[ext_resource path="res://grass_block.PNG" type="Texture" id=5]
+[ext_resource path="res://Miriya/BackgroundImages/fire_scene_larger_pixelated.png" type="Texture" id=6]
+[ext_resource path="res://Miriya/BackgroundImages/forest_background1_pixelated.PNG" type="Texture" id=7]
+[ext_resource path="res://forest_background.png" type="Texture" id=8]
 [ext_resource path="res://Miriya/BackgroundImages/ghost_town_background_pixelated.PNG" type="Texture" id=9]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32, 32 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 32, 32 )
@@ -33,7 +30,7 @@ region_rect = Rect2( 0, 0, 3354, 856 )
 visible = false
 position = Vector2( 1855.75, -184.641 )
 scale = Vector2( 1.52054, 1.83477 )
-texture = ExtResource( 7 )
+texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 3105, 776 )
 
@@ -41,7 +38,7 @@ region_rect = Rect2( 0, 0, 3105, 776 )
 visible = false
 position = Vector2( 1050.18, 131.458 )
 scale = Vector2( 1, 1.55828 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 3905, 514 )
 
@@ -49,7 +46,7 @@ region_rect = Rect2( 0, 0, 3905, 514 )
 visible = false
 position = Vector2( 1067.82, -158.524 )
 scale = Vector2( 0.95011, 0.968252 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 4200, 1500 )
 
@@ -57,7 +54,7 @@ region_rect = Rect2( 0, 0, 4200, 1500 )
 visible = false
 position = Vector2( 896, 368 )
 scale = Vector2( 2.78125, 4.224 )
-texture = ExtResource( 4 )
+texture = ExtResource( 8 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 2000, 250 )
 
@@ -65,28 +62,7 @@ region_rect = Rect2( 0, 0, 2000, 250 )
 modulate = Color( 0.0627451, 0.0156863, 0.0156863, 1 )
 position = Vector2( 1863.72, 732.007 )
 scale = Vector2( 19.5644, 1.67836 )
-texture = ExtResource( 3 )
-
-[node name="KinematicBody2D" type="KinematicBody2D" parent="World"]
-position = Vector2( 32, 352 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="World/KinematicBody2D"]
-texture = ExtResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/KinematicBody2D"]
-shape = SubResource( 1 )
-
-[node name="Camera2D" type="Camera2D" parent="World/KinematicBody2D"]
-offset = Vector2( 0, -150 )
-current = true
-zoom = Vector2( 1.15, 1.15 )
-limit_left = -35
-limit_smoothed = true
-smoothing_enabled = true
+texture = ExtResource( 5 )
 
 [node name="blocks" type="Node" parent="World"]
 
@@ -99,7 +75,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall"]
 shape = SubResource( 2 )
@@ -113,7 +89,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall28"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall28"]
 shape = SubResource( 2 )
@@ -127,7 +103,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall29"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall29"]
 shape = SubResource( 2 )
@@ -141,7 +117,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall30"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall30"]
 shape = SubResource( 2 )
@@ -155,7 +131,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall31"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall31"]
 shape = SubResource( 2 )
@@ -169,7 +145,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall32"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall32"]
 shape = SubResource( 2 )
@@ -183,7 +159,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall33"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall33"]
 shape = SubResource( 2 )
@@ -197,7 +173,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall34"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall34"]
 shape = SubResource( 2 )
@@ -211,7 +187,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall35"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall35"]
 shape = SubResource( 2 )
@@ -225,7 +201,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall36"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall36"]
 shape = SubResource( 2 )
@@ -239,7 +215,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall37"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall37"]
 shape = SubResource( 2 )
@@ -253,7 +229,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall38"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall38"]
 shape = SubResource( 2 )
@@ -267,7 +243,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall39"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall39"]
 shape = SubResource( 2 )
@@ -281,7 +257,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall40"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall40"]
 shape = SubResource( 2 )
@@ -295,7 +271,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall41"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall41"]
 shape = SubResource( 2 )
@@ -309,7 +285,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall42"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall42"]
 shape = SubResource( 2 )
@@ -323,7 +299,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall43"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall43"]
 shape = SubResource( 2 )
@@ -337,7 +313,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall44"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall44"]
 shape = SubResource( 2 )
@@ -351,7 +327,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall45"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall45"]
 shape = SubResource( 2 )
@@ -365,7 +341,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall46"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall46"]
 shape = SubResource( 2 )
@@ -379,7 +355,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall47"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall47"]
 shape = SubResource( 2 )
@@ -393,7 +369,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall48"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall48"]
 shape = SubResource( 2 )
@@ -407,7 +383,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall49"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall49"]
 shape = SubResource( 2 )
@@ -421,7 +397,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall50"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall50"]
 shape = SubResource( 2 )
@@ -435,7 +411,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall51"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall51"]
 shape = SubResource( 2 )
@@ -449,7 +425,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall52"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall52"]
 shape = SubResource( 2 )
@@ -463,7 +439,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall53"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall53"]
 shape = SubResource( 2 )
@@ -477,7 +453,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall54"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall54"]
 shape = SubResource( 2 )
@@ -491,7 +467,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall55"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall55"]
 shape = SubResource( 2 )
@@ -505,7 +481,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall56"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall56"]
 shape = SubResource( 2 )
@@ -519,7 +495,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall57"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall57"]
 shape = SubResource( 2 )
@@ -533,7 +509,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall58"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall58"]
 shape = SubResource( 2 )
@@ -547,7 +523,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall59"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall59"]
 shape = SubResource( 2 )
@@ -561,7 +537,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall60"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall60"]
 shape = SubResource( 2 )
@@ -575,7 +551,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall61"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall61"]
 shape = SubResource( 2 )
@@ -589,7 +565,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall62"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall62"]
 shape = SubResource( 2 )
@@ -603,7 +579,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall63"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall63"]
 shape = SubResource( 2 )
@@ -617,7 +593,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall64"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall64"]
 shape = SubResource( 2 )
@@ -631,7 +607,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall65"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall65"]
 shape = SubResource( 2 )
@@ -645,7 +621,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall66"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall66"]
 shape = SubResource( 2 )
@@ -659,7 +635,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall67"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall67"]
 shape = SubResource( 2 )
@@ -673,7 +649,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall68"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall68"]
 shape = SubResource( 2 )
@@ -687,7 +663,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall69"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall69"]
 shape = SubResource( 2 )
@@ -701,7 +677,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall70"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall70"]
 shape = SubResource( 2 )
@@ -715,7 +691,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall71"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall71"]
 shape = SubResource( 2 )
@@ -729,7 +705,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall2"]
 position = Vector2( 0.210242, 0.525567 )
 scale = Vector2( 1.00025, 1.02764 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall2"]
 shape = SubResource( 2 )
@@ -744,7 +720,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall3"]
 position = Vector2( 1.52588e-05, 0 )
 scale = Vector2( 0.264463, 0.262295 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall3"]
 shape = SubResource( 2 )
@@ -759,7 +735,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall5"]
 position = Vector2( 1.52588e-05, 0 )
 scale = Vector2( 0.264463, 0.262295 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall5"]
 shape = SubResource( 2 )
@@ -774,7 +750,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall4"]
 position = Vector2( 1.52588e-05, 0 )
 scale = Vector2( 0.264463, 0.262295 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall4"]
 shape = SubResource( 2 )
@@ -789,7 +765,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall10"]
 position = Vector2( 1.52588e-05, 0 )
 scale = Vector2( 0.264463, 0.262295 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall10"]
 shape = SubResource( 2 )
@@ -804,7 +780,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall11"]
 position = Vector2( 1.52588e-05, 0 )
 scale = Vector2( 0.264463, 0.262295 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall11"]
 shape = SubResource( 2 )
@@ -819,7 +795,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall12"]
 position = Vector2( 1.52588e-05, 0 )
 scale = Vector2( 0.264463, 0.262295 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall12"]
 shape = SubResource( 2 )
@@ -834,7 +810,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall13"]
 position = Vector2( 1.52588e-05, 0 )
 scale = Vector2( 0.264463, 0.262295 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall13"]
 shape = SubResource( 2 )
@@ -849,7 +825,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall14"]
 position = Vector2( 1.52588e-05, 0 )
 scale = Vector2( 0.264463, 0.262295 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall14"]
 shape = SubResource( 2 )
@@ -864,7 +840,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall15"]
 position = Vector2( 1.52588e-05, 0 )
 scale = Vector2( 0.264463, 0.262295 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall15"]
 shape = SubResource( 2 )
@@ -879,7 +855,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall16"]
 position = Vector2( 1.52588e-05, 0 )
 scale = Vector2( 0.264463, 0.262295 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall16"]
 shape = SubResource( 2 )
@@ -894,7 +870,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall17"]
 position = Vector2( 1.52588e-05, 0 )
 scale = Vector2( 0.264463, 0.262295 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall17"]
 shape = SubResource( 2 )
@@ -909,7 +885,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall18"]
 position = Vector2( 1.52588e-05, 0 )
 scale = Vector2( 0.264463, 0.262295 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall18"]
 shape = SubResource( 2 )
@@ -924,7 +900,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall19"]
 position = Vector2( 1.52588e-05, 0 )
 scale = Vector2( 0.264463, 0.262295 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall19"]
 shape = SubResource( 2 )
@@ -939,7 +915,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall20"]
 position = Vector2( 1.52588e-05, 0 )
 scale = Vector2( 0.264463, 0.262295 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall20"]
 shape = SubResource( 2 )
@@ -954,7 +930,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall21"]
 position = Vector2( 1.52588e-05, 0 )
 scale = Vector2( 0.264463, 0.262295 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall21"]
 shape = SubResource( 2 )
@@ -969,7 +945,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall22"]
 position = Vector2( 1.52588e-05, 0 )
 scale = Vector2( 0.264463, 0.262295 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall22"]
 shape = SubResource( 2 )
@@ -984,7 +960,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall23"]
 position = Vector2( 1.52588e-05, 0 )
 scale = Vector2( 0.264463, 0.262295 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall23"]
 shape = SubResource( 2 )
@@ -999,7 +975,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall24"]
 position = Vector2( 1.52588e-05, 0 )
 scale = Vector2( 0.264463, 0.262295 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall24"]
 shape = SubResource( 2 )
@@ -1014,7 +990,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall25"]
 position = Vector2( 1.52588e-05, 0 )
 scale = Vector2( 0.264463, 0.262295 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall25"]
 shape = SubResource( 2 )
@@ -1029,7 +1005,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall26"]
 position = Vector2( 1.52588e-05, 0 )
 scale = Vector2( 0.264463, 0.262295 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall26"]
 shape = SubResource( 2 )
@@ -1044,7 +1020,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall27"]
 position = Vector2( 1.52588e-05, 0 )
 scale = Vector2( 0.264463, 0.262295 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall27"]
 shape = SubResource( 2 )
@@ -1059,7 +1035,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall6"]
 position = Vector2( 1.52588e-05, 0 )
 scale = Vector2( 0.264463, 0.262295 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall6"]
 shape = SubResource( 2 )
@@ -1074,7 +1050,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall7"]
 position = Vector2( 1.52588e-05, 0 )
 scale = Vector2( 0.264463, 0.262295 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall7"]
 shape = SubResource( 2 )
@@ -1089,7 +1065,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall8"]
 position = Vector2( 1.52588e-05, 0 )
 scale = Vector2( 0.264463, 0.262295 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall8"]
 shape = SubResource( 2 )
@@ -1104,7 +1080,10 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="World/blocks/Wall9"]
 position = Vector2( 1.52588e-05, 0 )
 scale = Vector2( 0.264463, 0.262295 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/blocks/Wall9"]
 shape = SubResource( 2 )
+
+[node name="Player" parent="World" instance=ExtResource( 1 )]
+position = Vector2( 21.4082, 390.6 )
