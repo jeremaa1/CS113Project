@@ -11,6 +11,7 @@ const SPELL = preload("res://Jeremy/BaseSpell.tscn")
 
 func _ready():
 	self.global_position = Global.init_position
+	
 
 func _physics_process(delta):
 	motion.y += GRAVITY
@@ -31,12 +32,14 @@ func _physics_process(delta):
 		animationPlayer.play("idle")
 		motion.x = 0
 		
-	if Input.is_action_just_pressed("ui_focus_next"):
+	if Input.is_action_just_pressed("ui_shoot"):
 		var spell = SPELL.instance()
 		spell.set_direction(sign($Position2D.position.x))
 		get_parent().add_child(spell)
 		spell.position = $Position2D.global_position
-		
+				
+	
+	
 	if is_on_floor():
 		if Input.is_action_just_pressed("ui_up"):
 			motion.y = JUMP_HEIGHT	
