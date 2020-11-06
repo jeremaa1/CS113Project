@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/wizardV2.png-56885ae5204537cd3ccead3e2b14970f.stex"
+path="res://.import/skeleton_attack.png-27e98cb22ddb502e4364d7f87016acb2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://An/wizardV2.png"
-dest_files=[ "res://.import/wizardV2.png-56885ae5204537cd3ccead3e2b14970f.stex" ]
+source_file="res://An/enemies/Skeleton/skeleton_attack.png"
+dest_files=[ "res://.import/skeleton_attack.png-27e98cb22ddb502e4364d7f87016acb2.stex" ]
 
 [params]
 
