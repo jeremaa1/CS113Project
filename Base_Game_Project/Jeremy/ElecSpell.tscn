@@ -50,7 +50,7 @@ modulate = Color( 0.592157, 0.984314, 0.6, 1 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 7 )
 animation = "shoot"
-frame = 1
+frame = 5
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -61,4 +61,5 @@ shape = SubResource( 8 )
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 visible = false
 position = Vector2( -89.9808, -1.33635 )
+[connection signal="body_entered" from="." to="." method="_on_ElecSpell_body_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
