@@ -29,5 +29,9 @@ func _on_VisibilityNotifier2D_screen_exited():
 
 #Function makes spell destroy self on any form of collision
 func _on_FireSpell_body_entered(body):
+		#ADDED
+	if "Enemy" in body.name:
+		body.take_damage(50)
+	#END 
 	queue_free()
 	

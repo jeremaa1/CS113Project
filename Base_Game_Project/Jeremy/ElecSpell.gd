@@ -26,3 +26,10 @@ func _on_VisibilityNotifier2D_screen_exited():
 	consider using a temp. timer to count 2 secs
 	and then delete the spell
 	"""
+
+
+func _on_ElecSpell_body_entered(body):
+	#ADDED
+	if "Enemy" in body.name:
+		body.take_damage(10)
+	#END 
