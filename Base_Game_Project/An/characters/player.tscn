@@ -70,19 +70,16 @@ tracks/0/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 70.7476, 71.6715 )
+extents = Vector2( 25.4772, 46.8043 )
 
 [node name="player" type="KinematicBody2D"]
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 4, 4 )
 texture = ExtResource( 1 )
 hframes = 8
-frame = 6
+frame = 7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/free_fall = SubResource( 1 )
@@ -91,10 +88,14 @@ anims/jump = SubResource( 3 )
 anims/run = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1.41583, 1.88776 )
+position = Vector2( 5.38434, 25.6988 )
 shape = SubResource( 5 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 zoom = Vector2( 1.25, 1.25 )
 smoothing_enabled = true
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 102.098, 19.0488 )
+[connection signal="update_health" from="." to="." method="_on_player_update_health"]
