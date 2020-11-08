@@ -14,10 +14,10 @@ const Y_MAX_TIME = 500
 
 var velocity = Vector2()
 
-############
-
-####
 var is_dead = false
+var ice = false
+var freeze = false 
+var old_velocity = velocity 
 ############
 
  
@@ -29,6 +29,7 @@ var y_time = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_process(true) 
+	$AnimatedSprite.play("Walk")
 	
 func _set_health(value):
 	var prev_health = health
@@ -40,15 +41,19 @@ func _set_health(value):
 			emit_signal("char_died")
 
 func dead():
+	print("dead called")
 	is_dead = true
 	velocity = Vector2(0,0)
 	$AnimatedSprite.play("dead")
-	$CollisionShape2D.disabled = true
+	#$CollisionShape2D.disabled = true
 	$Timer.start()
 
 
 func _float():
 	
+	if ice :
+		return 
+		
 	velocity.x = SPEED * x_direction 
 	x_time += 1
 	velocity.y = SPEED * y_direction
@@ -82,11 +87,41 @@ func _physics_process(delta):
 
 func _on_Timer_timeout():
 	queue_free()
+	
+func freeze():
+	ice = true
+	
+	old_velocity = velocity
+	velocity = Vector2(0,0)
+	$AnimatedSprite.play("freeze")
+	$freeze.start()
+	
+	
+func unfreeze():
+	ice = false
+	$AnimatedSprite.play("Walk")
 
-func take_damage(value):
-	_set_health(health - value)
+func take_damage(value, spell):
+	if spell == "ice":
+		freeze()
+	if ice == true and spell == "fire":
+		unfreeze()
+		_set_health(health)
+	else:
+			_set_health(health - value)
 	print(health)
 	
 
 func _on_Enemy_update_health(health):
 	health_bar.value = health
+
+
+func _on_freeze_timeout():
+	print("timed out ")
+	ice = false
+	velocity = old_velocity
+	print(velocity)
+	$AnimatedSprite.play("Walk")
+
+	
+	
