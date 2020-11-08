@@ -1,7 +1,7 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://Miriya/GroundImages/tree_branch.png" type="Texture" id=1]
-[ext_resource path="res://Miriya/Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://An/characters/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Miriya/GroundImages/blue_mushroom.png" type="Texture" id=3]
 [ext_resource path="res://Miriya/GroundImages/flat_stone.png" type="Texture" id=4]
 [ext_resource path="res://Miriya/GroundImages/sidewalk.png" type="Texture" id=5]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Miriya/Object_Scripts/health_potion.gd" type="Script" id=15]
 [ext_resource path="res://Miriya/GroundImages/potion.png" type="Texture" id=16]
 [ext_resource path="res://Miriya/GroundImages/right_arrow_sign.png" type="Texture" id=17]
+[ext_resource path="res://An/enemies/Skeleton/skeleton.tscn" type="PackedScene" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 209.331, 101.8 )
@@ -733,6 +734,9 @@ modulate = Color( 0.0627451, 0.0156863, 0.0156863, 1 )
 position = Vector2( 3950.84, 747.536 )
 scale = Vector2( 33.4641, 1.67836 )
 texture = ExtResource( 10 )
+
+[node name="player" parent="World" instance=ExtResource( 2 )]
+position = Vector2( 88, 240 )
 
 [node name="Floor" type="Node" parent="World"]
 
@@ -3382,9 +3386,6 @@ position = Vector2( 0.713318, 18.6558 )
 rotation = 1.5708
 shape = SubResource( 11 )
 
-[node name="Player" parent="World" instance=ExtResource( 2 )]
-position = Vector2( 57.2517, 329.423 )
-
 [node name="Platforms" type="Node" parent="World"]
 
 [node name="tree_stump" type="StaticBody2D" parent="World/Platforms"]
@@ -4063,6 +4064,17 @@ texture = ExtResource( 13 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Damaging_Platforms/thorns_bush8"]
 position = Vector2( -0.341385, -0.67807 )
 shape = SubResource( 27 )
+
+[node name="Enemies" type="Node" parent="World"]
+
+[node name="Enemy_skeleton" parent="World/Enemies" instance=ExtResource( 18 )]
+position = Vector2( 2518.9, 212.087 )
+
+[node name="Enemy_skeleton2" parent="World/Enemies" instance=ExtResource( 18 )]
+position = Vector2( 7811.72, 376 )
+
+[node name="Enemy_skeleton3" parent="World/Enemies" instance=ExtResource( 18 )]
+position = Vector2( 7193.43, 438.371 )
 [connection signal="body_entered" from="World/Potions/health_potion" to="World/Potions/health_potion" method="_on_health_potion_body_entered"]
 [connection signal="body_entered" from="World/Damaging_Platforms/thorns_bush2" to="World/Damaging_Platforms/thorns_bush2" method="_on_thorns_bush_body_entered"]
 [connection signal="body_entered" from="World/Damaging_Platforms/thorns_bush6" to="World/Damaging_Platforms/thorns_bush6" method="_on_thorns_bush_body_entered"]

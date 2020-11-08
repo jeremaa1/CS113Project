@@ -27,7 +27,7 @@ margin_bottom = 6.0
 texture_normal = ExtResource( 3 )
 texture_hover = ExtResource( 6 )
 expand = true
-ref_path = "res://An/move.tscn"
+ref_path = "res://Miriya/Levels/Poison_Stage_Level.tscn"
 
 [node name="quit" parent="." instance=ExtResource( 4 )]
 anchor_left = 0.5

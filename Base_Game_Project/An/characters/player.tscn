@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://An/characters/wizardV2.png" type="Texture" id=1]
 [ext_resource path="res://An/characters/player.gd" type="Script" id=2]
+[ext_resource path="res://Miriya/Healthbar/HealthBar.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "free_fall"
@@ -72,6 +73,21 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 25.4772, 46.8043 )
 
+[sub_resource type="Animation" id=6]
+resource_name = "Invulnerable"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.02, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, true, false, true ]
+}
+
 [node name="player" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
@@ -91,11 +107,25 @@ anims/run = SubResource( 4 )
 position = Vector2( 5.38434, 25.6988 )
 shape = SubResource( 5 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
-zoom = Vector2( 1.25, 1.25 )
-smoothing_enabled = true
-
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( 102.098, 19.0488 )
+
+[node name="HealthBar" parent="." instance=ExtResource( 3 )]
+margin_top = -88.0
+margin_bottom = -48.0
+rect_scale = Vector2( 0.09, 0.12 )
+
+[node name="InvulnerabilityTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Invulnerable_Animation" type="AnimationPlayer" parent="."]
+anims/Invulnerable = SubResource( 6 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 0, -150 )
+current = true
+zoom = Vector2( 1.15, 1.15 )
+limit_left = -35
+limit_smoothed = true
+smoothing_enabled = true
 [connection signal="update_health" from="." to="." method="_on_player_update_health"]

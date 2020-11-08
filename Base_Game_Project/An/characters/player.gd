@@ -3,6 +3,7 @@ extends KinematicBody2D
 signal update_health(health)
 signal char_died()
 
+onready var invulnerability_timer = $InvulnerabilityTimer
 onready var health_bar = $HealthBar/HealthBar
 export (float) var max_health = 100
 
@@ -95,9 +96,26 @@ func _physics_process(delta):
 	else:
 		animationPlayer.play("jump")
 	motion = move_and_slide(motion, UP)
-	print(motion)
+	
 	pass
 
 
 func _on_player_update_health(health):
 	health_bar.value = health
+
+
+func take_damage(value):
+	if invulnerability_timer.is_stopped():
+		invulnerability_timer.start()
+		$Invulnerable_Animation.play("Invulnerable")
+		_set_health(health-value)
+		print("Health: ", health)
+		
+func heal_character(value):
+	if health != max_health:
+		emit_signal("update_health", health)
+		_set_health(health+value)
+		print("health: ", health)
+	else:
+		# Character health is maxed
+		pass
