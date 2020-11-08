@@ -94,7 +94,8 @@ func freeze():
 	old_velocity = velocity
 	velocity = Vector2(0,0)
 	$AnimatedSprite.play("freeze")
-	$freeze.start()
+	$Freeze_timer.start()
+	
 	
 	
 func unfreeze():
@@ -116,12 +117,9 @@ func _on_Enemy_update_health(health):
 	health_bar.value = health
 
 
-func _on_freeze_timeout():
+func _on_Freeze_timer_timeout():
 	print("timed out ")
 	ice = false
 	velocity = old_velocity
 	print(velocity)
 	$AnimatedSprite.play("Walk")
-
-	
-	
