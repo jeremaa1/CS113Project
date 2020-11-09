@@ -54,7 +54,7 @@ func _set_health(value):
 func dead():
 	queue_free()
 	
-func take_damage(value):
+func take_damage(value, spell):
 	_set_health(health-value)
 	
 

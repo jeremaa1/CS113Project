@@ -10,14 +10,10 @@ func _ready():
 
 func set_direction(dir):
 	direction = dir
-	if dir == -1:
-		$AnimatedSprite.flip_h = true
-		$CollisionShape2D.position.x *= -1
 
 func _process(delta):
 	velocity.x = SPEED * delta * direction
 	translate(velocity)
-	$AnimatedSprite.play("shoot")
 
 
 func _on_VisibilityNotifier2D_screen_exited():
@@ -28,10 +24,10 @@ func _on_VisibilityNotifier2D_screen_exited():
 	and then delete the spell
 	"""
 
-#Function makes spell destroy self on any form of collision
-func _on_BaseSpell_body_entered(body):
+
+func _on_EarthSpell_body_entered(body):
 	#ADDED
 	if "Enemy" in body.name:
-		body.take_damage(25, "base")
+		body.take_damage(50, "earth")
 	#END 
 	queue_free()

@@ -13,14 +13,18 @@ const UP = Vector2(0, -1)
 const GRAVITY = 25
 const SPEED = 300
 const JUMP_HEIGHT = -650
+
+const COOLDOWN = 300
 const SPELL = preload("res://Jeremy/BaseSpell.tscn")
 const FIRE_SPELL = preload("res://Jeremy/FireSpell.tscn")
 const ICE_SPELL = preload("res://Jeremy/IceSpell.tscn")
 const ELEC_SPELL = preload("res://Jeremy/ElecSpell.tscn")
-
+const EARTH_SPELL = preload("res://Jeremy/EarthSpell.tscn")
 
 var motion = Vector2()
 onready var animationPlayer = $AnimationPlayer
+
+var fired = OS.get_ticks_msec()
 
 func _set_health(value):
 	var prev_health = health
@@ -57,7 +61,7 @@ func _physics_process(delta):
 		motion.x = 0
 		
 	# Basic set to J
-	if Input.is_action_just_pressed("ui_shoot"):
+	if Input.is_action_just_pressed("ui_shoot") and can_fire():
 		var spell = SPELL.instance()
 		spell.set_direction(sign($Position2D.position.x))
 		get_parent().add_child(spell)
@@ -65,7 +69,7 @@ func _physics_process(delta):
 	#End of spawning a spell instance
 	
 	# Fire set to K
-	if Input.is_action_just_pressed("ui_shoot2"):
+	if Input.is_action_just_pressed("ui_shoot2") and can_fire():
 		var fire_spell = FIRE_SPELL.instance()
 		fire_spell.set_direction(sign($Position2D.position.x))
 		get_parent().add_child(fire_spell)
@@ -73,7 +77,7 @@ func _physics_process(delta):
 	#End of spawning a spell instance
 	
 	# Ice set to L
-	if Input.is_action_just_pressed("ui_shoot3"):
+	if Input.is_action_just_pressed("ui_shoot3") and can_fire():
 		var ice_spell = ICE_SPELL.instance()
 		ice_spell.set_direction(sign($Position2D.position.x))
 		get_parent().add_child(ice_spell)
@@ -81,11 +85,21 @@ func _physics_process(delta):
 	#End of spawning a spell instance
 	
 	# Elec set to ;
-	if Input.is_action_just_pressed("ui_shoot4"):
+	if Input.is_action_just_pressed("ui_shoot4") and can_fire():
 		var elec_spell = ELEC_SPELL.instance()
 		elec_spell.set_direction(sign($Position2D.position.x))
 		get_parent().add_child(elec_spell)
 		elec_spell.position = $Position2D.global_position
+	
+	# Earth set to I
+	if Input.is_action_just_pressed("ui_shoot5") and can_fire():
+		var earth_spell = EARTH_SPELL.instance()
+		earth_spell.set_direction(sign($Position2D.position.x))
+		get_parent().add_child(earth_spell)
+		earth_spell.position = $Position2D.global_position
+
+
+
 
 	
 	if is_on_floor():
@@ -102,6 +116,13 @@ func _physics_process(delta):
 
 func _on_player_update_health(health):
 	health_bar.value = health
+
+func can_fire():
+	var attempt = OS.get_ticks_msec()
+	if attempt - fired > COOLDOWN:
+		fired = attempt
+		return true
+	return false
 
 
 func take_damage(value):

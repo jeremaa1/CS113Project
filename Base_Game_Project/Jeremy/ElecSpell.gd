@@ -12,6 +12,7 @@ func set_direction(dir):
 	direction = dir
 	if dir == -1:
 		$AnimatedSprite.flip_h = true
+		$CollisionShape2D.position.x *= -1
 
 func _process(delta):
 	velocity.x = SPEED * delta * direction
