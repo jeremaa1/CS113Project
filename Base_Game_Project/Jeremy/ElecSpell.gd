@@ -12,6 +12,7 @@ func set_direction(dir):
 	direction = dir
 	if dir == -1:
 		$AnimatedSprite.flip_h = true
+		$CollisionShape2D.position.x *= -1
 
 func _process(delta):
 	velocity.x = SPEED * delta * direction
@@ -31,5 +32,5 @@ func _on_VisibilityNotifier2D_screen_exited():
 func _on_ElecSpell_body_entered(body):
 	#ADDED
 	if "Enemy" in body.name:
-		body.take_damage(10)
+		body.take_damage(10, "elec")
 	#END 

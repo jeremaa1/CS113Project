@@ -486,7 +486,7 @@ texture = ExtResource( 1 )
 shape = SubResource( 2 )
 
 [node name="Enemy_floating_ghost" parent="." instance=ExtResource( 3 )]
-position = Vector2( 292.118, 342.445 )
+position = Vector2( 442.68, 355.808 )
 
 [node name="Enemy_chasing_ghost" parent="." instance=ExtResource( 5 )]
 position = Vector2( 9.13062, 99.7094 )
