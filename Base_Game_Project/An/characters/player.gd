@@ -36,5 +36,5 @@ func _physics_process(delta):
 	else:
 		animationPlayer.play("jump")
 	motion = move_and_slide(motion, UP)
-	print(motion)
+	#print(motion)
 	pass

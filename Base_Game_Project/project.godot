@@ -16,22 +16,16 @@ _global_script_class_icons={
 [application]
 
 config/name="Test Game Project"
-<<<<<<< HEAD
-run/main_scene="res://Phong/menu/titleScreen.tscn"
-=======
 run/main_scene="res://Miriya/Levels/Poison_Stage_Level.tscn"
->>>>>>> 765eba70f26486610d5aa2bb02eb68376c6318fe
 config/icon="res://icon.png"
 
 [autoload]
 
-Pause="*res://Phong/autoload/pause.tscn"
-<<<<<<< HEAD
+Global="*res://Phong/autoload/Global.gd"
 FadeEffect="*res://Phong/autoload/FadeEffect.tscn"
-=======
+Pause="*res://Phong/autoload/pause.tscn"
 AudContainer="*res://Phong/autoload/audioContainer/AudContainer.tscn"
 SpellInventory="*res://Phong/UI/SpellInventory.tscn"
->>>>>>> 765eba70f26486610d5aa2bb02eb68376c6318fe
 
 [display]
 
@@ -91,6 +85,7 @@ ui_up={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"unicode":0,"echo":false,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":12,"pressure":0.0,"pressed":false,"script":null)
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"unicode":0,"echo":false,"script":null)
  ]
 }
 ui_down={
@@ -105,8 +100,6 @@ gameMenu={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"unicode":0,"echo":false,"script":null)
  ]
 }
-<<<<<<< HEAD
-=======
 ui_shoot={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":74,"unicode":0,"echo":false,"script":null)
@@ -143,7 +136,6 @@ ui_shoot6={
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Teleport"
 2d_physics/layer_4="Item"
->>>>>>> 765eba70f26486610d5aa2bb02eb68376c6318fe
 
 [rendering]
 

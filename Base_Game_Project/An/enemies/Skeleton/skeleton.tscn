@@ -108,14 +108,14 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -5.5 )
 frames = SubResource( 21 )
 animation = "attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -1.5, 4.5 )
 shape = SubResource( 22 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2( 6.2, 1.2 )
+position = Vector2( -8.2, 0 )
 enabled = true
-cast_to = Vector2( 0, 19 )
+cast_to = Vector2( 0, 15 )

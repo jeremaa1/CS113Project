@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Nayeri/Enemy_chasing_ghost.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Miriya/Healthbar/HealthBar.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Nayeri/JPlayer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Phong/objects/spellItem.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 31.7596, 32.1384 )
@@ -19,6 +20,8 @@ extents = Vector2( 31.9512, 32.2854 )
 [node name="Player" type="KinematicBody2D" parent="."]
 visible = false
 position = Vector2( 619, 300.505 )
+collision_layer = 3
+collision_mask = 0
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -489,3 +492,13 @@ position = Vector2( 292.118, 342.445 )
 position = Vector2( 9.13062, 99.7094 )
 
 [node name="JPlayer" parent="." instance=ExtResource( 7 )]
+collision_layer = 3
+collision_mask = 4
+
+[node name="spellItem" parent="." instance=ExtResource( 8 )]
+position = Vector2( 507.703, 278.6 )
+collision_layer = 8
+collision_mask = 2
+the_sprite = "res://Phong/objects/spells_icon/icon2.png"
+spell_name = "icon2"
+[connection signal="body_entered" from="spellItem" to="spellItem" method="_on_spellItem_body_entered"]

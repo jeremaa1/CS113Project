@@ -69,10 +69,11 @@ func _physics_process(delta):
 	
 	# Fire set to K
 	if Input.is_action_just_pressed("ui_shoot2"):
-		var fire_spell = FIRE_SPELL.instance()
-		fire_spell.set_direction(sign($Position2D.position.x))
-		get_parent().add_child(fire_spell)
-		fire_spell.position = $Position2D.global_position
+		if Global.spells.has(1):
+			var fire_spell = FIRE_SPELL.instance()
+			fire_spell.set_direction(sign($Position2D.position.x))
+			get_parent().add_child(fire_spell)
+			fire_spell.position = $Position2D.global_position
 	#End of spawning a spell instance
 	
 	# Ice set to L
