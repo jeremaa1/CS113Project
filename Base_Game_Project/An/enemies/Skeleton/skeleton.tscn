@@ -124,9 +124,8 @@ enabled = true
 cast_to = Vector2( 0, 15 )
 
 [node name="HealthBar" parent="." instance=ExtResource( 4 )]
-margin_left = -8.26381
-margin_top = -19.2822
-margin_right = 31.7362
-margin_bottom = 20.7178
+margin_top = -20.0
+margin_bottom = 20.0
 rect_scale = Vector2( 0.01, 0.02 )
 [connection signal="update_health" from="." to="." method="_on_enemy_skeleton_update_health"]
+[connection signal="update_max_health" from="." to="." method="_on_Enemy_skeleton_update_max_health"]

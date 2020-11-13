@@ -41,7 +41,6 @@ func dead():
 func _physics_process(delta):
 	motion.y += GRAVITY
 	if Input.is_action_pressed("ui_right"):
-
 		$Sprite.flip_h = false
 		animationPlayer.play("run")
 		motion.x = SPEED
@@ -49,7 +48,6 @@ func _physics_process(delta):
 			$Position2D.position.x *= -1
 		
 	elif Input.is_action_pressed("ui_left"):
-
 		$Sprite.flip_h = true
 		animationPlayer.play("run")
 		motion.x = -SPEED
