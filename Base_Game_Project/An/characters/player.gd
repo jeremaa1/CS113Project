@@ -62,6 +62,9 @@ func _physics_process(delta):
 		
 	# Basic set to J
 	if Input.is_action_just_pressed("ui_shoot") and can_fire():
+		
+		#SpellInventory.debug()
+		
 		var spell = SPELL.instance()
 		spell.set_direction(sign($Position2D.position.x))
 		get_parent().add_child(spell)
@@ -70,33 +73,37 @@ func _physics_process(delta):
 	
 	# Fire set to K
 	if Input.is_action_just_pressed("ui_shoot2") and can_fire():
-		var fire_spell = FIRE_SPELL.instance()
-		fire_spell.set_direction(sign($Position2D.position.x))
-		get_parent().add_child(fire_spell)
-		fire_spell.position = $Position2D.global_position
+		if Global.spells.has(1):
+			var fire_spell = FIRE_SPELL.instance()
+			fire_spell.set_direction(sign($Position2D.position.x))
+			get_parent().add_child(fire_spell)
+			fire_spell.position = $Position2D.global_position
 	#End of spawning a spell instance
 	
 	# Ice set to L
 	if Input.is_action_just_pressed("ui_shoot3") and can_fire():
-		var ice_spell = ICE_SPELL.instance()
-		ice_spell.set_direction(sign($Position2D.position.x))
-		get_parent().add_child(ice_spell)
-		ice_spell.position = $Position2D.global_position
+		if Global.spells.has(2):
+			var ice_spell = ICE_SPELL.instance()
+			ice_spell.set_direction(sign($Position2D.position.x))
+			get_parent().add_child(ice_spell)
+			ice_spell.position = $Position2D.global_position
 	#End of spawning a spell instance
 	
 	# Elec set to ;
 	if Input.is_action_just_pressed("ui_shoot4") and can_fire():
-		var elec_spell = ELEC_SPELL.instance()
-		elec_spell.set_direction(sign($Position2D.position.x))
-		get_parent().add_child(elec_spell)
-		elec_spell.position = $Position2D.global_position
+		if Global.spells.has(3):
+			var elec_spell = ELEC_SPELL.instance()
+			elec_spell.set_direction(sign($Position2D.position.x))
+			get_parent().add_child(elec_spell)
+			elec_spell.position = $Position2D.global_position
 	
 	# Earth set to I
 	if Input.is_action_just_pressed("ui_shoot5") and can_fire():
-		var earth_spell = EARTH_SPELL.instance()
-		earth_spell.set_direction(sign($Position2D.position.x))
-		get_parent().add_child(earth_spell)
-		earth_spell.position = $Position2D.global_position
+		if Global.spells.has(4):
+			var earth_spell = EARTH_SPELL.instance()
+			earth_spell.set_direction(sign($Position2D.position.x))
+			get_parent().add_child(earth_spell)
+			earth_spell.position = $Position2D.global_position
 
 
 
@@ -129,6 +136,7 @@ func take_damage(value):
 	if invulnerability_timer.is_stopped():
 		invulnerability_timer.start()
 		$Invulnerable_Animation.play("Invulnerable")
+		FlashEffect.play_effect()
 		_set_health(health-value)
 		print("Health: ", health)
 		

@@ -11,5 +11,6 @@ func _ready():
 func _on_spellItem_body_entered(body):
 	Global.add_spell(spell_name)
 	SpellInventory.init_spells_inv()
+	print(Global.spells)
 	queue_free()
 	

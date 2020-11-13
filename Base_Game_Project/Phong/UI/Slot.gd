@@ -11,9 +11,14 @@ func _ready():
 	pass
 
 func init_spell(name):
-	if item == null:
-		item = itemScn.instance()
-		add_child(item)
-		item.set_spell(name)
-	else:
-		item.set_spell(name)
+	item = itemScn.instance()
+	add_child(item)
+	item.set_spell(name)
+
+#	if item == null:
+#		print("null")
+#		item = itemScn.instance()
+#		add_child(item)
+#		item.set_spell(name)
+#	else:
+#		item.set_spell(name)

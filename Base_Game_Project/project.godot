@@ -26,6 +26,7 @@ FadeEffect="*res://Phong/autoload/FadeEffect.tscn"
 Pause="*res://Phong/autoload/pause.tscn"
 AudContainer="*res://Phong/autoload/audioContainer/AudContainer.tscn"
 SpellInventory="*res://Phong/UI/SpellInventory.tscn"
+FlashEffect="*res://Phong/autoload/effect/FlashEffect.tscn"
 
 [display]
 
@@ -139,6 +140,7 @@ ui_shoot6={
 
 [rendering]
 
+environment/default_clear_color=Color( 0.14902, 0.192157, 0.219608, 1 )
 environment/default_environment="res://default_env.tres"
 
 [world]

@@ -10,6 +10,8 @@
 [ext_resource path="res://forest_background.png" type="Texture" id=8]
 [ext_resource path="res://Miriya/BackgroundImages/ghost_town_background_pixelated.PNG" type="Texture" id=9]
 
+
+
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
 

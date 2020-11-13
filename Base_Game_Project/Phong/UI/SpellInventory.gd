@@ -9,7 +9,8 @@ func init_spells_inv():
 	var slots = spell_slots.get_children()
 	for i in range(slots.size()):
 		if Global.spells.has(i):
-			slots[i].init_spell(Global.spells[i][0])
+			if slots[i].get_child_count() == 0:
+				slots[i].init_spell(Global.spells[i][0])
 
 func reveal_inv():
 	for node in get_children():
@@ -18,3 +19,13 @@ func reveal_inv():
 func hide_inv():
 	for node in get_children():
 		node.visible = false
+
+func debug():
+	var slots = spell_slots.get_children()
+	for s in range(1, slots.size()):
+		slots[s].remove_child(slots[s].get_child(0))
+	
+	
+	#for s in spell_slots.get_children():
+		#s.remove_child(s.get_child(0))
+		#print(i.get_child(0))
