@@ -42,7 +42,6 @@ func dead():
 	pass
 
 func _physics_process(delta):
-	print(is_attacking)
 	# Move functions
 	if Input.is_action_pressed("ui_right"): 
 		if not is_attacking or not is_on_floor():
@@ -87,8 +86,11 @@ func _physics_process(delta):
 	#End of spawning a spell instance
 	
 	# Fire set to K
-	if Input.is_action_just_pressed("ui_shoot2") and can_fire():
+	if Input.is_action_just_pressed("ui_shoot2") and can_fire() and not is_attacking:
 		if Global.spells.has(1):
+			if is_on_floor():
+				motion.x = 0
+			is_attacking = true
 			$AnimatedSprite.play("attack")
 			var fire_spell = FIRE_SPELL.instance()
 			fire_spell.set_direction(sign($Position2D.position.x))
@@ -97,8 +99,11 @@ func _physics_process(delta):
 	#End of spawning a spell instance
 	
 	# Ice set to L
-	if Input.is_action_just_pressed("ui_shoot3") and can_fire():
+	if Input.is_action_just_pressed("ui_shoot3") and can_fire() and not is_attacking:
 		if Global.spells.has(2):
+			if is_on_floor():
+				motion.x = 0
+			is_attacking = true
 			$AnimatedSprite.play("attack")
 			var ice_spell = ICE_SPELL.instance()
 			ice_spell.set_direction(sign($Position2D.position.x))
@@ -107,8 +112,11 @@ func _physics_process(delta):
 	#End of spawning a spell instance
 	
 	# Elec set to ;
-	if Input.is_action_just_pressed("ui_shoot4") and can_fire():
+	if Input.is_action_just_pressed("ui_shoot4") and can_fire() and not is_attacking:
 		if Global.spells.has(3):
+			if is_on_floor():
+				motion.x = 0
+			is_attacking = true
 			$AnimatedSprite.play("attack")
 			var elec_spell = ELEC_SPELL.instance()
 			elec_spell.set_direction(sign($Position2D.position.x))
@@ -116,8 +124,11 @@ func _physics_process(delta):
 			elec_spell.position = $Position2D.global_position
 	
 	# Earth set to I
-	if Input.is_action_just_pressed("ui_shoot5") and can_fire():
+	if Input.is_action_just_pressed("ui_shoot5") and can_fire() and not is_attacking:
 		if Global.spells.has(4):
+			if is_on_floor():
+				motion.x = 0
+			is_attacking = true
 			$AnimatedSprite.play("attack")
 			var earth_spell = EARTH_SPELL.instance()
 			earth_spell.set_direction(sign($Position2D.position.x))
