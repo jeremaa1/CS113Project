@@ -26,6 +26,9 @@ onready var animationPlayer = $AnimationPlayer
 
 var fired = OS.get_ticks_msec()
 
+var is_attacking = false
+var on_ground = false
+
 func _set_health(value):
 	var prev_health = health
 	health = clamp(value, 0, max_health)
@@ -39,30 +42,44 @@ func dead():
 	pass
 
 func _physics_process(delta):
-	motion.y += GRAVITY
-	if Input.is_action_pressed("ui_right"):
-		$Sprite.flip_h = false
-		animationPlayer.play("run")
-		motion.x = SPEED
-		if sign($Position2D.position.x) == -1:
-			$Position2D.position.x *= -1
+	print(is_attacking)
+	# Move functions
+	if Input.is_action_pressed("ui_right"): 
+		if not is_attacking or not is_on_floor():
+			motion.x = SPEED
+			if not is_attacking:
+				$AnimatedSprite.flip_h = false
+				$AnimatedSprite.play("run")
+				if sign($Position2D.position.x) == -1:
+					$Position2D.position.x *= -1
 		
 	elif Input.is_action_pressed("ui_left"):
-		$Sprite.flip_h = true
-		animationPlayer.play("run")
-		motion.x = -SPEED
-		if sign($Position2D.position.x) == 1:
-			$Position2D.position.x *= -1
-		
+		if not is_attacking or not is_on_floor():
+			motion.x = -SPEED
+			if not is_attacking:
+				$AnimatedSprite.flip_h = true
+				$AnimatedSprite.play("run")
+				if sign($Position2D.position.x) == 1:
+					$Position2D.position.x *= -1
+			
 	else:
-		animationPlayer.play("idle")
 		motion.x = 0
-		
+		if on_ground and not is_attacking:
+			$AnimatedSprite.play("idle")
+			
+	if Input.is_action_just_pressed("ui_up") and not is_attacking and on_ground:
+		motion.y = JUMP_HEIGHT	
+		on_ground = false	
+	# End move functions
+	
+	# Attack functions
 	# Basic set to J
-	if Input.is_action_just_pressed("ui_shoot") and can_fire():
-		
+	if Input.is_action_just_pressed("ui_shoot") and can_fire() and not is_attacking:
+		if is_on_floor():
+			motion.x = 0
+		is_attacking = true
 		#SpellInventory.debug()
-		
+		$AnimatedSprite.play("attack")
 		var spell = SPELL.instance()
 		spell.set_direction(sign($Position2D.position.x))
 		get_parent().add_child(spell)
@@ -72,6 +89,7 @@ func _physics_process(delta):
 	# Fire set to K
 	if Input.is_action_just_pressed("ui_shoot2") and can_fire():
 		if Global.spells.has(1):
+			$AnimatedSprite.play("attack")
 			var fire_spell = FIRE_SPELL.instance()
 			fire_spell.set_direction(sign($Position2D.position.x))
 			get_parent().add_child(fire_spell)
@@ -81,6 +99,7 @@ func _physics_process(delta):
 	# Ice set to L
 	if Input.is_action_just_pressed("ui_shoot3") and can_fire():
 		if Global.spells.has(2):
+			$AnimatedSprite.play("attack")
 			var ice_spell = ICE_SPELL.instance()
 			ice_spell.set_direction(sign($Position2D.position.x))
 			get_parent().add_child(ice_spell)
@@ -90,6 +109,7 @@ func _physics_process(delta):
 	# Elec set to ;
 	if Input.is_action_just_pressed("ui_shoot4") and can_fire():
 		if Global.spells.has(3):
+			$AnimatedSprite.play("attack")
 			var elec_spell = ELEC_SPELL.instance()
 			elec_spell.set_direction(sign($Position2D.position.x))
 			get_parent().add_child(elec_spell)
@@ -98,25 +118,30 @@ func _physics_process(delta):
 	# Earth set to I
 	if Input.is_action_just_pressed("ui_shoot5") and can_fire():
 		if Global.spells.has(4):
+			$AnimatedSprite.play("attack")
 			var earth_spell = EARTH_SPELL.instance()
 			earth_spell.set_direction(sign($Position2D.position.x))
 			get_parent().add_child(earth_spell)
 			earth_spell.position = $Position2D.global_position
-
-
-
-
+	#End attack functions
 	
+	# Extra processing and animation
+	motion.y += GRAVITY		
 	if is_on_floor():
-		if Input.is_action_just_pressed("ui_up"):
-			motion.y = JUMP_HEIGHT	
-	elif motion.y > 0:
-		animationPlayer.play("free_fall")
+		if not on_ground:
+			is_attacking = false
+		on_ground = true 
 	else:
-		animationPlayer.play("jump")
+		if not is_attacking:
+			on_ground = false
+			if motion.y > 0 :
+				$AnimatedSprite.play("fall")
+			else:
+				$AnimatedSprite.play("jump")
+		
+
 	motion = move_and_slide(motion, UP)
-	
-	pass
+
 
 
 func _on_player_update_health(health):
@@ -146,3 +171,8 @@ func heal_character(value):
 	else:
 		# Character health is maxed
 		pass
+
+
+func _on_AnimatedSprite_animation_finished():
+	if $AnimatedSprite.animation == "attack":
+		is_attacking = false
