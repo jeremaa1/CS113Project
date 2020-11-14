@@ -17,7 +17,7 @@ func _physics_process(delta):
 
 
 func _on_flame_body_entered(body):
-	if body is KinematicBody2D:
+	if body.name == 'player':
 		body.take_damage(10)
 		queue_free()
 	else:
