@@ -1,9 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Phong/An/enemies/Skeleton/skeleton.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Phong/An/characters/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://An/enemies/Skeleton/skeleton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://An/characters/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://grass_block.PNG" type="Texture" id=3]
-
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
@@ -497,4 +496,4 @@ texture = ExtResource( 3 )
 shape = SubResource( 1 )
 
 [node name="player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1184, 438.5 )
+position = Vector2( 223.678, 430.538 )
