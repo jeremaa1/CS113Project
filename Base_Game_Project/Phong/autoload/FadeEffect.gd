@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-onready var AnimationN = $Control/AnimationPlayer
+onready var Ani = $Control/AnimationPlayer
 var scene : String
 
 func _ready():
@@ -10,7 +10,7 @@ func scene_change(new_s, ani):
 	for node in get_children():
 		node.visible = true
 	scene = new_s
-	AnimationN.play(ani)
+	Ani.play(ani)
 
 func new_scene():
 	get_tree().change_scene(scene)

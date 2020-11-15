@@ -5,9 +5,10 @@ const UP = Vector2(0, -1)
 
 signal update_health(health)
 signal char_died()
+signal update_max_health(max_health)
 
 onready var health_bar = $HealthBar/HealthBar
-export (float) var max_health = 100
+export (float) var max_health = 150
 
 onready var health = max_health setget _set_health
 
@@ -17,7 +18,8 @@ var direction = -1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	emit_signal("update_max_health", max_health)  # Setting the max health of the skeleton to 150
+	
 
 func _physics_process(delta):
 	motion.x = SPEED * direction
@@ -54,7 +56,7 @@ func _set_health(value):
 func dead():
 	queue_free()
 	
-func take_damage(value):
+func take_damage(value, spell):
 	_set_health(health-value)
 	
 
@@ -65,3 +67,8 @@ func _on_enemy_skeleton_update_health(health):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_Enemy_skeleton_update_max_health(max_health):
+	health_bar.max_value = max_health # Replace with function body.
+	health_bar.value = max_health

@@ -8,6 +8,8 @@ func _ready():
 func _on_Button_Pressed():
 	if (ref_path != ""):
 		FadeEffect.scene_change(ref_path, 'fade')
+		Global.re_init()
+		print(Global.spells)
 		SpellInventory.reveal_inv()
 		#get_tree().reload_current_scene()
 		#get_tree().change_scene(ref_path)

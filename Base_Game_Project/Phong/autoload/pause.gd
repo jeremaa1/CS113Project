@@ -22,6 +22,7 @@ func _on_continue_pressed():
 func _on_quit_pressed():
 	_on_continue_pressed()
 	AudContainer.stop_aud()
+	SpellInventory.debug()
 	get_tree().change_scene("res://Phong/menu/titleScreen.tscn")	
 func visible_off():
 	for node in get_children():
