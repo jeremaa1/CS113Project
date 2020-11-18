@@ -1,58 +1,15 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
-[ext_resource path="res://KinematicBody2D.gd" type="Script" id=2]
+[ext_resource path="res://An/characters/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Nayeri/Enemy_floating_ghost.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Nayeri/Player2.gd" type="Script" id=4]
 [ext_resource path="res://Nayeri/Enemy_chasing_ghost.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Miriya/Healthbar/HealthBar.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Nayeri/JPlayer.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Phong/objects/spellItem.tscn" type="PackedScene" id=8]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 31.7596, 32.1384 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 31.9512, 32.2854 )
 
 [node name="World" type="Node"]
-
-[node name="Player" type="KinematicBody2D" parent="."]
-visible = false
-position = Vector2( 619, 300.505 )
-collision_layer = 3
-collision_mask = 0
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Player"]
-texture = ExtResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource( 1 )
-
-[node name="HealthBar" parent="Player" instance=ExtResource( 6 )]
-margin_left = 2.0
-margin_top = -47.0
-margin_right = 42.0
-margin_bottom = -7.0
-rect_scale = Vector2( 0.05, 0.08 )
-
-[node name="Player2" type="KinematicBody2D" parent="."]
-modulate = Color( 0.819608, 0.129412, 0.305882, 1 )
-position = Vector2( -129.31, 173.505 )
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Player2"]
-texture = ExtResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2"]
-shape = SubResource( 1 )
 
 [node name="Walls" type="Node2D" parent="."]
 
@@ -486,14 +443,13 @@ texture = ExtResource( 1 )
 shape = SubResource( 2 )
 
 [node name="Enemy_floating_ghost" parent="." instance=ExtResource( 3 )]
+visible = false
 position = Vector2( 442.68, 355.808 )
 
 [node name="Enemy_chasing_ghost" parent="." instance=ExtResource( 5 )]
-position = Vector2( 9.13062, 99.7094 )
-
-[node name="JPlayer" parent="." instance=ExtResource( 7 )]
-collision_layer = 3
-collision_mask = 4
+position = Vector2( 193.422, 281.005 )
+x_direction = 1
+y_direction = -1
 
 [node name="spellItem" parent="." instance=ExtResource( 8 )]
 position = Vector2( 507.703, 278.6 )
@@ -501,4 +457,6 @@ collision_layer = 8
 collision_mask = 2
 the_sprite = "res://Phong/objects/spells_icon/icon2.png"
 spell_name = "icon2"
-[connection signal="body_entered" from="spellItem" to="spellItem" method="_on_spellItem_body_entered"]
+
+[node name="player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 755.147, 322.136 )
