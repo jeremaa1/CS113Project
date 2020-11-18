@@ -22,7 +22,7 @@ const ELEC_SPELL = preload("res://Jeremy/ElecSpell.tscn")
 const EARTH_SPELL = preload("res://Jeremy/EarthSpell.tscn")
 
 var motion = Vector2()
-onready var animationPlayer = $AnimationPlayer
+#onready var animationPlayer = $AnimationPlayer
 
 var fired = OS.get_ticks_msec()
 
