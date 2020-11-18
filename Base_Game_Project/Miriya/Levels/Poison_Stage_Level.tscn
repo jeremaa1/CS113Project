@@ -4095,7 +4095,7 @@ the_sprite = "res://Phong/objects/spells_icon/lighting.png"
 spell_name = "lighting"
 
 [node name="spellItem4" parent="World/Node" instance=ExtResource( 19 )]
-position = Vector2( 1366.88, 325.701 )
+position = Vector2( 1607.15, 371.085 )
 the_sprite = "res://Phong/objects/spells_icon/earth.png"
 spell_name = "earth"
 [connection signal="body_entered" from="World/Potions/health_potion" to="World/Potions/health_potion" method="_on_health_potion_body_entered"]
