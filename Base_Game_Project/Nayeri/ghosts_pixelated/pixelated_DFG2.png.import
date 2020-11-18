@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/my ghost3.png-9adee431ee862835b7b6dbd4b8e65322.stex"
+path="res://.import/pixelated_DFG2.png-43b24d06bbbe97111b67b345ba028844.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Nayeri/my ghost3.png"
-dest_files=[ "res://.import/my ghost3.png-9adee431ee862835b7b6dbd4b8e65322.stex" ]
+source_file="res://Nayeri/ghosts_pixelated/pixelated_DFG2.png"
+dest_files=[ "res://.import/pixelated_DFG2.png-43b24d06bbbe97111b67b345ba028844.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -30,5 +30,5 @@ process/HDR_as_SRGB=false
 process/invert_color=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

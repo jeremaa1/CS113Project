@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Nayeri/my ghost3.png" type="Texture" id=1]
+[ext_resource path="res://Nayeri/ghosts_pixelated/pixelated_DFG2.png" type="Texture" id=1]
 [ext_resource path="res://Nayeri/Enemy_chasing_ghost.gd" type="Script" id=2]
 [ext_resource path="res://Miriya/Healthbar/HealthBar.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Nayeri/ghost3Frozen.png" type="Texture" id=4]
-[ext_resource path="res://Nayeri/Enemy_ghost/DFG1.png" type="Texture" id=5]
-[ext_resource path="res://Nayeri/Enemy_ghost/DFG2.png" type="Texture" id=6]
+[ext_resource path="res://Nayeri/ghosts_pixelated/pixelated_ghost3Frozen.png" type="Texture" id=4]
+[ext_resource path="res://Nayeri/ghosts_pixelated/pixelated_ghost3.png" type="Texture" id=5]
+[ext_resource path="res://Nayeri/ghosts_pixelated/pixelated_DFG1.png" type="Texture" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -14,12 +14,12 @@ animations = [ {
 "name": "freeze",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 1 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 1 ) ],
 "loop": false,
 "name": "dead",
 "speed": 3.0
 }, {
-"frames": [ ExtResource( 1 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "hunt",
 "speed": 5.0

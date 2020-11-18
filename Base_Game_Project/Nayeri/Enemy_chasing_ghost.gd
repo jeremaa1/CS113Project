@@ -115,9 +115,7 @@ func _hunt():
 func _physics_process(delta):
 	if is_dead == false:
 		var follow = true if abs(Player.position.x - position.x) <= max_dist else false
-		print (velocity, " --- ", follow, " ", Player.position.x, " ", position.x)
-		
-		
+
 		if follow:
 			_chase(delta)
 		else:
@@ -150,7 +148,6 @@ func take_damage(value, spell):
 		_set_health(health)
 	else:
 			_set_health(health - value)
-	print(health)
 	
 func _on_Enemy_chasing_ghost_update_health(health):
 	health_bar.value = health
@@ -158,8 +155,6 @@ func _on_Enemy_chasing_ghost_update_health(health):
 
 
 func _on_Freeze_timer_timeout():
-	print("timed out ")
 	ice = false
 	velocity = old_velocity
-	print(velocity)
 	$AnimatedSprite.play("hunt")
