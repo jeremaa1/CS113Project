@@ -4,82 +4,22 @@
 [ext_resource path="res://An/characters/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://grass_block.PNG" type="Texture" id=3]
 
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> 66e609eec3ddb22d1a7bb027e8a688a86053740e
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
 
-[node name="World" type="Node2D"]
+[node name="world2" type="Node2D"]
 
-[node name="enemy_skeleton" parent="." instance=ExtResource( 1 )]
-position = Vector2( 736, 384 )
+[node name="player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 160.611, 404.47 )
+
+[node name="Enemy_skeleton" parent="." instance=ExtResource( 1 )]
+position = Vector2( 497.81, 338.04 )
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 200.226, 364.411 )
 format = 1
 
 [node name="blocks" type="Node" parent="TileMap"]
-
-[node name="Wall" type="StaticBody2D" parent="TileMap/blocks"]
-position = Vector2( -224, 544 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="TileMap/blocks/Wall"]
-position = Vector2( 1.52588e-05, 0 )
-scale = Vector2( 0.264463, 0.262295 )
-texture = ExtResource( 3 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/blocks/Wall"]
-shape = SubResource( 1 )
-
-[node name="Wall2" type="StaticBody2D" parent="TileMap/blocks"]
-position = Vector2( 64, 288 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="TileMap/blocks/Wall2"]
-position = Vector2( 1.52588e-05, 0 )
-scale = Vector2( 0.264463, 0.262295 )
-texture = ExtResource( 3 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/blocks/Wall2"]
-shape = SubResource( 1 )
-
-[node name="Wall33" type="StaticBody2D" parent="TileMap/blocks"]
-position = Vector2( -64, 320 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="TileMap/blocks/Wall33"]
-position = Vector2( 1.52588e-05, 0 )
-scale = Vector2( 0.264463, 0.262295 )
-texture = ExtResource( 3 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/blocks/Wall33"]
-shape = SubResource( 1 )
-
-[node name="Wall34" type="StaticBody2D" parent="TileMap/blocks"]
-position = Vector2( -160, 352 )
-rotation = 0.0370201
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="TileMap/blocks/Wall34"]
-position = Vector2( 1.52588e-05, 0 )
-scale = Vector2( 0.264463, 0.262295 )
-texture = ExtResource( 3 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/blocks/Wall34"]
-shape = SubResource( 1 )
 
 [node name="Wall3" type="StaticBody2D" parent="TileMap/blocks"]
 position = Vector2( 320, 544 )
@@ -500,6 +440,3 @@ texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/blocks/Wall29"]
 shape = SubResource( 1 )
-
-[node name="player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 223.678, 430.538 )
