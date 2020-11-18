@@ -23,28 +23,28 @@ extents = Vector2( 48, 48 )
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 32, 32 )
 
-[sub_resource type="SegmentShape2D" id=5]
+[sub_resource type="SegmentShape2D" id=20]
 b = Vector2( 38.2452, 45.4022 )
 
-[sub_resource type="SegmentShape2D" id=6]
+[sub_resource type="SegmentShape2D" id=21]
 b = Vector2( 0.530884, 302.055 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=22]
 atlas = ExtResource( 8 )
 region = Rect2( 0, 0, 96, 96 )
 
-[sub_resource type="SpriteFrames" id=8]
+[sub_resource type="SpriteFrames" id=23]
 animations = [ {
-"frames": [ SubResource( 7 ) ],
+"frames": [ SubResource( 22 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=24]
 extents = Vector2( 46.3278, 40.3853 )
 
-[sub_resource type="CapsuleShape2D" id=10]
+[sub_resource type="CapsuleShape2D" id=25]
 radius = 25.0676
 height = 41.0912
 
@@ -2588,12 +2588,12 @@ texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/Fallen_log"]
 position = Vector2( 157.837, -90.3367 )
-shape = SubResource( 5 )
+shape = SubResource( 20 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="World/Platforms/Fallen_log"]
 position = Vector2( 195.494, -46.5793 )
 rotation = 0.872665
-shape = SubResource( 6 )
+shape = SubResource( 21 )
 
 [node name="Beware_sign" type="StaticBody2D" parent="World/Platforms"]
 position = Vector2( 317.937, 463.885 )
@@ -2609,11 +2609,11 @@ texture = ExtResource( 9 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="World/Platforms/Beware_sign"]
 position = Vector2( 9.57719, -3.56363 )
 scale = Vector2( 0.577751, 0.610232 )
-frames = SubResource( 8 )
+frames = SubResource( 23 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/Beware_sign"]
 position = Vector2( 7.57263, -20.4906 )
-shape = SubResource( 9 )
+shape = SubResource( 24 )
 
 [node name="Flat_stone" type="StaticBody2D" parent="World/Platforms"]
 modulate = Color( 0.588235, 0.458824, 0.458824, 1 )
@@ -2630,7 +2630,7 @@ texture = ExtResource( 10 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/Flat_stone"]
 position = Vector2( 8.13391, 1.80762 )
 rotation = 1.5708
-shape = SubResource( 10 )
+shape = SubResource( 25 )
 
 [node name="Enemies" type="Node" parent="World"]
 [connection signal="timeout" from="World/Fire_Falling_Timer" to="World" method="_on_Fire_Falling_Timer_timeout"]
