@@ -20,10 +20,11 @@ func hide_inv():
 	for node in get_children():
 		node.visible = false
 
-func debug():
+func clear_spells_inv():
 	var slots = spell_slots.get_children()
 	for s in range(1, slots.size()):
-		slots[s].remove_child(slots[s].get_child(0))
+		if slots[s].get_child_count() > 0:
+			slots[s].remove_child(slots[s].get_child(0))
 	
 	
 	#for s in spell_slots.get_children():
