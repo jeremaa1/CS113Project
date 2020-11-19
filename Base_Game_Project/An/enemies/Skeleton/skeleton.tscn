@@ -7,7 +7,6 @@
 [ext_resource path="res://An/enemies/Skeleton/Skeleton Dead.png" type="Texture" id=5]
 
 [sub_resource type="AtlasTexture" id=1]
-<<<<<<< HEAD
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 29, 35 )
 
@@ -50,7 +49,6 @@ region = Rect2( 66, 0, 33, 33 )
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 5 )
 region = Rect2( 99, 0, 33, 33 )
-=======
 atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 47, 38 )
 
@@ -93,7 +91,6 @@ region = Rect2( 423, 0, 47, 38 )
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 3 )
 region = Rect2( 470, 0, 47, 38 )
->>>>>>> b3b9cc2476beb81d8d91a86f3c858d7b1e0e60fd
 
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 3 )
@@ -149,30 +146,29 @@ region = Rect2( 99, 0, 33, 33 )
 
 [sub_resource type="SpriteFrames" id=25]
 animations = [ {
-<<<<<<< HEAD
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
-=======
+
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
 "loop": true,
 "name": "attack",
 "speed": 8.0
 }, {
 "frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
->>>>>>> b3b9cc2476beb81d8d91a86f3c858d7b1e0e60fd
+
 "loop": true,
 "name": "walk",
 "speed": 7.0
 }, {
-<<<<<<< HEAD
+
 "frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 11 ) ],
 "loop": true,
 "name": "dead",
 "speed": 6.0
 }, {
 "frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
-=======
+
 "frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 24 ) ],
->>>>>>> b3b9cc2476beb81d8d91a86f3c858d7b1e0e60fd
+
 "loop": true,
 "name": "dead",
 "speed": 6.0
