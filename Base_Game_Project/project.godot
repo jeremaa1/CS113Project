@@ -22,7 +22,8 @@ config/icon="res://icon.png"
 [autoload]
 
 Global="*res://Phong/autoload/Global.gd"
-FadeEffect="*res://Phong/autoload/FadeEffect.tscn"
+FadeEffect="*res://Phong/autoload/effect/FadeEffect.tscn"
+Tutorial="*res://Phong/UI/Tutorial.tscn"
 Pause="*res://Phong/autoload/pause.tscn"
 AudContainer="*res://Phong/autoload/audioContainer/AudContainer.tscn"
 SpellInventory="*res://Phong/UI/SpellInventory.tscn"

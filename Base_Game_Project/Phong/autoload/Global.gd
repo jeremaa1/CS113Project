@@ -8,17 +8,36 @@ var init_spells = {
 }
 
 var spells = init_spells
-var global_item_flags = false
+var obt_fire = false
+var obt_ice = false
+var obt_light = false
+var obt_earth = false
+
 
 func add_spell(name):
-	for i in range(MAX_SPELL):
+	for i in range(1, MAX_SPELL):
 		if spells.has(i) == false:
 			spells[i] = [name]
 			return
 
+func assign_spell():
+	for i in range(1, MAX_SPELL):
+		if spells.has(i) == true:
+			if str(spells[i]) == "[fire]":
+				obt_fire = true
+			elif str(spells[i]) == "[ice]":
+				obt_ice = true
+			elif str(spells[i]) == "[lighting]":
+				obt_light = true
+			elif str(spells[i]) == "[earth]":
+				obt_earth = true
+
 func re_init():
+	obt_fire = false
+	obt_ice = false
+	obt_light = false
+	obt_earth = false
 	spells.clear()
-	global_item_flags = true
 	spells = {0: ["base"]}
 	SpellInventory.init_spells_inv()
 

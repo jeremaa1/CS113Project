@@ -123,7 +123,7 @@ position = Vector2( 4638.58, 1191 )
 scale = Vector2( 39.4015, 5.58197 )
 texture = ExtResource( 5 )
 
-[node name="player" parent="World" instance=ExtResource( 2 )]
+[node name="Player" parent="World" instance=ExtResource( 2 )]
 position = Vector2( 120, 208 )
 
 [node name="Signs" type="Node" parent="World"]

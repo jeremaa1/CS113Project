@@ -1,24 +1,20 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Phong/autoload/pause.gd" type="Script" id=1]
-[ext_resource path="res://Phong/img/black_bg.png" type="Texture" id=2]
-[ext_resource path="res://Phong/buttons/Continue.png" type="Texture" id=3]
-[ext_resource path="res://Phong/buttons/Continue_hover.png" type="Texture" id=5]
-[ext_resource path="res://Phong/buttons/Quit_hover.png" type="Texture" id=6]
-[ext_resource path="res://Phong/buttons/Quit.png" type="Texture" id=7]
+[ext_resource path="res://Phong/img/Continue_hover.png" type="Texture" id=2]
+[ext_resource path="res://Phong/img/Continue.png" type="Texture" id=3]
+[ext_resource path="res://Phong/img/Quit_hover.png" type="Texture" id=4]
+[ext_resource path="res://Phong/img/Quit.png" type="Texture" id=5]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 pause_mode = 2
 script = ExtResource( 1 )
 
-[node name="bg_m" type="TextureRect" parent="."]
-modulate = Color( 1, 1, 1, 0.498039 )
+[node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 2 )
-expand = true
+color = Color( 0, 0, 0, 0.498039 )
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -32,7 +28,7 @@ margin_top = -28.5
 margin_right = 192.0
 margin_bottom = 28.5
 texture_normal = ExtResource( 3 )
-texture_hover = ExtResource( 5 )
+texture_hover = ExtResource( 2 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -47,8 +43,8 @@ margin_left = -90.6432
 margin_top = 58.3513
 margin_right = 97.3568
 margin_bottom = 108.351
-texture_normal = ExtResource( 7 )
-texture_hover = ExtResource( 6 )
+texture_normal = ExtResource( 5 )
+texture_hover = ExtResource( 4 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false

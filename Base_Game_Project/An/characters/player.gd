@@ -90,7 +90,7 @@ func _physics_process(delta):
 	
 	# Fire set to K
 	if Input.is_action_just_pressed("ui_shoot2") and can_fire() and not is_attacking:
-		if Global.spells.has(1):
+		if Global.obt_fire == true:
 			if is_on_floor():
 				motion.x = 0
 			is_attacking = true
@@ -103,7 +103,7 @@ func _physics_process(delta):
 	
 	# Ice set to L
 	if Input.is_action_just_pressed("ui_shoot3") and can_fire() and not is_attacking:
-		if Global.spells.has(2):
+		if Global.obt_ice == true:
 			if is_on_floor():
 				motion.x = 0
 			is_attacking = true
@@ -116,7 +116,7 @@ func _physics_process(delta):
 	
 	# Elec set to ;
 	if Input.is_action_just_pressed("ui_shoot4") and can_fire() and not is_attacking:
-		if Global.spells.has(3):
+		if Global.obt_light == true:
 			if is_on_floor():
 				motion.x = 0
 			is_attacking = true
@@ -128,7 +128,7 @@ func _physics_process(delta):
 	
 	# Earth set to I
 	if Input.is_action_just_pressed("ui_shoot5") and can_fire() and not is_attacking:
-		if Global.spells.has(4):
+		if Global.obt_earth == true:
 			if is_on_floor():
 				motion.x = 0
 			is_attacking = true
