@@ -58,6 +58,7 @@ func _physics_process(delta):
 func _set_health(value):
 	var prev_health = health
 	health = clamp(value, 0, max_health)
+	print("Enemy Health: ", health)
 	if health != prev_health:
 		emit_signal("update_health", health)
 		if health == 0:
@@ -66,8 +67,10 @@ func _set_health(value):
 			
 func dead():
 	set_physics_process(false)
-	$CollisionShape2D.disabled = true
-	$DetectRange/HitBox.disabled = true
+	#$CollisionShape2D.disabled = true
+	#$DetectRange/HitBox.disabled = true
+	$CollisionShape2D.set_deferred("disabled", true)
+	$DetectRange/HitBox.set_deferred("disabled", true)
 	$AnimatedSprite.play('dead')
 	
 func take_damage(value, spell):
@@ -89,7 +92,7 @@ var attacking = false
 func _on_DetectRange_body_entered(body):
 	#if health <= 0: return
 	# TO DO: Need a new way to detect player 
-	if body.name == 'player' and not attacking:
+	if "Player" in body.name and not attacking:
 		player = body
 	#if body is KinematicBody2D:
 		#print(body.filename)
@@ -102,7 +105,7 @@ func _on_DetectRange_body_entered(body):
 		#print('enter dectect range')
 
 func _on_DetectRange_body_exited(body):
-	if body.name == 'player':
+	if "Player" in body.name:
 		playerInAttackRange = false
 		player = null
 
@@ -123,3 +126,8 @@ func _on_AttackSync_timeout():
 		print("player takes dmg")
 		player.take_damage(attackDamage)
 	$DetectRange/AttackSync.stop()
+
+
+func _on_Enemy_skeleton_update_max_health(max_health):
+	health_bar.max_value = max_health 
+	health_bar.value = max_health
