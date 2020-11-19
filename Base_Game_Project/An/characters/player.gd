@@ -11,7 +11,7 @@ onready var health = max_health setget _set_health
 
 const UP = Vector2(0, -1)
 const GRAVITY = 25
-const SPEED = 300
+
 const JUMP_HEIGHT = -650
 
 const COOLDOWN = 300
@@ -21,6 +21,9 @@ const ICE_SPELL = preload("res://Jeremy/IceSpell.tscn")
 const ELEC_SPELL = preload("res://Jeremy/ElecSpell.tscn")
 const EARTH_SPELL = preload("res://Jeremy/EarthSpell.tscn")
 
+# Make the speed a variable instead of a constant
+# in order to slow down the player
+var speed = 300
 var motion = Vector2()
 #onready var animationPlayer = $AnimationPlayer
 
@@ -45,7 +48,7 @@ func _physics_process(delta):
 	# Move functions
 	if Input.is_action_pressed("ui_right"): 
 		if not is_attacking or not is_on_floor():
-			motion.x = SPEED
+			motion.x = speed
 			if not is_attacking:
 				$AnimatedSprite.flip_h = false
 				$AnimatedSprite.play("run")
@@ -54,7 +57,7 @@ func _physics_process(delta):
 		
 	elif Input.is_action_pressed("ui_left"):
 		if not is_attacking or not is_on_floor():
-			motion.x = -SPEED
+			motion.x = -speed
 			if not is_attacking:
 				$AnimatedSprite.flip_h = true
 				$AnimatedSprite.play("run")
@@ -187,3 +190,9 @@ func heal_character(value):
 func _on_AnimatedSprite_animation_finished():
 	if $AnimatedSprite.animation == "attack":
 		is_attacking = false
+
+func set_speed(newSpeed):
+	speed = newSpeed
+	
+func get_speed():
+	return speed

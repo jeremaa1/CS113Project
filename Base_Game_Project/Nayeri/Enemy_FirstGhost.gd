@@ -4,7 +4,7 @@ signal update_health(health)
 signal char_died()
 onready var health_bar = $HealthBar/HealthBar
 export (float) var max_health = 100
-export (int) var hurt = 100
+export (int) var hurt = 20
 onready var health = max_health setget _set_health
 const SPEED = 5
 const FLOOR = Vector2(0,-1)
@@ -38,7 +38,7 @@ func dead():
 
 func _walk():
 	if ice :
-		return 
+		return 	
 	velocity.x = SPEED * x_direction 
 	velocity = move_and_slide(velocity, FLOOR)
 
@@ -76,6 +76,11 @@ func _on_Freeze_timer_timeout():
 	ice = false
 	velocity = old_velocity
 	$AnimatedSprite.play("Walk")
+
+
+
+
+
 
 func _on_FirstGhostDetectRange_body_entered(body):
 	if "player" in body.name:
