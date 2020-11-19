@@ -92,7 +92,7 @@ var attacking = false
 func _on_DetectRange_body_entered(body):
 	#if health <= 0: return
 	# TO DO: Need a new way to detect player 
-	if body.name == 'player' and not attacking:
+	if "Player" in body.name and not attacking:
 		player = body
 	#if body is KinematicBody2D:
 		#print(body.filename)
@@ -105,7 +105,7 @@ func _on_DetectRange_body_entered(body):
 		#print('enter dectect range')
 
 func _on_DetectRange_body_exited(body):
-	if body.name == 'player':
+	if "Player" in body.name:
 		playerInAttackRange = false
 		player = null
 
