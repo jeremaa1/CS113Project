@@ -1,0 +1,90 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Nayeri/Enemy_hunting_ghost.gd" type="Script" id=1]
+[ext_resource path="res://Nayeri/animations/ghost1freeze .png" type="Texture" id=2]
+[ext_resource path="res://Nayeri/animations/pixelated_ghost2.png" type="Texture" id=3]
+[ext_resource path="res://Nayeri/animations/pixelated_ghost1.png" type="Texture" id=4]
+[ext_resource path="res://Nayeri/animations/pixelated_DFG1.png" type="Texture" id=5]
+[ext_resource path="res://Nayeri/animations/pixelated_DFG2.png" type="Texture" id=6]
+[ext_resource path="res://Miriya/Healthbar/HealthBar.tscn" type="PackedScene" id=7]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": false,
+"name": "dead",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": false,
+"name": "freeze",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": false,
+"name": "Walk",
+"speed": 1.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 38.1581
+height = 94.3974
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 36.5842
+height = 68.9703
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 53.1535
+height = 93.2796
+
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 44.6695
+height = 116.639
+
+[node name="Enemy_hunting_ghost" type="KinematicBody2D"]
+scale = Vector2( 0.7, 0.65 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "Walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 22.2487, 3.05176e-05 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( -11.6541, 11.6541 )
+rotation = 0.380482
+shape = SubResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="HealthBar" parent="." instance=ExtResource( 7 )]
+margin_left = 19.0703
+margin_top = -111.244
+margin_right = 59.0703
+margin_bottom = -71.2436
+rect_scale = Vector2( 0.05, 0.03 )
+
+[node name="Freeze_timer" type="Timer" parent="."]
+wait_time = 4.0
+
+[node name="HuntingGhostDetectRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HuntingGhostDetectRange"]
+position = Vector2( 19.1883, 1.66854 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HuntingGhostDetectRange"]
+position = Vector2( -9.17706, -1.66855 )
+rotation = 0.380482
+shape = SubResource( 5 )
+[connection signal="update_health" from="." to="." method="_on_Enemy_hunting_ghost_update_health"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Freeze_timer" to="." method="_on_Freeze_timer_timeout"]
+[connection signal="body_entered" from="HuntingGhostDetectRange" to="." method="_on_HuntingGhostDetectRange_body_entered"]

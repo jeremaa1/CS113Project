@@ -1,3 +1,4 @@
+# Chasing Ghost
 extends KinematicBody2D
 ###
 signal update_health(health)
@@ -5,6 +6,7 @@ signal char_died()
 
 onready var health_bar = $HealthBar/HealthBar
 export (float) var max_health = 100
+export (int) var hurt = 25
 
 onready var health = max_health setget _set_health
 ####
@@ -32,6 +34,7 @@ var old_velocity = velocity
 
 
 func _ready():
+	
 	velocity.x = x_direction * 100
 	velocity.y = y_direction * 100
 	set_process(true) 
@@ -158,3 +161,9 @@ func _on_Freeze_timer_timeout():
 	ice = false
 	velocity = old_velocity
 	$AnimatedSprite.play("hunt")
+
+
+func _on_DetectRange_body_entered(body):
+	if "Player" in body.name:
+		body.take_damage(hurt)
+

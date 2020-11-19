@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pixelated_FirstGhostFrozen.png-db5b507468cd348acf4d1defbb5cafe4.stex"
+path="res://.import/pixelated_FirstGhost.png-28116266b8e9ed3aa5d8f45cd8f41567.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Nayeri/ghosts_pixelated/pixelated_FirstGhostFrozen.png"
-dest_files=[ "res://.import/pixelated_FirstGhostFrozen.png-db5b507468cd348acf4d1defbb5cafe4.stex" ]
+source_file="res://Nayeri/animations/pixelated_FirstGhost.png"
+dest_files=[ "res://.import/pixelated_FirstGhost.png-28116266b8e9ed3aa5d8f45cd8f41567.stex" ]
 
 [params]
 

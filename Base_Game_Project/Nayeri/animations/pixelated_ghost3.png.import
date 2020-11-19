@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/street-sewer-260nw-42973396.webp-1338637e0472b121b8f29bffeba0a09a.stex"
+path="res://.import/pixelated_ghost3.png-624edb295bfb15274908517d50d07b65.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Nayeri/ghosts_pixelated/street-sewer-260nw-42973396.webp"
-dest_files=[ "res://.import/street-sewer-260nw-42973396.webp-1338637e0472b121b8f29bffeba0a09a.stex" ]
+source_file="res://Nayeri/animations/pixelated_ghost3.png"
+dest_files=[ "res://.import/pixelated_ghost3.png-624edb295bfb15274908517d50d07b65.stex" ]
 
 [params]
 

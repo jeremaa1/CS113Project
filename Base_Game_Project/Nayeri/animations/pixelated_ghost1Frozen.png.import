@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pixelated_ladder.png-750f58f8323f79b8d82d1f0bb6424980.stex"
+path="res://.import/pixelated_ghost1Frozen.png-93acb97e415a9b61e3f7e5a36969f0b9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Nayeri/ghosts_pixelated/pixelated_ladder.png"
-dest_files=[ "res://.import/pixelated_ladder.png-750f58f8323f79b8d82d1f0bb6424980.stex" ]
+source_file="res://Nayeri/animations/pixelated_ghost1Frozen.png"
+dest_files=[ "res://.import/pixelated_ghost1Frozen.png-93acb97e415a9b61e3f7e5a36969f0b9.stex" ]
 
 [params]
 

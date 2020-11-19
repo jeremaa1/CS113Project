@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pixelated_underground.png-9bbb1835a7dd4abb8b217eb85d051acf.stex"
+path="res://.import/pixelated_DFG1.png-b072e7c15ddff0fe05b5ff3f1af1783b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Nayeri/ghosts_pixelated/pixelated_underground.png"
-dest_files=[ "res://.import/pixelated_underground.png-9bbb1835a7dd4abb8b217eb85d051acf.stex" ]
+source_file="res://Nayeri/animations/pixelated_DFG1.png"
+dest_files=[ "res://.import/pixelated_DFG1.png-b072e7c15ddff0fe05b5ff3f1af1783b.stex" ]
 
 [params]
 
