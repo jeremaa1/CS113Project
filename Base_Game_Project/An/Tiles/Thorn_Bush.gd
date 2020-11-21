@@ -5,9 +5,10 @@ extends Area2D
 # var a = 2
 # var b = "text"
 export var damage = 15
-export var coolDownTime = 1.0
+export var coolDownTime = 2.0
 var playerInRange = false
 var player = null
+var isInvulnerable = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -35,4 +36,5 @@ func _on_Thorn_Bush_body_exited(body):
 func _on_Timer_timeout():
 	if playerInRange:
 		player.take_damage(damage) # Player takes damage over time
+		$Timer.start(coolDownTime)
 		

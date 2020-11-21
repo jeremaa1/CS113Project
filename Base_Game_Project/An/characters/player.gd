@@ -44,6 +44,7 @@ func _set_health(value):
 func dead():
 	pass
 
+# warning-ignore:unused_argument
 func _physics_process(delta):
 	# Move functions
 	if Input.is_action_pressed("ui_right"): 
@@ -158,6 +159,7 @@ func _physics_process(delta):
 
 
 
+# warning-ignore:shadowed_variable
 func _on_player_update_health(health):
 	health_bar.value = health
 

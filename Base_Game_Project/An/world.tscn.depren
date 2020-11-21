@@ -1,5 +1,0 @@
-[gd_scene load_steps=5 format=2]
-
-[ext_resource path="res://An/enemies/Skeleton/skeleton.tscn" type="PackedScene" id=1]
-[ext_resource path="res://An/characters/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://grass_block.PNG" type="Texture" id=3]

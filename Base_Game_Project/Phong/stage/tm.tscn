@@ -7,10 +7,11 @@
 [ext_resource path="res://An/characters/wizardV2.png" type="Texture" id=5]
 [ext_resource path="res://An/characters/wizard_attack.png" type="Texture" id=6]
 [ext_resource path="res://Miriya/Healthbar/HealthBar.tscn" type="PackedScene" id=7]
-[ext_resource path="res://An/characters/player.gd" type="Script" id=9]
+[ext_resource path="res://An/characters/Player.gd" type="Script" id=9]
 [ext_resource path="res://Miriya/GroundImages/Beware_sign.png" type="Texture" id=10]
 [ext_resource path="res://Miriya/GroundImages/flame_animation.png" type="Texture" id=11]
 [ext_resource path="res://Miriya/BackgroundImages/fire_scene_larger_pixelated.png" type="Texture" id=12]
+
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
