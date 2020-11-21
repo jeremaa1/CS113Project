@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://Miriya/GroundImages/tree_branch.png" type="Texture" id=1]
 [ext_resource path="res://An/characters/Player.tscn" type="PackedScene" id=2]
@@ -25,15 +25,16 @@
 [ext_resource path="res://Miriya/Object_Scripts/poison_red_mushroom.tscn" type="PackedScene" id=23]
 [ext_resource path="res://An/enemies/Bat/Bat.tscn" type="PackedScene" id=24]
 [ext_resource path="res://An/enemies/FireBird/FireBird.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Miriya/Object_Scripts/health_potion.tscn" type="PackedScene" id=26]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 40.5286, 34.0085 )
 
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=1]
 radius = 4.73315
 height = 38.9802
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 8.11362
 height = 17.4704
 
@@ -126,7 +127,7 @@ texture = ExtResource( 13 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Signs/StaticBody2D"]
 position = Vector2( -2.0369, -6.06781 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="Sign" type="Sprite" parent="World/Signs"]
 position = Vector2( 7448, 468.6 )
@@ -158,26 +159,8 @@ texture = ExtResource( 3 )
 
 [node name="Potions" type="Node" parent="World"]
 
-[node name="health_potion" type="Area2D" parent="World/Potions"]
-position = Vector2( 1192, 297.555 )
-script = ExtResource( 15 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="World/Potions/health_potion"]
-position = Vector2( 1.81201, 1.4502 )
-scale = Vector2( 0.473982, 0.506985 )
-texture = ExtResource( 16 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Potions/health_potion"]
-position = Vector2( 1.43689, -1.10742 )
-shape = SubResource( 2 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="World/Potions/health_potion"]
-position = Vector2( 0.713318, 18.6558 )
-rotation = 1.5708
-shape = SubResource( 3 )
+[node name="health_potion" parent="World/Potions" instance=ExtResource( 26 )]
+position = Vector2( 1192, 270.887 )
 
 [node name="health_potion2" type="Area2D" parent="World/Potions"]
 position = Vector2( 7072, 1488 )
@@ -193,12 +176,12 @@ texture = ExtResource( 16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Potions/health_potion2"]
 position = Vector2( 1.43689, -1.10742 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="World/Potions/health_potion2"]
 position = Vector2( 0.713318, 18.6558 )
 rotation = 1.5708
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="health_potion3" type="Area2D" parent="World/Potions"]
 position = Vector2( 4533.72, 768 )
@@ -214,12 +197,12 @@ texture = ExtResource( 16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Potions/health_potion3"]
 position = Vector2( 1.43689, -1.10742 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="World/Potions/health_potion3"]
 position = Vector2( 0.713318, 18.6558 )
 rotation = 1.5708
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="health_potion4" type="Area2D" parent="World/Potions"]
 position = Vector2( 5504, 960 )
@@ -235,12 +218,12 @@ texture = ExtResource( 16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Potions/health_potion4"]
 position = Vector2( 1.43689, -1.10742 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="World/Potions/health_potion4"]
 position = Vector2( 0.713318, 18.6558 )
 rotation = 1.5708
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Platforms" type="Node" parent="World"]
 
@@ -1135,7 +1118,6 @@ scale = Vector2( 1.5, 1.5 )
 [node name="poison_mushroom14" parent="World/Poison_Mushrooms" instance=ExtResource( 10 )]
 position = Vector2( 768, 408 )
 scale = Vector2( 0.5, 0.5 )
-[connection signal="body_entered" from="World/Potions/health_potion" to="World/Potions/health_potion" method="_on_health_potion_body_entered"]
 [connection signal="body_entered" from="World/Potions/health_potion2" to="World/Potions/health_potion2" method="_on_health_potion_body_entered"]
 [connection signal="body_entered" from="World/Potions/health_potion3" to="World/Potions/health_potion3" method="_on_health_potion_body_entered"]
 [connection signal="body_entered" from="World/Potions/health_potion4" to="World/Potions/health_potion4" method="_on_health_potion_body_entered"]
