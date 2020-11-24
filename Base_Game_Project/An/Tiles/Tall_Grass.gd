@@ -20,10 +20,10 @@ var slowSpeed = 100
 func _on_Tall_Grass_body_entered(body):
 	if "Player" in body.name:
 		#initSpeed = body.get_speed()
-		body.set_speed(slowSpeed)
+		body.set_speed(slowSpeed, 0)
 
 
 func _on_Tall_Grass_body_exited(body):
 	if "Player" in body.name:
-		body.set_speed(initSpeed)
+		body.set_speed(initSpeed, 0)
 
