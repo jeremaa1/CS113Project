@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://grass_block.PNG" type="Texture" id=1]
 [ext_resource path="res://An/characters/Player.tscn" type="PackedScene" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://An/enemies/Bat/Bat.tscn" type="PackedScene" id=7]
 [ext_resource path="res://An/Props/Fire_Hyrant.tscn" type="PackedScene" id=8]
 [ext_resource path="res://An/Props/TrashCan.tscn" type="PackedScene" id=9]
-[ext_resource path="res://An/Tiles/Tall_Grass.tscn" type="PackedScene" id=10]
 
 [node name="Stage_Storm" type="Node2D"]
 
@@ -119,7 +118,7 @@ walkrange = 999
 speed = 300
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 8224, 440 )
+position = Vector2( 152, 416 )
 
 [node name="Props" type="Node2D" parent="."]
 
@@ -146,6 +145,3 @@ position = Vector2( 5856, 984 )
 
 [node name="TrashCan4" parent="Props" instance=ExtResource( 9 )]
 position = Vector2( 8128, 472 )
-
-[node name="Tall_Grass" parent="." instance=ExtResource( 10 )]
-position = Vector2( 7976, 496 )

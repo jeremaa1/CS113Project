@@ -14,10 +14,10 @@ extents = Vector2( 32, 32 )
 [node name="world2" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 112, 392 )
+position = Vector2( 112, 432 )
 
 [node name="Enemy_skeleton" parent="." instance=ExtResource( 1 )]
-position = Vector2( 288, 416 )
+position = Vector2( 1184, 376 )
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 200.226, 364.411 )
@@ -194,7 +194,7 @@ texture = ExtResource( 3 )
 shape = SubResource( 1 )
 
 [node name="Wall32" type="StaticBody2D" parent="TileMap/blocks"]
-position = Vector2( 584, 376 )
+position = Vector2( 672, 224 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -452,15 +452,14 @@ position = Vector2( 1024, 496 )
 position = Vector2( 960, 496 )
 
 [node name="Enemy_Bat" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1496, 384 )
-health = 25
+position = Vector2( 1160, 208 )
 
 [node name="Enemy_FireBird" parent="." instance=ExtResource( 6 )]
-position = Vector2( 680, 384 )
+position = Vector2( 304, 464 )
 shootRange = 200
 cooldown = 1.0
 flip = true
 
 [node name="Enemy_Slime" parent="." instance=ExtResource( 7 )]
-position = Vector2( 592, 272 )
+position = Vector2( 904, 392 )
 speed = 25
