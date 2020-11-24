@@ -25,7 +25,7 @@ const EARTH_SPELL = preload("res://Jeremy/EarthSpellPhysics.tscn")
 
 # Make the speed a variable instead of a constant
 # in order to slow down the player
-var speed = 300
+var run_speed = 300
 var motion = Vector2()
 #onready var animationPlayer = $AnimationPlayer
 
@@ -51,7 +51,7 @@ func _physics_process(delta):
 	# Move functions
 	if Input.is_action_pressed("ui_right"): 
 		if not is_attacking or not is_on_floor():
-			motion.x = speed
+			motion.x = run_speed
 			if not is_attacking:
 				$AnimatedSprite.flip_h = false
 				$AnimatedSprite.play("run")
@@ -60,7 +60,7 @@ func _physics_process(delta):
 		
 	elif Input.is_action_pressed("ui_left"):
 		if not is_attacking or not is_on_floor():
-			motion.x = -speed
+			motion.x = -run_speed
 			if not is_attacking:
 				$AnimatedSprite.flip_h = true
 				$AnimatedSprite.play("run")
@@ -192,13 +192,25 @@ func heal_character(value):
 		# Character health is maxed
 		pass
 
-
 func _on_AnimatedSprite_animation_finished():
 	if $AnimatedSprite.animation == "attack":
 		is_attacking = false
 
-func set_speed(newSpeed):
-	speed = newSpeed
-	
+var pre_speed
+func set_speed(newSpeed, time):
+	"""
+	set player speed = 'newSpeed' for 'time' seconds
+	"""
+	pre_speed = run_speed
+	run_speed = newSpeed
+	if time <= 0:
+		return
+	else:
+		$Timer.start(time)
+
 func get_speed():
-	return speed
+	return run_speed
+
+func _on_Timer_timeout():
+	run_speed = pre_speed
+	$Timer.stop()
