@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://An/enemies/FireBird/FireBird.png" type="Texture" id=1]
 [ext_resource path="res://An/enemies/FireBird/FireBird.gd" type="Script" id=2]
@@ -28,19 +28,22 @@ animations = [ {
 "name": "idle",
 "speed": 4.0
 }, {
-"frames": [ SubResource( 4 ) ],
-"loop": false,
-"name": "attack",
-"speed": 0.0
-}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": false,
 "name": "dead",
 "speed": 0.0
+}, {
+"frames": [ SubResource( 4 ) ],
+"loop": false,
+"name": "attack",
+"speed": 0.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 5, 12 )
+extents = Vector2( 2.66667, 10 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 8, 13 )
 
 [node name="Enemy_FireBird" type="KinematicBody2D"]
 scale = Vector2( 3, 3 )
@@ -48,8 +51,7 @@ script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 5 )
-animation = "dead"
-playing = true
+animation = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1, -1 )
@@ -71,8 +73,15 @@ __meta__ = {
 margin_top = -20.4066
 margin_bottom = 19.5934
 rect_scale = Vector2( 0.02, 0.02 )
+
+[node name="CollisionHitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionHitBox"]
+position = Vector2( 0, -1 )
+shape = SubResource( 7 )
 [connection signal="update_health" from="." to="." method="_on_Enemy_FireBird_update_health"]
 [connection signal="update_max_health" from="." to="." method="_on_Enemy_FireBird_update_max_health"]
 [connection signal="timeout" from="AnimationTimer" to="." method="_on_AnimationTimer_timeout"]
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_AttackCooldown_timeout"]
 [connection signal="timeout" from="DeadTimer" to="." method="_on_DeadTimer_timeout"]
+[connection signal="body_entered" from="CollisionHitBox" to="." method="_on_CollisionHitBox_body_entered"]

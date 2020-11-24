@@ -10,6 +10,7 @@ const DEADDELAY = 1.0
 export (float) var max_health = 100
 export var shootRange = 300
 export var projectileSpeed = 300
+export var collisionDamage = 15
 const SPELL = preload("res://An/enemies/FireBird/Fire_Projectile.tscn")
 export var cooldown = 2.0
 const ATTACK_ANIMATION = 0.5
@@ -97,3 +98,8 @@ func _on_Enemy_FireBird_update_health(health):
 func _on_Enemy_FireBird_update_max_health(max_health):
 	health_bar.max_value = max_health 
 	health_bar.value = max_health
+
+
+func _on_CollisionHitBox_body_entered(body):
+	if 'Player' in body.name:
+		body.take_damage(collisionDamage)
