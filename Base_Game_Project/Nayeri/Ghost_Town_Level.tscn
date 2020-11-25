@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://An/characters/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Miriya/GroundImages/fire_hydrant.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Nayeri/Enemy_hunting_ghost.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Nayeri/heath.gd" type="Script" id=14]
 [ext_resource path="res://Miriya/GroundImages/potion.png" type="Texture" id=15]
+[ext_resource path="res://Nayeri/enemy_rat/Enemy_Rat.tscn" type="PackedScene" id=16]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 20.9321
@@ -80,8 +81,8 @@ texture = ExtResource( 9 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 5590, 856 )
 
-[node name="player" parent="World" instance=ExtResource( 1 )]
-position = Vector2( 21.7927, 161.334 )
+[node name="Player" parent="World" instance=ExtResource( 1 )]
+position = Vector2( 5960.1, 911.251 )
 
 [node name="Tilemap_Sidewalk64" parent="World" instance=ExtResource( 4 )]
 position = Vector2( -3, 0 )
@@ -614,24 +615,10 @@ position = Vector2( 344.734, 389.361 )
 max_health = 500.0
 
 [node name="Enemy_hunting_ghost" parent="World/Enemies" instance=ExtResource( 13 )]
-position = Vector2( 848.638, 236.371 )
+position = Vector2( 1307.7, 371.269 )
 
-[node name="Enemy_hunting_ghost2" parent="World/Enemies" instance=ExtResource( 13 )]
-position = Vector2( 2243.64, 458.371 )
-
-[node name="Enemy_hunting_ghost3" parent="World/Enemies" instance=ExtResource( 13 )]
-position = Vector2( 3005.64, 1110.37 )
-
-[node name="Enemy_hunting_ghost4" parent="World/Enemies" instance=ExtResource( 13 )]
-position = Vector2( 4991.64, 1194.37 )
-x_direction = 1
-
-[node name="Enemy_hunting_ghost5" parent="World/Enemies" instance=ExtResource( 13 )]
-position = Vector2( 4455.64, 440.371 )
-x_direction = 1
-
-[node name="Enemy_hunting_ghost6" parent="World/Enemies" instance=ExtResource( 13 )]
-position = Vector2( 6595.64, 420.371 )
+[node name="Enemy_Rat" parent="World/Enemies" instance=ExtResource( 16 )]
+position = Vector2( 5539.38, 502.36 )
 
 [node name="Potions" type="Node" parent="World"]
 

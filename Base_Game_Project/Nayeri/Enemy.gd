@@ -89,7 +89,7 @@ func _on_Freeze_timer_timeout():
 	$AnimatedSprite.play("Walk")
 
 func _on_FirstGhostDetectRange_body_entered(body):
-	if "player" in body.name:
+	if "Player" in body.name:
 		body.take_damage(hurt)
 
 
