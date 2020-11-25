@@ -23,8 +23,9 @@ func _on_quit_pressed():
 	_on_continue_pressed()
 	AudContainer.stop_aud()
 	SpellInventory.clear_spells_inv()
-	Tutorial.tutorial_on = true
-	get_tree().change_scene("res://Phong/UI/menu/titleScreen.tscn")	
+	#Tutorial.tutorial_on = true
+	Global.curr_scn = null
+	get_tree().change_scene("res://Phong/UI/titleScreen.tscn")	
 
 func visible_off():
 	for node in get_children():

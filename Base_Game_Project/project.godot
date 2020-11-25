@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Test Game Project"
-run/main_scene="res://Miriya/Levels/Poison_Stage_Level.tscn"
+run/main_scene="res://Phong/UI/titleScreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]

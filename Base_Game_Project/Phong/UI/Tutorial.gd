@@ -16,7 +16,7 @@ func _input(event):
 		tutorial_on = false
 
 func tutorial_init():
-	yield(get_tree().create_timer(2.0), "timeout")
+	yield(get_tree().create_timer(1.9), "timeout")
 	get_tree().paused = true
 	for node in get_children():
 		node.visible = true

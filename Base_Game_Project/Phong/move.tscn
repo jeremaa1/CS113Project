@@ -1,18 +1,20 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://grass_block.PNG" type="Texture" id=1]
 [ext_resource path="res://Phong/objects/spellItem.tscn" type="PackedScene" id=2]
-[ext_resource path="res://An/characters/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://An/characters/player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Phong/objects/teleport.tscn" type="PackedScene" id=4]
-
+[ext_resource path="res://An/enemies/Skeleton/skeleton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Phong/move.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
 
 [node name="World" type="Node2D"]
+script = ExtResource( 6 )
 
-[node name="player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 64, 392 )
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 114.551, 435.578 )
 
 [node name="blocks" type="Node" parent="."]
 
@@ -324,48 +326,6 @@ texture = ExtResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blocks/Wall28"]
 shape = SubResource( 1 )
 
-[node name="Wall29" type="StaticBody2D" parent="blocks"]
-position = Vector2( 1536, 416 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="blocks/Wall29"]
-position = Vector2( 1.52588e-05, 0 )
-scale = Vector2( 0.264463, 0.262295 )
-texture = ExtResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="blocks/Wall29"]
-shape = SubResource( 1 )
-
-[node name="Wall30" type="StaticBody2D" parent="blocks"]
-position = Vector2( 1536, 352 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="blocks/Wall30"]
-position = Vector2( 1.52588e-05, 0 )
-scale = Vector2( 0.264463, 0.262295 )
-texture = ExtResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="blocks/Wall30"]
-shape = SubResource( 1 )
-
-[node name="Wall31" type="StaticBody2D" parent="blocks"]
-position = Vector2( 1536, 288 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="blocks/Wall31"]
-position = Vector2( 1.52588e-05, 0 )
-scale = Vector2( 0.264463, 0.262295 )
-texture = ExtResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="blocks/Wall31"]
-shape = SubResource( 1 )
-
 [node name="Wall27" type="StaticBody2D" parent="blocks"]
 position = Vector2( 1472, 544 )
 __meta__ = {
@@ -437,26 +397,28 @@ texture = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="teleport" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1440, 384 )
-scene_path = "res://Phong/state2.tscn"
-spawn_loc = Vector2( 224, 448 )
+position = Vector2( 1433.28, 382.532 )
+scene_path = "res://Phong/stage/tm.tscn"
 
 [node name="spellItem" parent="." instance=ExtResource( 2 )]
-position = Vector2( 336, 480 )
+position = Vector2( 308.765, 447.664 )
 the_sprite = "res://Phong/objects/spells_icon/fire.png"
 spell_name = "fire"
 
 [node name="spellItem2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 480, 384 )
+position = Vector2( 1088.69, 392.009 )
 the_sprite = "res://Phong/objects/spells_icon/ice.png"
 spell_name = "ice"
 
 [node name="spellItem3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 712, 480 )
+position = Vector2( 1155.17, 457.308 )
 the_sprite = "res://Phong/objects/spells_icon/lighting.png"
 spell_name = "lighting"
 
 [node name="spellItem4" parent="." instance=ExtResource( 2 )]
-position = Vector2( 848, 464 )
+position = Vector2( 1252.46, 466.67 )
 the_sprite = "res://Phong/objects/spells_icon/earth.png"
 spell_name = "earth"
+
+[node name="Enemy_skeleton" parent="." instance=ExtResource( 5 )]
+position = Vector2( 824.149, 442.094 )

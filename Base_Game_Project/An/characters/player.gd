@@ -44,7 +44,14 @@ func _set_health(value):
 			emit_signal("char_died")
 			
 func dead():
-	pass
+	get_tree().paused = true
+	yield(get_tree().create_timer(0.7), "timeout")
+	get_tree().paused = false
+	#queue_free()
+	FadeEffect.scene_change("res://Phong/UI/gameOver.tscn", 'fade')
+	print(Global.curr_scn)
+	
+	
 
 # warning-ignore:unused_argument
 func _physics_process(delta):
@@ -157,8 +164,13 @@ func _physics_process(delta):
 				$AnimatedSprite.play("fall")
 			else:
 				$AnimatedSprite.play("jump")
+	
+	
+	if motion.y > 2300:
+		print(motion.y)
+		set_physics_process(false)
+		dead()
 		
-
 	motion = move_and_slide(motion, UP)
 
 
