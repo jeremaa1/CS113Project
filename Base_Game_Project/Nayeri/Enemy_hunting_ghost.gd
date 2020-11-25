@@ -57,6 +57,13 @@ func _float():
 		$AnimatedSprite.flip_h = false
 	else:
 		$AnimatedSprite.flip_h = true
+		
+## FIX this 
+#	if x_direction == -1:
+#		$CollisionShape2D.position.y *= -1
+#		$CollisionShape2D2.position.y *= -1
+#		$HuntingGhostDetectRange/CollisionShape2D.position.y *= -1
+#		$HuntingGhostDetectRange/CollisionShape2D2.position.y *= -1
 	
 	velocity = move_and_slide(velocity, FLOOR)
 	

@@ -1,6 +1,7 @@
 # First Ghost
 extends KinematicBody2D
 signal update_health(health)
+signal update_max_health(max_health)
 signal char_died()
 onready var health_bar = $HealthBar/HealthBar
 export (float) var max_health = 100
@@ -17,6 +18,7 @@ var y_direction = 0
 
 func _ready():
 	set_process(true) 
+	emit_signal("update_max_health", max_health)
 	$AnimatedSprite.play("Walk")
 
 func _set_health(value):
@@ -32,6 +34,15 @@ func dead():
 	print("dead called")
 	is_dead = true
 	velocity = Vector2(0,0)
+
+	$CS2Dcolisionbody.set_deferred("disabled", true)
+	$CS2Dcollisionfeet.set_deferred("disabled", true)
+	$CS2Dcollisionsides.set_deferred("disabled", true)
+	$FirstGhostDetectRange/CS2Dbody.set_deferred("disabled", true)
+	$FirstGhostDetectRange/CS2Dfeet.set_deferred("disabled", true)
+	$FirstGhostDetectRange/CS2Dleftside.set_deferred("disabled", true)
+	$FirstGhostDetectRange/CS2Drightside.set_deferred("disabled", true)
+	$FirstGhostDetectRange.set_deferred("disabled", true)
 	$AnimatedSprite.play("dead")
 	#$CollisionShape2D.disabled = true
 	$Timer.start()
@@ -80,3 +91,9 @@ func _on_Freeze_timer_timeout():
 func _on_FirstGhostDetectRange_body_entered(body):
 	if "player" in body.name:
 		body.take_damage(hurt)
+
+
+func _on_Enemy_FirstGhost_update_max_health(max_health):
+	health_bar.max_value = max_health 
+	health_bar.value = max_health
+
