@@ -15,8 +15,8 @@ var is_dead = false
 var ice = false
 var freeze = false 
 var old_velocity = velocity 
-export var x_direction = -1 # left
-export var y_direction = -1 # up
+var x_direction = 1 # 
+var y_direction = -1 # 
 var x_time = 0
 var y_time = 0
 
@@ -40,6 +40,8 @@ func dead():
 	velocity = Vector2(0,0)
 	$AnimatedSprite.play("dead")
 	#$CollisionShape2D.disabled = true
+	$CollisionShape2D.set_deferred("disabled", true)
+	$HuntingGhostDetectRange/CollisionShape2D.set_deferred("disabled", true)
 	$Timer.start()
 
 
@@ -62,12 +64,19 @@ func _float():
 	
 	if is_on_wall() :
 		x_direction = x_direction * -1
+		$CollisionShape2D.position.x *= -1
+		$HuntingGhostDetectRange/CollisionShape2D.position.x *= -1
+
+
 	if is_on_floor() or is_on_ceiling():
 		y_direction = y_direction * -1
-		
+
 	if x_time % (4 * X_MAX_TIME) == 0:
 		x_time = 0
 		x_direction = x_direction * -1
+		$CollisionShape2D.position.x *= -1
+		$HuntingGhostDetectRange/CollisionShape2D.position.x *= -1
+
 	if y_time %  Y_MAX_TIME == 0:
 		y_time = 0
 		y_direction = y_direction * -1
@@ -118,5 +127,5 @@ func _on_Freeze_timer_timeout():
 
 
 func _on_HuntingGhostDetectRange_body_entered(body):
-	if "player" in body.name:
+	if "Player" in body.name:
 		body.take_damage(hurt) 
