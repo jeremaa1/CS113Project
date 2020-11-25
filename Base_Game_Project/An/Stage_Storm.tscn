@@ -28,8 +28,8 @@ texture = ExtResource( 1 )
 
 [node name="Underground2" type="Sprite" parent="storm_stage_background"]
 modulate = Color( 0.0627451, 0.0156863, 0.0156863, 1 )
-position = Vector2( -352.347, 666.103 )
-scale = Vector2( 17.5938, 0.764101 )
+position = Vector2( -352.347, 915.942 )
+scale = Vector2( 17.5938, 2.81196 )
 texture = ExtResource( 1 )
 
 [node name="Platform_Concrete" parent="." instance=ExtResource( 4 )]
@@ -119,7 +119,7 @@ walkrange = 999
 speed = 300
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 8224, 440 )
+position = Vector2( 6927.34, -19.3195 )
 
 [node name="Props" type="Node2D" parent="."]
 

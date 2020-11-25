@@ -9,6 +9,13 @@ func _ready():
 	
 
 func _on_spellItem_body_entered(body):
+	
+	for i in range(1, Global.MAX_SPELL):
+		if Global.spells.has(i) == true:
+			if str(Global.spells[i]) == "[" + spell_name + "]":
+				queue_free()
+				return
+	
 	Global.add_spell(spell_name)
 	Global.assign_spell()
 	SpellInventory.init_spells_inv()

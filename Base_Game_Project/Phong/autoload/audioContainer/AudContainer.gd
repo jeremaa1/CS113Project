@@ -8,6 +8,7 @@ func _ready():
 
 func play_aud():
 	$aud.stream = aud
+	$aud.volume_db = -20
 	$aud.play()
 
 func stop_aud():
