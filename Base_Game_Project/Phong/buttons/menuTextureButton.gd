@@ -11,6 +11,7 @@ func _on_Button_Pressed():
 		Global.re_init()
 		print(Global.spells)
 		SpellInventory.reveal_inv()
+		Tutorial.tutorial_init()
 		#get_tree().reload_current_scene()
 		#get_tree().change_scene(ref_path)
 	else:

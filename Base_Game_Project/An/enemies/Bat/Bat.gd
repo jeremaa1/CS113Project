@@ -5,13 +5,21 @@ var motion = Vector2()
 var direction = -1
 export var walkrange = 300
 export var speed = 200
-export var health = 100
+#export var health = 100
+export (float) var max_health = 100
+
 onready var lowBound = self.position.x - walkrange/2
 onready var upBound = lowBound + walkrange
+onready var health_bar = $HealthBar/HealthBar
+onready var health = max_health setget _set_health
+
 var gravity = 20
 const DEADDELAY = 1.0
 signal update_health(health)
 signal char_died()
+signal update_max_health(max_health)
+
+
 var dead = false
 func _physics_process(delta):
 	if dead:
@@ -58,7 +66,7 @@ func dead():
 	
 func _set_health(value):
 	var prev_health = health
-	health = value
+	health = clamp(value, 0, max_health)
 	print("Enemy Health: ", health)
 	if health != prev_health:
 		emit_signal("update_health", health)
@@ -69,3 +77,12 @@ func _set_health(value):
 
 func _on_DeadTimer_timeout():
 	queue_free()
+
+
+func _on_Enemy_Bat_update_health(health):
+	health_bar.value = health
+
+
+func _on_Enemy_Bat_update_max_health(max_health):
+	health_bar.max_value = max_health 
+	health_bar.value = max_health

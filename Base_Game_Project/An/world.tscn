@@ -1,15 +1,10 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://An/enemies/Skeleton/skeleton.tscn" type="PackedScene" id=1]
-[ext_resource path="res://An/characters/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://An/characters/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://grass_block.PNG" type="Texture" id=3]
 
-<<<<<<< HEAD
 
-
-
-=======
->>>>>>> 66e609eec3ddb22d1a7bb027e8a688a86053740e
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
 

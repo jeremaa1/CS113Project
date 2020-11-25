@@ -5,6 +5,8 @@ extends Area2D
 # var a = 2
 # var b = "text"
 
+var playerInRange = false
+var player = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,6 +19,23 @@ func _ready():
 
 
 func _on_thorns_bush_body_entered(body):
-	if body is KinematicBody2D:  
+	if body.name == 'Player':  
 		# Ensures only the player is damaged
-		body.take_damage(10)
+		playerInRange = true
+		player = body
+		player.take_damage(10)
+		$ConstantDamageTimer.start(0.5)
+		
+
+
+func _on_ConstantDamageTimer_timeout():
+	if playerInRange:
+		player.take_damage(10)
+	else:
+		$ConstantDamageTimer.stop()
+
+
+func _on_thorns_bush2_body_exited(body):
+	playerInRange = false
+	player = null
+	

@@ -6,7 +6,8 @@ extends KinematicBody2D
 # var b = "text"
 var gravity = 20
 const DEADDELAY = 1.0
-export var health = 50
+#export var health = 50
+export (float) var max_health = 100
 export var shootRange = 300
 export var projectileSpeed = 300
 const SPELL = preload("res://An/enemies/FireBird/Fire_Projectile.tscn")
@@ -16,7 +17,12 @@ const UP = Vector2(0, -1)
 var motion = Vector2()
 signal update_health(health)
 signal char_died()
+signal update_max_health(max_health)
 export var flip = false
+
+onready var health_bar = $HealthBar/HealthBar
+onready var health = max_health setget _set_health
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if flip == true:
@@ -82,3 +88,12 @@ func _set_health(value):
 
 func _on_DeadTimer_timeout():
 	queue_free()
+
+
+func _on_Enemy_FireBird_update_health(health):
+	health_bar.value = health
+
+
+func _on_Enemy_FireBird_update_max_health(max_health):
+	health_bar.max_value = max_health 
+	health_bar.value = max_health
