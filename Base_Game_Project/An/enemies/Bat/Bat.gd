@@ -30,6 +30,7 @@ func _physics_process(delta):
 		if is_on_floor():
 			set_physics_process(false)
 			$CollisionShape2D.set_deferred("disabled", true)
+			$HitBox/CollisionShape2D.set_deferred("disabled", true)
 			$DeadTimer.start(DEADDELAY)
 	else:
 		motion.x = speed * direction
