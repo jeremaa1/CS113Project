@@ -42,6 +42,7 @@ func _physics_process(delta):
 		if is_on_floor():
 			set_physics_process(false)
 			$CollisionShape2D.set_deferred("disabled", true)
+			$CollisionHitBox/CollisionShape2D.set_deferred("disabled", true)
 			$DeadTimer.start(DEADDELAY)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

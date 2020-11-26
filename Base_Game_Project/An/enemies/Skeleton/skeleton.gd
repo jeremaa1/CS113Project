@@ -72,6 +72,7 @@ func dead():
 	#$DetectRange/HitBox.disabled = true
 	$CollisionShape2D.set_deferred("disabled", true)
 	$DetectRange/HitBox.set_deferred("disabled", true)
+	$collisionHitBox/CollisionShape2D.set_deferred("disabled", true)
 	$AnimatedSprite.play('dead')
 	
 func take_damage(value, spell):
