@@ -5,6 +5,6 @@ func _ready():
 
 
 func _on_health_potion_body_entered(body):
-	if body is KinematicBody2D:
+	if body is KinematicBody2D and "Player" in body.name:
 		body.heal_character(25)
 		queue_free()  # Removing the health potion after picked up
