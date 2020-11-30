@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://An/characters/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Miriya/GroundImages/fire_hydrant.png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Nayeri/heath.gd" type="Script" id=14]
 [ext_resource path="res://Miriya/GroundImages/potion.png" type="Texture" id=15]
 [ext_resource path="res://Nayeri/enemy_rat/Enemy_Rat.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Nayeri/trash/Trash.tscn" type="PackedScene" id=17]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 20.9321
@@ -82,7 +83,8 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 5590, 856 )
 
 [node name="Player" parent="World" instance=ExtResource( 1 )]
-position = Vector2( 41.2937, 133.687 )
+position = Vector2( 611.527, 444.441 )
+GOD = true
 
 [node name="Tilemap_Sidewalk64" parent="World" instance=ExtResource( 4 )]
 position = Vector2( -3, 0 )
@@ -593,6 +595,46 @@ position = Vector2( 6139.88, 628.317 )
 shape = SubResource( 12 )
 one_way_collision = true
 
+[node name="Damaging_Platforms" type="Node" parent="World"]
+
+[node name="Trash" parent="World/Damaging_Platforms" instance=ExtResource( 17 )]
+position = Vector2( 1735, 460 )
+scale = Vector2( 0.406625, 0.41129 )
+
+[node name="Trash2" parent="World/Damaging_Platforms" instance=ExtResource( 17 )]
+position = Vector2( 3560, 460 )
+scale = Vector2( 0.406625, 0.41129 )
+
+[node name="Trash3" parent="World/Damaging_Platforms" instance=ExtResource( 17 )]
+position = Vector2( 5387, 460 )
+scale = Vector2( 0.406625, 0.41129 )
+
+[node name="Trash4" parent="World/Damaging_Platforms" instance=ExtResource( 17 )]
+position = Vector2( 6695, 460 )
+scale = Vector2( 0.406625, 0.41129 )
+
+[node name="Potions" type="Node" parent="World"]
+
+[node name="health_potion" type="Area2D" parent="World/Potions"]
+position = Vector2( 5978.03, 863.362 )
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="World/Potions/health_potion"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 15 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Potions/health_potion"]
+position = Vector2( -1.41422, -3.53552 )
+shape = SubResource( 13 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="World/Potions/health_potion"]
+position = Vector2( -2.12131, 16.2635 )
+rotation = 1.5708
+shape = SubResource( 14 )
+
 [node name="Spells" type="Node" parent="World"]
 
 [node name="spellItem" parent="World/Spells" instance=ExtResource( 6 )]
@@ -667,7 +709,7 @@ position = Vector2( 655.061, 280.555 )
 position = Vector2( 8173.88, 508.353 )
 
 [node name="Enemy_Rat15" parent="World/Enemies/Rats" instance=ExtResource( 16 )]
-position = Vector2( 6958.05, 522.519 )
+position = Vector2( 6903.05, 522.519 )
 
 [node name="Enemy_Rat16" parent="World/Enemies/Rats" instance=ExtResource( 16 )]
 position = Vector2( 7091.6, 522.519 )
@@ -700,7 +742,7 @@ position = Vector2( 3186.65, 493.315 )
 position = Vector2( 1911.61, 510.954 )
 
 [node name="Enemy_Rat14" parent="World/Enemies/Rats" instance=ExtResource( 16 )]
-position = Vector2( 1009.5, 513.474 )
+position = Vector2( 962.63, 442.546 )
 
 [node name="Enemy_Rat10" parent="World/Enemies/Rats" instance=ExtResource( 16 )]
 position = Vector2( 3332.8, 473.156 )
@@ -711,25 +753,7 @@ position = Vector2( 4044.7, 501.324 )
 [node name="Enemy_Rat12" parent="World/Enemies/Rats" instance=ExtResource( 16 )]
 position = Vector2( 3630.12, 497.395 )
 
-[node name="Potions" type="Node" parent="World"]
-
-[node name="health_potion" type="Area2D" parent="World/Potions"]
-position = Vector2( 5978.03, 863.362 )
-script = ExtResource( 14 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="World/Potions/health_potion"]
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 15 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Potions/health_potion"]
-position = Vector2( -1.41422, -3.53552 )
-shape = SubResource( 13 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="World/Potions/health_potion"]
-position = Vector2( -2.12131, 16.2635 )
-rotation = 1.5708
-shape = SubResource( 14 )
+[node name="Enemy_Rat4" parent="World/Enemies/Rats" instance=ExtResource( 16 )]
+position = Vector2( 759, 457 )
+direction = 1
 [connection signal="body_entered" from="World/Potions/health_potion" to="World/Potions/health_potion" method="_on_health_potion_body_entered"]
