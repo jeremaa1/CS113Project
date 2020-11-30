@@ -172,6 +172,21 @@ func _physics_process(delta):
 		dead()
 		
 	motion = move_and_slide(motion, UP)
+	
+	for i in get_slide_count():
+		var collision := get_slide_collision(i)
+		var collider := collision.collider
+		var  is_stomping := (
+			collider is KinematicBody2D and 
+			"Enemy_Rat" in (collider as KinematicBody2D).name and 
+#			"Enemey_rat" in collider.body.name and
+			is_on_floor() and
+			collision.normal.is_equal_approx(Vector2.UP)
+		)
+		
+		if is_stomping:
+			motion.y = -600
+			collider.kill()
 
 
 
