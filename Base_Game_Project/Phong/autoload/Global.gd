@@ -1,7 +1,7 @@
 extends Node
 
 const MAX_SPELL = 5
-var init_position = Vector2(224, 448)
+#var init_position = Vector2(224, 448)
 
 var init_spells = {
 	0: ["base"]
@@ -13,6 +13,7 @@ var obt_ice = false
 var obt_light = false
 var obt_earth = false
 
+var curr_scn = null
 
 func add_spell(name):
 	for i in range(1, MAX_SPELL):
@@ -41,6 +42,6 @@ func re_init():
 	spells = {0: ["base"]}
 	SpellInventory.init_spells_inv()
 
-func debug_global():
-	print("debug")
-	return
+#func debug_global():
+#	print("debug")
+#	return

@@ -25,7 +25,7 @@ const EARTH_SPELL = preload("res://Jeremy/EarthSpellPhysics.tscn")
 
 # Make the speed a variable instead of a constant
 # in order to slow down the player
-var speed = 300
+var run_speed = 300
 var motion = Vector2()
 #onready var animationPlayer = $AnimationPlayer
 
@@ -44,14 +44,21 @@ func _set_health(value):
 			emit_signal("char_died")
 			
 func dead():
-	pass
+	get_tree().paused = true
+	yield(get_tree().create_timer(0.7), "timeout")
+	get_tree().paused = false
+	#queue_free()
+	FadeEffect.scene_change("res://Phong/UI/gameOver.tscn", 'fade')
+	print(Global.curr_scn)
+	
+	
 
 # warning-ignore:unused_argument
 func _physics_process(delta):
 	# Move functions
 	if Input.is_action_pressed("ui_right"): 
 		if not is_attacking or not is_on_floor():
-			motion.x = speed
+			motion.x = run_speed
 			if not is_attacking:
 				$AnimatedSprite.flip_h = false
 				$AnimatedSprite.play("run")
@@ -60,7 +67,7 @@ func _physics_process(delta):
 		
 	elif Input.is_action_pressed("ui_left"):
 		if not is_attacking or not is_on_floor():
-			motion.x = -speed
+			motion.x = -run_speed
 			if not is_attacking:
 				$AnimatedSprite.flip_h = true
 				$AnimatedSprite.play("run")
@@ -157,8 +164,13 @@ func _physics_process(delta):
 				$AnimatedSprite.play("fall")
 			else:
 				$AnimatedSprite.play("jump")
+	
+	
+	if motion.y > 2300:
+		print(motion.y)
+		set_physics_process(false)
+		dead()
 		
-
 	motion = move_and_slide(motion, UP)
 
 
@@ -192,13 +204,25 @@ func heal_character(value):
 		# Character health is maxed
 		pass
 
-
 func _on_AnimatedSprite_animation_finished():
 	if $AnimatedSprite.animation == "attack":
 		is_attacking = false
 
-func set_speed(newSpeed):
-	speed = newSpeed
-	
+var pre_speed
+func set_speed(newSpeed, time):
+	"""
+	set player speed = 'newSpeed' for 'time' seconds
+	"""
+	pre_speed = run_speed
+	run_speed = newSpeed
+	if time <= 0:
+		return
+	else:
+		$Timer.start(time)
+
 func get_speed():
-	return speed
+	return run_speed
+
+func _on_Timer_timeout():
+	run_speed = pre_speed
+	$Timer.stop()

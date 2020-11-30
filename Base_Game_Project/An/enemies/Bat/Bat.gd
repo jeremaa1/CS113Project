@@ -7,7 +7,7 @@ export var walkrange = 300
 export var speed = 200
 #export var health = 100
 export (float) var max_health = 100
-
+export var damage = 15
 onready var lowBound = self.position.x - walkrange/2
 onready var upBound = lowBound + walkrange
 onready var health_bar = $HealthBar/HealthBar
@@ -30,6 +30,7 @@ func _physics_process(delta):
 		if is_on_floor():
 			set_physics_process(false)
 			$CollisionShape2D.set_deferred("disabled", true)
+			$HitBox/CollisionShape2D.set_deferred("disabled", true)
 			$DeadTimer.start(DEADDELAY)
 	else:
 		motion.x = speed * direction
@@ -86,3 +87,8 @@ func _on_Enemy_Bat_update_health(health):
 func _on_Enemy_Bat_update_max_health(max_health):
 	health_bar.max_value = max_health 
 	health_bar.value = max_health
+
+
+func _on_HitBox_body_entered(body):
+	if 'Player' in body.name:
+		body.take_damage(damage)

@@ -3,6 +3,9 @@ extends KinematicBody2D
 
 const GRAVITY = 20
 export var speed = 100
+export var damage = 10
+export var slowSpeed = 100
+export var slowTime = 1.5
 const UP = Vector2(0, -1)
 var motion = Vector2()
 var direction = -1
@@ -42,3 +45,9 @@ func _physics_process(delta):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_HitBox_body_entered(body):
+	if 'Player' in body.name:
+		body.take_damage(damage)
+		body.set_speed(slowSpeed, slowTime)

@@ -10,6 +10,7 @@ signal update_max_health(max_health)
 onready var health_bar = $HealthBar/HealthBar
 export (float) var max_health = 100
 export var attackDamage = 50
+export var collisionDamage = 10
 onready var health = max_health setget _set_health
 
 var motion = Vector2()
@@ -71,6 +72,7 @@ func dead():
 	#$DetectRange/HitBox.disabled = true
 	$CollisionShape2D.set_deferred("disabled", true)
 	$DetectRange/HitBox.set_deferred("disabled", true)
+	$collisionHitBox/CollisionShape2D.set_deferred("disabled", true)
 	$AnimatedSprite.play('dead')
 	
 func take_damage(value, spell):
@@ -131,3 +133,7 @@ func _on_AttackSync_timeout():
 func _on_Enemy_skeleton_update_max_health(max_health):
 	health_bar.max_value = max_health 
 	health_bar.value = max_health
+
+func _on_collisionHitBox_body_entered(body):
+	if 'Player' in body.name:
+		body.take_damage(10)
