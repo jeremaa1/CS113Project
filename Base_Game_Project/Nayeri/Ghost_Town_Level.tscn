@@ -83,7 +83,7 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 5590, 856 )
 
 [node name="Player" parent="World" instance=ExtResource( 1 )]
-position = Vector2( 611.527, 444.441 )
+position = Vector2( 24.5813, 173.672 )
 GOD = true
 
 [node name="Tilemap_Sidewalk64" parent="World" instance=ExtResource( 4 )]
@@ -739,7 +739,7 @@ position = Vector2( 3415.95, 1236.67 )
 position = Vector2( 3186.65, 493.315 )
 
 [node name="Enemy_Rat13" parent="World/Enemies/Rats" instance=ExtResource( 16 )]
-position = Vector2( 1911.61, 510.954 )
+position = Vector2( 2684.15, 492.569 )
 
 [node name="Enemy_Rat14" parent="World/Enemies/Rats" instance=ExtResource( 16 )]
 position = Vector2( 962.63, 442.546 )
@@ -748,7 +748,7 @@ position = Vector2( 962.63, 442.546 )
 position = Vector2( 3332.8, 473.156 )
 
 [node name="Enemy_Rat11" parent="World/Enemies/Rats" instance=ExtResource( 16 )]
-position = Vector2( 4044.7, 501.324 )
+position = Vector2( 4214.86, 512.015 )
 
 [node name="Enemy_Rat12" parent="World/Enemies/Rats" instance=ExtResource( 16 )]
 position = Vector2( 3630.12, 497.395 )
