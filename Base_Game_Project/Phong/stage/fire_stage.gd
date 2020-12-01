@@ -1,12 +1,12 @@
-extends Node
+extends TileMap
 
 onready var falling_fire_timer = $Fire_Falling_Timer
 var falling_fire_scene = preload("res://Miriya/Object_Scripts/flame.tscn")
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
 
+
+func _ready():
+	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

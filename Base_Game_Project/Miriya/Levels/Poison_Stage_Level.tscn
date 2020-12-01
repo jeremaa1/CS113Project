@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Miriya/GroundImages/tree_branch.png" type="Texture" id=1]
 [ext_resource path="res://An/characters/Player.tscn" type="PackedScene" id=2]
@@ -14,8 +14,7 @@
 [ext_resource path="res://Miriya/BackgroundImages/forest_background1_pixelated.PNG" type="Texture" id=12]
 [ext_resource path="res://Miriya/GroundImages/thorns_bush.png" type="Texture" id=13]
 [ext_resource path="res://Miriya/GroundImages/Beware_sign.png" type="Texture" id=14]
-[ext_resource path="res://Miriya/Object_Scripts/health_potion.gd" type="Script" id=15]
-[ext_resource path="res://Miriya/GroundImages/potion.png" type="Texture" id=16]
+[ext_resource path="res://An/Tiles/Tall_Grass.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Miriya/GroundImages/right_arrow_sign.png" type="Texture" id=17]
 [ext_resource path="res://An/enemies/Skeleton/skeleton.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Phong/objects/spellItem.tscn" type="PackedScene" id=19]
@@ -30,59 +29,51 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 40.5286, 34.0085 )
 
-[sub_resource type="CapsuleShape2D" id=2]
-radius = 4.73315
-height = 38.9802
-
-[sub_resource type="CapsuleShape2D" id=3]
-radius = 8.11362
-height = 17.4704
-
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 23.0933, 48.8714 )
 
-[sub_resource type="CircleShape2D" id=5]
+[sub_resource type="CircleShape2D" id=3]
 radius = 32.9331
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 59.3693, 13.0681 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 72, 10 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 88, 10 )
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 71.8065, 10 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 80, 10 )
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 80.8682, 10 )
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 80, 37.3519 )
 
-[sub_resource type="CapsuleShape2D" id=13]
+[sub_resource type="CapsuleShape2D" id=11]
 radius = 19.9236
 height = 46.1503
 
-[sub_resource type="CapsuleShape2D" id=14]
+[sub_resource type="CapsuleShape2D" id=12]
 radius = 40.7203
 height = 62.5594
 
-[sub_resource type="CircleShape2D" id=15]
+[sub_resource type="CircleShape2D" id=13]
 radius = 24.0
 
-[sub_resource type="RectangleShape2D" id=16]
+[sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 34.9053, 48.5327 )
 
-[sub_resource type="CircleShape2D" id=17]
+[sub_resource type="CircleShape2D" id=15]
 radius = 17.011
 
-[sub_resource type="CapsuleShape2D" id=18]
+[sub_resource type="CapsuleShape2D" id=16]
 radius = 16.2163
 height = 31.5674
 
@@ -106,7 +97,7 @@ scale = Vector2( 39.3974, 8.92623 )
 texture = ExtResource( 5 )
 
 [node name="Player" parent="World" instance=ExtResource( 2 )]
-position = Vector2( 48, 364.761 )
+position = Vector2( 56, 400.461 )
 
 [node name="Signs" type="Node" parent="World"]
 
@@ -162,68 +153,17 @@ texture = ExtResource( 3 )
 [node name="health_potion" parent="World/Potions" instance=ExtResource( 26 )]
 position = Vector2( 1192, 270.887 )
 
-[node name="health_potion2" type="Area2D" parent="World/Potions"]
-position = Vector2( 7072, 1488 )
-script = ExtResource( 15 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="World/Potions/health_potion2"]
-position = Vector2( 1.81201, 1.4502 )
-scale = Vector2( 0.473982, 0.506985 )
-texture = ExtResource( 16 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Potions/health_potion2"]
-position = Vector2( 1.43689, -1.10742 )
-shape = SubResource( 2 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="World/Potions/health_potion2"]
-position = Vector2( 0.713318, 18.6558 )
-rotation = 1.5708
-shape = SubResource( 3 )
-
-[node name="health_potion3" type="Area2D" parent="World/Potions"]
-position = Vector2( 4533.72, 768 )
-script = ExtResource( 15 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="World/Potions/health_potion3"]
-position = Vector2( 1.81201, 1.4502 )
-scale = Vector2( 0.473982, 0.506985 )
-texture = ExtResource( 16 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Potions/health_potion3"]
-position = Vector2( 1.43689, -1.10742 )
-shape = SubResource( 2 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="World/Potions/health_potion3"]
-position = Vector2( 0.713318, 18.6558 )
-rotation = 1.5708
-shape = SubResource( 3 )
-
-[node name="health_potion4" type="Area2D" parent="World/Potions"]
+[node name="health_potion2" parent="World/Potions" instance=ExtResource( 26 )]
 position = Vector2( 5504, 960 )
-script = ExtResource( 15 )
-__meta__ = {
-"_edit_group_": true
-}
 
-[node name="Sprite" type="Sprite" parent="World/Potions/health_potion4"]
-position = Vector2( 1.81201, 1.4502 )
-scale = Vector2( 0.473982, 0.506985 )
-texture = ExtResource( 16 )
+[node name="health_potion3" parent="World/Potions" instance=ExtResource( 26 )]
+position = Vector2( 4536, 772 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Potions/health_potion4"]
-position = Vector2( 1.43689, -1.10742 )
-shape = SubResource( 2 )
+[node name="health_potion5" parent="World/Potions" instance=ExtResource( 26 )]
+position = Vector2( 4439.95, -120 )
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="World/Potions/health_potion4"]
-position = Vector2( 0.713318, 18.6558 )
-rotation = 1.5708
-shape = SubResource( 3 )
+[node name="health_potion4" parent="World/Potions" instance=ExtResource( 26 )]
+position = Vector2( 7080.5, 1480 )
 
 [node name="Platforms" type="Node" parent="World"]
 
@@ -242,7 +182,7 @@ texture = ExtResource( 9 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/tree_stump"]
 position = Vector2( -1.09906, 1.35422 )
 scale = Vector2( 1.86306, 1.72386 )
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="tree_stump2" type="StaticBody2D" parent="World/Platforms"]
 position = Vector2( 1866.65, 424.338 )
@@ -259,7 +199,7 @@ texture = ExtResource( 9 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/tree_stump2"]
 position = Vector2( 1.7832, 1.41183 )
 scale = Vector2( 1.86306, 1.72386 )
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="tree_stump3" type="StaticBody2D" parent="World/Platforms"]
 position = Vector2( 6776, 431.959 )
@@ -276,7 +216,7 @@ texture = ExtResource( 9 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/tree_stump3"]
 position = Vector2( 1.7832, 1.41183 )
 scale = Vector2( 1.86306, 1.72386 )
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="blue_mushroom3" type="StaticBody2D" parent="World/Platforms"]
 position = Vector2( 3598.36, 483.069 )
@@ -291,7 +231,7 @@ texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/blue_mushroom3"]
 position = Vector2( 1.80991, 1.96432 )
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 
 [node name="blue_mushroom2" type="StaticBody2D" parent="World/Platforms"]
 position = Vector2( 8223.09, 418.697 )
@@ -306,7 +246,7 @@ texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/blue_mushroom2"]
 position = Vector2( 1.80991, 1.96432 )
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 
 [node name="tree_brach" type="StaticBody2D" parent="World/Platforms"]
 position = Vector2( 504, 240 )
@@ -321,7 +261,7 @@ flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/tree_brach"]
 position = Vector2( 5.17642, 7.91934 )
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 one_way_collision = true
 
 [node name="tree_brach4" type="StaticBody2D" parent="World/Platforms"]
@@ -338,7 +278,7 @@ flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/tree_brach4"]
 position = Vector2( -16, 7.99998 )
-shape = SubResource( 7 )
+shape = SubResource( 5 )
 one_way_collision = true
 
 [node name="tree_brach10" type="StaticBody2D" parent="World/Platforms"]
@@ -355,7 +295,7 @@ flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/tree_brach10"]
 position = Vector2( -16, 7.99998 )
-shape = SubResource( 7 )
+shape = SubResource( 5 )
 one_way_collision = true
 
 [node name="tree_brach5" type="StaticBody2D" parent="World/Platforms"]
@@ -371,7 +311,7 @@ flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/tree_brach5"]
 position = Vector2( 0.512939, 2.86479 )
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 one_way_collision = true
 
 [node name="tree_brach8" type="StaticBody2D" parent="World/Platforms"]
@@ -387,7 +327,7 @@ flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/tree_brach8"]
 position = Vector2( 0.512939, 2.86479 )
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 one_way_collision = true
 
 [node name="tree_brach15" type="StaticBody2D" parent="World/Platforms"]
@@ -403,7 +343,7 @@ flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/tree_brach15"]
 position = Vector2( 0.512939, 2.86479 )
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 one_way_collision = true
 
 [node name="tree_brach16" type="StaticBody2D" parent="World/Platforms"]
@@ -420,7 +360,7 @@ flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/tree_brach16"]
 position = Vector2( -33.6846, 0.503891 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 one_way_collision = true
 
 [node name="tree_brach19" type="StaticBody2D" parent="World/Platforms"]
@@ -437,7 +377,7 @@ flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/tree_brach19"]
 position = Vector2( -33.6846, 0.503891 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 one_way_collision = true
 
 [node name="tree_brach22" type="StaticBody2D" parent="World/Platforms"]
@@ -454,7 +394,7 @@ flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/tree_brach22"]
 position = Vector2( -33.6846, 0.503891 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 one_way_collision = true
 
 [node name="tree_brach24" type="StaticBody2D" parent="World/Platforms"]
@@ -471,7 +411,7 @@ flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/tree_brach24"]
 position = Vector2( -33.6846, 0.503891 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 one_way_collision = true
 
 [node name="tree_brach25" type="StaticBody2D" parent="World/Platforms"]
@@ -488,7 +428,7 @@ flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/tree_brach25"]
 position = Vector2( -33.6846, 0.503891 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 one_way_collision = true
 
 [node name="tree_brach12" type="StaticBody2D" parent="World/Platforms"]
@@ -504,7 +444,7 @@ flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/tree_brach12"]
 position = Vector2( 0.512939, 2.86479 )
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 one_way_collision = true
 
 [node name="tree_brach2" type="StaticBody2D" parent="World/Platforms"]
@@ -520,7 +460,7 @@ texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/tree_brach2"]
 position = Vector2( 16.8179, -2.52267 )
-shape = SubResource( 9 )
+shape = SubResource( 7 )
 one_way_collision = true
 
 [node name="tree_brach6" type="StaticBody2D" parent="World/Platforms"]
@@ -536,7 +476,7 @@ texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/tree_brach6"]
 position = Vector2( 17.42, 4.0538 )
-shape = SubResource( 10 )
+shape = SubResource( 8 )
 one_way_collision = true
 
 [node name="tree_brach7" type="StaticBody2D" parent="World/Platforms"]
@@ -551,7 +491,7 @@ texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/tree_brach7"]
 position = Vector2( -0.868103, 6.76648 )
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 one_way_collision = true
 
 [node name="tree_brach9" type="StaticBody2D" parent="World/Platforms"]
@@ -567,7 +507,7 @@ texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/tree_brach9"]
 position = Vector2( 16, 6.20261 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 one_way_collision = true
 
 [node name="tree_brach20" type="StaticBody2D" parent="World/Platforms"]
@@ -583,7 +523,7 @@ texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/tree_brach20"]
 position = Vector2( 16, 6.20261 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 one_way_collision = true
 
 [node name="tree_brach21" type="StaticBody2D" parent="World/Platforms"]
@@ -599,7 +539,7 @@ texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/tree_brach21"]
 position = Vector2( 16, 6.20261 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 one_way_collision = true
 
 [node name="tree_brach23" type="StaticBody2D" parent="World/Platforms"]
@@ -615,7 +555,7 @@ texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/tree_brach23"]
 position = Vector2( 16, 6.20261 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 one_way_collision = true
 
 [node name="tree_brach26" type="StaticBody2D" parent="World/Platforms"]
@@ -631,7 +571,7 @@ texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/tree_brach26"]
 position = Vector2( 16, 6.20261 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 one_way_collision = true
 
 [node name="tree_brach13" type="StaticBody2D" parent="World/Platforms"]
@@ -646,7 +586,7 @@ texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/tree_brach13"]
 position = Vector2( -0.868103, 6.76648 )
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 one_way_collision = true
 
 [node name="tree_brach17" type="StaticBody2D" parent="World/Platforms"]
@@ -661,11 +601,11 @@ texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/tree_brach17"]
 position = Vector2( -0.868103, 6.76648 )
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 one_way_collision = true
 
 [node name="tree_brach11" type="StaticBody2D" parent="World/Platforms"]
-position = Vector2( 4640, -115.039 )
+position = Vector2( 4664, -115.5 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -676,7 +616,7 @@ texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/tree_brach11"]
 position = Vector2( -0.868103, 6.76648 )
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 one_way_collision = true
 
 [node name="tree_brach14" type="StaticBody2D" parent="World/Platforms"]
@@ -691,7 +631,7 @@ texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/tree_brach14"]
 position = Vector2( -0.868103, 6.76648 )
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 one_way_collision = true
 
 [node name="tree_brach18" type="StaticBody2D" parent="World/Platforms"]
@@ -706,7 +646,7 @@ texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/tree_brach18"]
 position = Vector2( -0.868103, 6.76648 )
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 one_way_collision = true
 
 [node name="tree_brach3" type="StaticBody2D" parent="World/Platforms"]
@@ -721,7 +661,7 @@ texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/tree_brach3"]
 position = Vector2( -0.142334, 4.43051 )
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 one_way_collision = true
 
 [node name="fallen_log" type="StaticBody2D" parent="World/Platforms"]
@@ -739,7 +679,7 @@ texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/fallen_log"]
 position = Vector2( -23.9999, -21.8211 )
-shape = SubResource( 12 )
+shape = SubResource( 10 )
 
 [node name="flat_rock" type="StaticBody2D" parent="World/Platforms"]
 position = Vector2( 1511.95, 485.885 )
@@ -755,7 +695,7 @@ texture = ExtResource( 4 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/flat_rock"]
 position = Vector2( -19.0702, 5.29736 )
 rotation = 1.5708
-shape = SubResource( 13 )
+shape = SubResource( 11 )
 
 [node name="flat_rock4" type="StaticBody2D" parent="World/Platforms"]
 position = Vector2( 2744, 1320 )
@@ -771,7 +711,7 @@ texture = ExtResource( 4 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/flat_rock4"]
 position = Vector2( -19.0702, 5.29736 )
 rotation = 1.5708
-shape = SubResource( 13 )
+shape = SubResource( 11 )
 
 [node name="flat_rock5" type="StaticBody2D" parent="World/Platforms"]
 position = Vector2( 2816, 1320 )
@@ -787,7 +727,7 @@ texture = ExtResource( 4 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/flat_rock5"]
 position = Vector2( -19.0702, 5.29736 )
 rotation = 1.5708
-shape = SubResource( 13 )
+shape = SubResource( 11 )
 
 [node name="flat_rock6" type="StaticBody2D" parent="World/Platforms"]
 position = Vector2( 2080, 1640 )
@@ -803,7 +743,7 @@ texture = ExtResource( 4 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/flat_rock6"]
 position = Vector2( -19.0702, 5.29736 )
 rotation = 1.5708
-shape = SubResource( 13 )
+shape = SubResource( 11 )
 
 [node name="flat_rock2" type="StaticBody2D" parent="World/Platforms"]
 position = Vector2( 8112.18, 499.173 )
@@ -819,7 +759,7 @@ texture = ExtResource( 4 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/flat_rock2"]
 position = Vector2( -19.0702, 5.29736 )
 rotation = 1.5708
-shape = SubResource( 13 )
+shape = SubResource( 11 )
 
 [node name="flat_rock3" type="StaticBody2D" parent="World/Platforms"]
 position = Vector2( 8215.09, 486.895 )
@@ -836,11 +776,11 @@ flip_h = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/flat_rock3"]
 position = Vector2( 0, -1.39307 )
 rotation = 1.5708
-shape = SubResource( 14 )
+shape = SubResource( 12 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="World/Platforms/flat_rock3"]
 position = Vector2( 64, 16.1472 )
-shape = SubResource( 15 )
+shape = SubResource( 13 )
 
 [node name="smaller_tree_trunk" type="StaticBody2D" parent="World/Platforms"]
 modulate = Color( 0.72549, 0.72549, 0.72549, 1 )
@@ -856,7 +796,7 @@ texture = ExtResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/smaller_tree_trunk"]
 position = Vector2( -3.21988, 3.6324 )
-shape = SubResource( 16 )
+shape = SubResource( 14 )
 
 [node name="smaller_tree_trunk2" type="StaticBody2D" parent="World/Platforms"]
 modulate = Color( 0.72549, 0.72549, 0.72549, 1 )
@@ -872,7 +812,7 @@ texture = ExtResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/smaller_tree_trunk2"]
 position = Vector2( -3.21988, 3.6324 )
-shape = SubResource( 16 )
+shape = SubResource( 14 )
 
 [node name="red_mushroom" type="StaticBody2D" parent="World/Platforms"]
 position = Vector2( 3672, 280 )
@@ -888,7 +828,7 @@ flip_v = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/red_mushroom"]
 position = Vector2( -17.8051, -9.11252 )
-shape = SubResource( 17 )
+shape = SubResource( 15 )
 
 [node name="red_mushroom4" type="StaticBody2D" parent="World/Platforms"]
 position = Vector2( 2208, 1048 )
@@ -904,7 +844,7 @@ flip_v = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/red_mushroom4"]
 position = Vector2( -17.8051, -9.11252 )
-shape = SubResource( 17 )
+shape = SubResource( 15 )
 
 [node name="purple_mushroom3" type="StaticBody2D" parent="World/Platforms"]
 position = Vector2( 3176, 952 )
@@ -921,7 +861,7 @@ flip_v = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/purple_mushroom3"]
 position = Vector2( 8, -16.0582 )
 rotation = 1.5708
-shape = SubResource( 18 )
+shape = SubResource( 16 )
 
 [node name="purple_mushroom4" type="StaticBody2D" parent="World/Platforms"]
 position = Vector2( 2432, 824 )
@@ -938,7 +878,7 @@ flip_v = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platforms/purple_mushroom4"]
 position = Vector2( 8, -16.0582 )
 rotation = 1.5708
-shape = SubResource( 18 )
+shape = SubResource( 16 )
 
 [node name="Damaging_Platforms" type="Node" parent="World"]
 
@@ -1118,6 +1058,71 @@ scale = Vector2( 1.5, 1.5 )
 [node name="poison_mushroom14" parent="World/Poison_Mushrooms" instance=ExtResource( 10 )]
 position = Vector2( 768, 408 )
 scale = Vector2( 0.5, 0.5 )
-[connection signal="body_entered" from="World/Potions/health_potion2" to="World/Potions/health_potion2" method="_on_health_potion_body_entered"]
-[connection signal="body_entered" from="World/Potions/health_potion3" to="World/Potions/health_potion3" method="_on_health_potion_body_entered"]
-[connection signal="body_entered" from="World/Potions/health_potion4" to="World/Potions/health_potion4" method="_on_health_potion_body_entered"]
+
+[node name="SlowedGrass" type="Node" parent="World"]
+
+[node name="Tall_Grass" parent="World/SlowedGrass" instance=ExtResource( 15 )]
+position = Vector2( 2456, 304 )
+
+[node name="Tall_Grass2" parent="World/SlowedGrass" instance=ExtResource( 15 )]
+position = Vector2( 2400, 302.857 )
+
+[node name="Tall_Grass7" parent="World/SlowedGrass" instance=ExtResource( 15 )]
+position = Vector2( 2032, 1328 )
+
+[node name="Tall_Grass10" parent="World/SlowedGrass" instance=ExtResource( 15 )]
+position = Vector2( 3913.35, 1648 )
+
+[node name="Tall_Grass11" parent="World/SlowedGrass" instance=ExtResource( 15 )]
+position = Vector2( 3962, 1648 )
+
+[node name="Tall_Grass12" parent="World/SlowedGrass" instance=ExtResource( 15 )]
+position = Vector2( 4328, 1648 )
+
+[node name="Tall_Grass19" parent="World/SlowedGrass" instance=ExtResource( 15 )]
+position = Vector2( 4816, 1904 )
+
+[node name="Tall_Grass18" parent="World/SlowedGrass" instance=ExtResource( 15 )]
+position = Vector2( 6088, 1584 )
+
+[node name="Tall_Grass20" parent="World/SlowedGrass" instance=ExtResource( 15 )]
+position = Vector2( 6568, 1776 )
+
+[node name="Tall_Grass21" parent="World/SlowedGrass" instance=ExtResource( 15 )]
+position = Vector2( 7136, 1904 )
+
+[node name="Tall_Grass22" parent="World/SlowedGrass" instance=ExtResource( 15 )]
+position = Vector2( 7536, 1776 )
+
+[node name="Tall_Grass13" parent="World/SlowedGrass" instance=ExtResource( 15 )]
+position = Vector2( 4824, 1328 )
+
+[node name="Tall_Grass14" parent="World/SlowedGrass" instance=ExtResource( 15 )]
+position = Vector2( 4152, 1392 )
+
+[node name="Tall_Grass15" parent="World/SlowedGrass" instance=ExtResource( 15 )]
+position = Vector2( 5992, 496 )
+
+[node name="Tall_Grass16" parent="World/SlowedGrass" instance=ExtResource( 15 )]
+position = Vector2( 6040, 496 )
+
+[node name="Tall_Grass17" parent="World/SlowedGrass" instance=ExtResource( 15 )]
+position = Vector2( 6424, 304.784 )
+
+[node name="Tall_Grass8" parent="World/SlowedGrass" instance=ExtResource( 15 )]
+position = Vector2( 2096, 1328 )
+
+[node name="Tall_Grass9" parent="World/SlowedGrass" instance=ExtResource( 15 )]
+position = Vector2( 1808, 1328 )
+
+[node name="Tall_Grass3" parent="World/SlowedGrass" instance=ExtResource( 15 )]
+position = Vector2( 3680, 176 )
+
+[node name="Tall_Grass4" parent="World/SlowedGrass" instance=ExtResource( 15 )]
+position = Vector2( 3736, 176 )
+
+[node name="Tall_Grass5" parent="World/SlowedGrass" instance=ExtResource( 15 )]
+position = Vector2( 4664, 240 )
+
+[node name="Tall_Grass6" parent="World/SlowedGrass" instance=ExtResource( 15 )]
+position = Vector2( 4720, 240 )

@@ -24,7 +24,8 @@ func clear_spells_inv():
 	var slots = spell_slots.get_children()
 	for s in range(1, slots.size()):
 		if slots[s].get_child_count() > 0:
-			slots[s].remove_child(slots[s].get_child(0))
+			#slots[s].remove_child(slots[s].get_child(0))
+			slots[s].get_child(0).free()
 	
 	
 	#for s in spell_slots.get_children():

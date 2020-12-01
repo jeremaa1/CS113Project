@@ -141,7 +141,7 @@ ui_shoot6={
 
 [rendering]
 
-environment/default_clear_color=Color( 0.14902, 0.192157, 0.219608, 1 )
+environment/default_clear_color=Color( 0.0509804, 0.129412, 0.188235, 1 )
 environment/default_environment="res://default_env.tres"
 
 [world]
