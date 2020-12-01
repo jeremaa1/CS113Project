@@ -32,6 +32,6 @@ func _on_VisibilityNotifier2D_screen_exited():
 func _on_IceSpell_body_entered(body):
 		#ADDED
 	if "Enemy" in body.name:
-		body.take_damage(25, "ice")
+		body.take_damage((20 * Global.multiplier), "ice")
 	#END 
 	queue_free()

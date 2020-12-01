@@ -17,7 +17,7 @@ func _process(delta):
 func _on_Fire_Falling_Timer_timeout():
 		var random_location_num = RandomNumberGenerator.new()
 		var screen_dimensions = get_viewport().get_visible_rect().size
-		var player_position = get_node("player").position
+		var player_position = get_node("Player").position
 		print("player position: ", player_position)
 		
 		print(screen_dimensions)

@@ -32,6 +32,6 @@ func _on_VisibilityNotifier2D_screen_exited():
 func _on_BaseSpell_body_entered(body):
 	#ADDED
 	if "Enemy" in body.name:
-		body.take_damage(25, "base")
+		body.take_damage((25 * Global.multiplier), "base")
 	#END 
 	queue_free()

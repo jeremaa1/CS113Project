@@ -8,5 +8,6 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	AudContainer.stop_aud()
 	SpellInventory.hide_inv()
 	pass # Replace with function body.

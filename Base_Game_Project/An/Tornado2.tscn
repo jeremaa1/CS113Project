@@ -1,0 +1,54 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Miriya/GroundImages/tornado_frame5.png" type="Texture" id=1]
+[ext_resource path="res://Miriya/GroundImages/tornado_frame3.png" type="Texture" id=2]
+[ext_resource path="res://Miriya/GroundImages/tornado_frame4.png" type="Texture" id=3]
+[ext_resource path="res://Miriya/GroundImages/tornado_frame2.png" type="Texture" id=4]
+[ext_resource path="res://Miriya/GroundImages/tornado_frame1.png" type="Texture" id=5]
+[ext_resource path="res://An/Tornado2.gd" type="Script" id=6]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ SubResource( 1 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "idle",
+"speed": 10.0
+} ]
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 33.5887
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 24, 27 )
+
+[node name="Tornado2" type="KinematicBody2D"]
+scale = Vector2( 1.2, 1.2 )
+z_index = 1
+script = ExtResource( 6 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 2 )
+animation = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0, 1 )
+z_index = 1
+z_as_relative = false
+shape = SubResource( 3 )
+disabled = true
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 0, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0, -2 )
+shape = SubResource( 4 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

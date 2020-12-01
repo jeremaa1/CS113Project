@@ -22,10 +22,9 @@ func _on_Button_Pressed():
 		SpellInventory.reveal_inv()
 		Tutorial.tutorial_on = true
 		Tutorial.tutorial_init()
-		#get_tree().reload_current_scene()
-		#get_tree().change_scene(ref_path)
 	elif Global.curr_scn != null:
 		FadeEffect.scene_change(Global.curr_scn, 'fade')
+		AudContainer.play_aud()
 		SpellInventory.reveal_inv()
 	else:
 		Global.spells.clear()

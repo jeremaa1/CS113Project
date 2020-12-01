@@ -14,6 +14,7 @@ func _input(event):
 			
 		get_tree().paused = false
 		tutorial_on = false
+		AudContainer.play_aud()
 
 func tutorial_init():
 	yield(get_tree().create_timer(1.9), "timeout")
