@@ -28,6 +28,6 @@ func _on_VisibilityNotifier2D_screen_exited():
 func _on_EarthSpell_body_entered(body):
 	#ADDED
 	if "Enemy" in body.name:
-		body.take_damage(50, "earth")
+		body.take_damage((50 * Global.multiplier), "earth")
 	#END 
 	queue_free()

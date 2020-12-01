@@ -13,6 +13,8 @@ var obt_ice = false
 var obt_light = false
 var obt_earth = false
 
+var multiplier = 1
+
 var curr_scn = null
 
 func add_spell(name):
@@ -41,6 +43,7 @@ func re_init():
 	spells.clear()
 	spells = {0: ["base"]}
 	SpellInventory.init_spells_inv()
+	multiplier = 1
 
 #func debug_global():
 #	print("debug")

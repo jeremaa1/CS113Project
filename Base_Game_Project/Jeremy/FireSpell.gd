@@ -32,7 +32,7 @@ func _on_VisibilityNotifier2D_screen_exited():
 func _on_FireSpell_body_entered(body):
 		#ADDED
 	if "Enemy" in body.name:
-		body.take_damage(50, "fire")
+		body.take_damage((50 * Global.multiplier), "fire")
 	#END 
 	queue_free()
 	

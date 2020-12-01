@@ -42,6 +42,6 @@ func _on_EarthSpellPhysics_body_entered(body):
 	#ADDED
 	if abs(float(linear_velocity.x)) > 600 or linear_velocity.y < -200:
 		if "Enemy" in body.name:
-			body.take_damage(100, "earth")
-		if "player" in body.name:
+			body.take_damage((100 * Global.multiplier), "earth")
+		if "Player" in body.name:
 			body.take_damage(20)
