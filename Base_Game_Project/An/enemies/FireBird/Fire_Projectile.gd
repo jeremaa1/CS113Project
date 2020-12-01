@@ -33,6 +33,7 @@ func _process(delta):
 			destroyed = true
 	else:
 		velocity.x = 0
+		
 		$AnimatedSprite.play("destroyed")
 
 
