@@ -43,7 +43,7 @@ margin_bottom = 127.622
 texture_normal = ExtResource( 4 )
 texture_hover = ExtResource( 2 )
 expand = true
-ref_path = "res://Phong/move.tscn"
+ref_path = "res://Phong/stage/tm.tscn"
 
 [node name="exit" parent="." instance=ExtResource( 6 )]
 anchor_left = 0.5
