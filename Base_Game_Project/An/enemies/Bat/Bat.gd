@@ -20,9 +20,9 @@ signal char_died()
 signal update_max_health(max_health)
 
 
-var dead = false
+var is_dead = false
 func _physics_process(delta):
-	if dead:
+	if is_dead:
 		$AnimatedSprite.play("destroyed")
 		motion.x = 0
 		motion.y += gravity
@@ -61,7 +61,7 @@ func take_damage(value, spell):
 	_set_health(health-value)
 	
 func dead():
-	dead = true
+	is_dead = true
 	
 	#queue_free()
 	
