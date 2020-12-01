@@ -44,10 +44,10 @@ func _set_health(value):
 			emit_signal("char_died")
 			
 func dead():
+	AudContainer.lower_pitch()
 	get_tree().paused = true
 	yield(get_tree().create_timer(0.7), "timeout")
 	get_tree().paused = false
-	#queue_free()
 	FadeEffect.scene_change("res://Phong/UI/gameOver.tscn", 'fade')
 	print(Global.curr_scn)
 	

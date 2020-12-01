@@ -17,7 +17,7 @@ func _physics_process(delta):
 
 
 func _on_flame_body_entered(body):
-	if body.name == 'player':
+	if body.name == 'Player':
 		body.take_damage(10)
 		queue_free()
 	else:

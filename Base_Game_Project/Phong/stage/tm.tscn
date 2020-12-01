@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=2]
+[gd_scene load_steps=101 format=2]
 
 [ext_resource path="res://grass_block64.png" type="Texture" id=1]
 [ext_resource path="res://Miriya/GroundImages/fallen_log.png" type="Texture" id=2]
@@ -18,6 +18,9 @@
 [ext_resource path="res://Phong/objects/flame.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Phong/objects/teleport.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Miriya/Object_Scripts/flame.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Phong/img/wood.png" type="Texture" id=19]
+[ext_resource path="res://Miriya/Object_Scripts/health_potion.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Phong/stage/fire_stage.gd" type="Script" id=21]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
@@ -147,31 +150,31 @@ region = Rect2( 0, 0, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 5 )
-region = Rect2( 144, 0, 36, 36 )
+region = Rect2( 216, 0, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 5 )
-region = Rect2( 216, 0, 36, 36 )
+region = Rect2( 252, 0, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 5 )
-region = Rect2( 252, 0, 36, 36 )
+region = Rect2( 0, 0, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 5 )
-region = Rect2( 0, 0, 36, 36 )
+region = Rect2( 36, 0, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 5 )
-region = Rect2( 36, 0, 36, 36 )
+region = Rect2( 72, 0, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 5 )
-region = Rect2( 72, 0, 36, 36 )
+region = Rect2( 108, 0, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 5 )
-region = Rect2( 108, 0, 36, 36 )
+region = Rect2( 144, 0, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 6 )
@@ -192,20 +195,20 @@ animations = [ {
 "name": "idle",
 "speed": 0.0
 }, {
-"frames": [ SubResource( 8 ) ],
-"loop": false,
-"name": "jump",
-"speed": 0.0
-}, {
-"frames": [ SubResource( 9 ), SubResource( 10 ) ],
+"frames": [ SubResource( 8 ), SubResource( 9 ) ],
 "loop": true,
 "name": "fall",
 "speed": 8.0
 }, {
-"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
+"frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
 "loop": true,
 "name": "run",
 "speed": 6.0
+}, {
+"frames": [ SubResource( 14 ) ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
 }, {
 "frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
 "loop": false,
@@ -432,13 +435,14 @@ b = Vector2( 76.3711, -1.5126 )
 [sub_resource type="RectangleShape2D" id=79]
 extents = Vector2( 34.3997, 215.967 )
 
-[node name="TileMap64" type="TileMap"]
+[node name="world" type="TileMap"]
 tile_set = SubResource( 6 )
 format = 1
-tile_data = PoolIntArray( 131322, 0, 0, 131323, 0, 0, 131324, 0, 0, 131325, 0, 0, 131326, 0, 0, 131327, 0, 0, 131328, 0, 0, 131329, 0, 0, 131330, 0, 0, 131331, 0, 0, 196858, 0, 0, 196859, 0, 0, 196860, 0, 0, 196861, 0, 0, 196862, 0, 0, 196863, 0, 0, 196864, 0, 0, 196865, 0, 0, 196866, 0, 0, 196867, 0, 0, 262393, 0, 0, 262394, 0, 0, 262395, 0, 0, 262396, 0, 0, 262397, 0, 0, 262398, 0, 0, 262399, 0, 0, 262400, 0, 0, 262401, 0, 0, 262402, 0, 0, 262403, 0, 0, 327929, 0, 0, 327930, 0, 0, 327931, 0, 0, 327932, 0, 0, 327933, 0, 0, 327934, 0, 0, 327935, 0, 0, 327936, 0, 0, 327937, 0, 0, 327938, 0, 0, 327939, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 393232, 0, 0, 393233, 0, 0, 393234, 0, 0, 393334, 0, 0, 393465, 0, 0, 393466, 0, 0, 393467, 0, 0, 393468, 0, 0, 393469, 0, 0, 393470, 0, 0, 393471, 0, 0, 393472, 0, 0, 393473, 0, 0, 393474, 0, 0, 393475, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0, 458770, 0, 0, 458771, 0, 0, 458870, 0, 0, 458871, 0, 0, 459000, 0, 0, 459001, 0, 0, 459002, 0, 0, 459003, 0, 0, 459004, 0, 0, 459005, 0, 0, 459006, 0, 0, 459007, 0, 0, 459008, 0, 0, 459009, 0, 0, 459010, 0, 0, 459011, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0, 524305, 0, 0, 524306, 0, 0, 524307, 0, 0, 524308, 0, 0, 524406, 0, 0, 524407, 0, 0, 524408, 0, 0, 524409, 0, 0, 524410, 0, 0, 524411, 0, 0, 524412, 0, 0, 524413, 0, 0, 524414, 0, 0, 524415, 0, 0, 524416, 0, 0, 524417, 0, 0, 524418, 0, 0, 524419, 0, 0, 524420, 0, 0, 524421, 0, 0, 524424, 0, 0, 524425, 0, 0, 524426, 0, 0, 524427, 0, 0, 524428, 0, 0, 524429, 0, 0, 524430, 0, 0, 524431, 0, 0, 524432, 0, 0, 524433, 0, 0, 524434, 0, 0, 524435, 0, 0, 524436, 0, 0, 524437, 0, 0, 524438, 0, 0, 524439, 0, 0, 524440, 0, 0, 524441, 0, 0, 524442, 0, 0, 524443, 0, 0, 524444, 0, 0, 524454, 0, 0, 524455, 0, 0, 524456, 0, 0, 524457, 0, 0, 524458, 0, 0, 524459, 0, 0, 524460, 0, 0, 524461, 0, 0, 524462, 0, 0, 524463, 0, 0, 524464, 0, 0, 524465, 0, 0, 524466, 0, 0, 524467, 0, 0, 524468, 0, 0, 524469, 0, 0, 524470, 0, 0, 524471, 0, 0, 524472, 0, 0, 524473, 0, 0, 524474, 0, 0, 524475, 0, 0, 524476, 0, 0, 524479, 0, 0, 524480, 0, 0, 524481, 0, 0, 524482, 0, 0, 524484, 0, 0, 524485, 0, 0, 524486, 0, 0, 524487, 0, 0, 524492, 0, 0, 524493, 0, 0, 524494, 0, 0, 524535, 0, 0, 524536, 0, 0, 524537, 0, 0, 524538, 0, 0, 524539, 0, 0, 524540, 0, 0, 524541, 0, 0, 524542, 0, 0, 524543, 0, 0, 524544, 0, 0, 524545, 0, 0, 524546, 0, 0, 524547, 0, 0, 524612, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 589839, 0, 0, 589840, 0, 0, 589841, 0, 0, 589842, 0, 0, 589843, 0, 0, 589844, 0, 0, 589942, 0, 0, 589943, 0, 0, 589944, 0, 0, 589945, 0, 0, 589946, 0, 0, 589947, 0, 0, 589948, 0, 0, 589949, 0, 0, 589950, 0, 0, 589951, 0, 0, 589952, 0, 0, 589953, 0, 0, 589954, 0, 0, 589955, 0, 0, 589956, 0, 0, 589957, 0, 0, 589958, 0, 0, 589959, 0, 0, 589960, 0, 0, 589961, 0, 0, 589962, 0, 0, 589963, 0, 0, 589964, 0, 0, 589965, 0, 0, 589966, 0, 0, 589967, 0, 0, 589968, 0, 0, 589969, 0, 0, 589970, 0, 0, 589971, 0, 0, 589972, 0, 0, 589973, 0, 0, 589974, 0, 0, 589975, 0, 0, 589976, 0, 0, 589977, 0, 0, 589978, 0, 0, 589979, 0, 0, 589980, 0, 0, 589990, 0, 0, 589991, 0, 0, 589992, 0, 0, 589993, 0, 0, 589994, 0, 0, 589995, 0, 0, 589996, 0, 0, 589997, 0, 0, 589998, 0, 0, 589999, 0, 0, 590000, 0, 0, 590001, 0, 0, 590002, 0, 0, 590003, 0, 0, 590004, 0, 0, 590005, 0, 0, 590006, 0, 0, 590007, 0, 0, 590008, 0, 0, 590009, 0, 0, 590010, 0, 0, 590011, 0, 0, 590012, 0, 0, 590013, 0, 0, 590014, 0, 0, 590015, 0, 0, 590016, 0, 0, 590017, 0, 0, 590018, 0, 0, 590019, 0, 0, 590020, 0, 0, 590021, 0, 0, 590022, 0, 0, 590023, 0, 0, 590024, 0, 0, 590025, 0, 0, 590026, 0, 0, 590027, 0, 0, 590028, 0, 0, 590029, 0, 0, 590030, 0, 0, 590031, 0, 0, 590071, 0, 0, 590072, 0, 0, 590073, 0, 0, 590074, 0, 0, 590075, 0, 0, 590076, 0, 0, 590077, 0, 0, 590078, 0, 0, 590079, 0, 0, 590080, 0, 0, 590081, 0, 0, 590082, 0, 0, 590083, 0, 0, 590148, 0, 0, 720895, 0, 0, 655360, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 0, 0, 655380, 0, 0, 655381, 0, 0, 655382, 0, 0, 655383, 0, 0, 655384, 0, 0, 655385, 0, 0, 655386, 0, 0, 655387, 0, 0, 655388, 0, 0, 655389, 0, 0, 655390, 0, 0, 655391, 0, 0, 655392, 0, 0, 655393, 0, 0, 655396, 0, 0, 655397, 0, 0, 655398, 0, 0, 655399, 0, 0, 655400, 0, 0, 655401, 0, 0, 655402, 0, 0, 655403, 0, 0, 655404, 0, 0, 655405, 0, 0, 655406, 0, 0, 655407, 0, 0, 655408, 0, 0, 655409, 0, 0, 655410, 0, 0, 655411, 0, 0, 655412, 0, 0, 655413, 0, 0, 655414, 0, 0, 655415, 0, 0, 655416, 0, 0, 655417, 0, 0, 655418, 0, 0, 655419, 0, 0, 655420, 0, 0, 655421, 0, 0, 655422, 0, 0, 655423, 0, 0, 655424, 0, 0, 655425, 0, 0, 655426, 0, 0, 655427, 0, 0, 655428, 0, 0, 655429, 0, 0, 655430, 0, 0, 655431, 0, 0, 655432, 0, 0, 655433, 0, 0, 655434, 0, 0, 655435, 0, 0, 655436, 0, 0, 655437, 0, 0, 655438, 0, 0, 655439, 0, 0, 655440, 0, 0, 655441, 0, 0, 655442, 0, 0, 655443, 0, 0, 655444, 0, 0, 655478, 0, 0, 655479, 0, 0, 655480, 0, 0, 655481, 0, 0, 655482, 0, 0, 655483, 0, 0, 655484, 0, 0, 655485, 0, 0, 655486, 0, 0, 655487, 0, 0, 655488, 0, 0, 655489, 0, 0, 655490, 0, 0, 655491, 0, 0, 655492, 0, 0, 655493, 0, 0, 655494, 0, 0, 655495, 0, 0, 655496, 0, 0, 655497, 0, 0, 655498, 0, 0, 655499, 0, 0, 655500, 0, 0, 655501, 0, 0, 655502, 0, 0, 655503, 0, 0, 655504, 0, 0, 655505, 0, 0, 655506, 0, 0, 655507, 0, 0, 655508, 0, 0, 655509, 0, 0, 655510, 0, 0, 655511, 0, 0, 655512, 0, 0, 655513, 0, 0, 655514, 0, 0, 655515, 0, 0, 655516, 0, 0, 655517, 0, 0, 655518, 0, 0, 655522, 0, 0, 655523, 0, 0, 655524, 0, 0, 655525, 0, 0, 655526, 0, 0, 655527, 0, 0, 655528, 0, 0, 655529, 0, 0, 655530, 0, 0, 655531, 0, 0, 655532, 0, 0, 655533, 0, 0, 655534, 0, 0, 655535, 0, 0, 655536, 0, 0, 655537, 0, 0, 655538, 0, 0, 655539, 0, 0, 655540, 0, 0, 655541, 0, 0, 655542, 0, 0, 655543, 0, 0, 655544, 0, 0, 655545, 0, 0, 655546, 0, 0, 655547, 0, 0, 655548, 0, 0, 655549, 0, 0, 655550, 0, 0, 655551, 0, 0, 655552, 0, 0, 655553, 0, 0, 655554, 0, 0, 655555, 0, 0, 655556, 0, 0, 655557, 0, 0, 655558, 0, 0, 655559, 0, 0, 655560, 0, 0, 655561, 0, 0, 655562, 0, 0, 655563, 0, 0, 655564, 0, 0, 655565, 0, 0, 655566, 0, 0, 655567, 0, 0, 655600, 0, 0, 655601, 0, 0, 655602, 0, 0, 655603, 0, 0, 655604, 0, 0, 655605, 0, 0, 655606, 0, 0, 655607, 0, 0, 655608, 0, 0, 655609, 0, 0, 655610, 0, 0, 655611, 0, 0, 655612, 0, 0, 655613, 0, 0, 655614, 0, 0, 655615, 0, 0, 655616, 0, 0, 655617, 0, 0, 655618, 0, 0, 655619, 0, 0, 655620, 0, 0, 655621, 0, 0, 655622, 0, 0, 655623, 0, 0, 655624, 0, 0, 655627, 0, 0, 655628, 0, 0, 655629, 0, 0, 655630, 0, 0, 655631, 0, 0, 655632, 0, 0, 655633, 0, 0, 655634, 0, 0, 655635, 0, 0, 655636, 0, 0, 655637, 0, 0, 655638, 0, 0, 655639, 0, 0, 655640, 0, 0, 655641, 0, 0, 655642, 0, 0, 655643, 0, 0, 655644, 0, 0, 655645, 0, 0, 655646, 0, 0, 655647, 0, 0, 655648, 0, 0, 655649, 0, 0, 655650, 0, 0, 655651, 0, 0, 655654, 0, 0, 655655, 0, 0, 655656, 0, 0, 655657, 0, 0, 655658, 0, 0, 655659, 0, 0, 655660, 0, 0, 655661, 0, 0, 655662, 0, 0, 655663, 0, 0, 655664, 0, 0, 655667, 0, 0, 655668, 0, 0, 655669, 0, 0, 655670, 0, 0, 655671, 0, 0, 655672, 0, 0, 655673, 0, 0, 655674, 0, 0, 655675, 0, 0, 655676, 0, 0, 655677, 0, 0, 655678, 0, 0, 655679, 0, 0, 655680, 0, 0, 655681, 0, 0, 655682, 0, 0, 655683, 0, 0, 655684, 0, 0, 655685, 0, 0, 655686, 0, 0, 655687, 0, 0, 655688, 0, 0, 655689, 0, 0 )
+tile_data = PoolIntArray( 131322, 0, 0, 131323, 0, 0, 131324, 0, 0, 131325, 0, 0, 131326, 0, 0, 131327, 0, 0, 131328, 0, 0, 131329, 0, 0, 131330, 0, 0, 131331, 0, 0, 196858, 0, 0, 196859, 0, 0, 196860, 0, 0, 196861, 0, 0, 196862, 0, 0, 196863, 0, 0, 196864, 0, 0, 196865, 0, 0, 196866, 0, 0, 196867, 0, 0, 262393, 0, 0, 262394, 0, 0, 262395, 0, 0, 262396, 0, 0, 262397, 0, 0, 262398, 0, 0, 262399, 0, 0, 262400, 0, 0, 262401, 0, 0, 262402, 0, 0, 262403, 0, 0, 327929, 0, 0, 327930, 0, 0, 327931, 0, 0, 327932, 0, 0, 327933, 0, 0, 327934, 0, 0, 327935, 0, 0, 327936, 0, 0, 327937, 0, 0, 327938, 0, 0, 327939, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 393232, 0, 0, 393233, 0, 0, 393234, 0, 0, 393334, 0, 0, 393465, 0, 0, 393466, 0, 0, 393467, 0, 0, 393468, 0, 0, 393469, 0, 0, 393470, 0, 0, 393471, 0, 0, 393472, 0, 0, 393473, 0, 0, 393474, 0, 0, 393475, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0, 458770, 0, 0, 458771, 0, 0, 458870, 0, 0, 458871, 0, 0, 459000, 0, 0, 459001, 0, 0, 459002, 0, 0, 459003, 0, 0, 459004, 0, 0, 459005, 0, 0, 459006, 0, 0, 459007, 0, 0, 459008, 0, 0, 459009, 0, 0, 459010, 0, 0, 459011, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0, 524305, 0, 0, 524306, 0, 0, 524307, 0, 0, 524308, 0, 0, 524406, 0, 0, 524407, 0, 0, 524408, 0, 0, 524409, 0, 0, 524410, 0, 0, 524411, 0, 0, 524412, 0, 0, 524413, 0, 0, 524414, 0, 0, 524415, 0, 0, 524416, 0, 0, 524417, 0, 0, 524418, 0, 0, 524419, 0, 0, 524420, 0, 0, 524421, 0, 0, 524424, 0, 0, 524425, 0, 0, 524426, 0, 0, 524427, 0, 0, 524428, 0, 0, 524429, 0, 0, 524430, 0, 0, 524431, 0, 0, 524432, 0, 0, 524433, 0, 0, 524434, 0, 0, 524435, 0, 0, 524436, 0, 0, 524437, 0, 0, 524438, 0, 0, 524439, 0, 0, 524440, 0, 0, 524441, 0, 0, 524442, 0, 0, 524443, 0, 0, 524444, 0, 0, 524454, 0, 0, 524455, 0, 0, 524456, 0, 0, 524457, 0, 0, 524458, 0, 0, 524459, 0, 0, 524460, 0, 0, 524461, 0, 0, 524462, 0, 0, 524463, 0, 0, 524464, 0, 0, 524465, 0, 0, 524466, 0, 0, 524467, 0, 0, 524468, 0, 0, 524469, 0, 0, 524470, 0, 0, 524471, 0, 0, 524472, 0, 0, 524473, 0, 0, 524474, 0, 0, 524475, 0, 0, 524476, 0, 0, 524479, 0, 0, 524480, 0, 0, 524481, 0, 0, 524482, 0, 0, 524484, 0, 0, 524485, 0, 0, 524486, 0, 0, 524487, 0, 0, 524492, 0, 0, 524493, 0, 0, 524494, 0, 0, 524535, 0, 0, 524536, 0, 0, 524537, 0, 0, 524538, 0, 0, 524539, 0, 0, 524540, 0, 0, 524541, 0, 0, 524542, 0, 0, 524543, 0, 0, 524544, 0, 0, 524545, 0, 0, 524546, 0, 0, 524547, 0, 0, 524612, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 589839, 0, 0, 589840, 0, 0, 589841, 0, 0, 589842, 0, 0, 589843, 0, 0, 589844, 0, 0, 589942, 0, 0, 589943, 0, 0, 589944, 0, 0, 589945, 0, 0, 589946, 0, 0, 589947, 0, 0, 589948, 0, 0, 589949, 0, 0, 589950, 0, 0, 589951, 0, 0, 589952, 0, 0, 589953, 0, 0, 589954, 0, 0, 589955, 0, 0, 589956, 0, 0, 589957, 0, 0, 589960, 0, 0, 589961, 0, 0, 589962, 0, 0, 589963, 0, 0, 589964, 0, 0, 589965, 0, 0, 589966, 0, 0, 589967, 0, 0, 589968, 0, 0, 589969, 0, 0, 589970, 0, 0, 589971, 0, 0, 589972, 0, 0, 589973, 0, 0, 589974, 0, 0, 589975, 0, 0, 589976, 0, 0, 589977, 0, 0, 589978, 0, 0, 589979, 0, 0, 589980, 0, 0, 589990, 0, 0, 589991, 0, 0, 589992, 0, 0, 589993, 0, 0, 589994, 0, 0, 589995, 0, 0, 589996, 0, 0, 589997, 0, 0, 589998, 0, 0, 589999, 0, 0, 590000, 0, 0, 590001, 0, 0, 590002, 0, 0, 590003, 0, 0, 590004, 0, 0, 590005, 0, 0, 590006, 0, 0, 590007, 0, 0, 590008, 0, 0, 590009, 0, 0, 590010, 0, 0, 590011, 0, 0, 590012, 0, 0, 590015, 0, 0, 590016, 0, 0, 590017, 0, 0, 590018, 0, 0, 590020, 0, 0, 590021, 0, 0, 590022, 0, 0, 590023, 0, 0, 590028, 0, 0, 590029, 0, 0, 590030, 0, 0, 590031, 0, 0, 590071, 0, 0, 590072, 0, 0, 590073, 0, 0, 590074, 0, 0, 590075, 0, 0, 590076, 0, 0, 590077, 0, 0, 590078, 0, 0, 590079, 0, 0, 590080, 0, 0, 590081, 0, 0, 590082, 0, 0, 590083, 0, 0, 590148, 0, 0, 720895, 0, 0, 655360, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 0, 0, 655380, 0, 0, 655381, 0, 0, 655382, 0, 0, 655383, 0, 0, 655384, 0, 0, 655385, 0, 0, 655386, 0, 0, 655387, 0, 0, 655388, 0, 0, 655389, 0, 0, 655390, 0, 0, 655391, 0, 0, 655392, 0, 0, 655393, 0, 0, 655396, 0, 0, 655397, 0, 0, 655398, 0, 0, 655399, 0, 0, 655400, 0, 0, 655401, 0, 0, 655402, 0, 0, 655403, 0, 0, 655404, 0, 0, 655405, 0, 0, 655406, 0, 0, 655407, 0, 0, 655408, 0, 0, 655409, 0, 0, 655410, 0, 0, 655411, 0, 0, 655412, 0, 0, 655413, 0, 0, 655414, 0, 0, 655415, 0, 0, 655416, 0, 0, 655417, 0, 0, 655418, 0, 0, 655419, 0, 0, 655420, 0, 0, 655421, 0, 0, 655422, 0, 0, 655423, 0, 0, 655424, 0, 0, 655425, 0, 0, 655426, 0, 0, 655427, 0, 0, 655428, 0, 0, 655429, 0, 0, 655430, 0, 0, 655431, 0, 0, 655432, 0, 0, 655433, 0, 0, 655434, 0, 0, 655435, 0, 0, 655436, 0, 0, 655437, 0, 0, 655438, 0, 0, 655439, 0, 0, 655440, 0, 0, 655441, 0, 0, 655442, 0, 0, 655443, 0, 0, 655444, 0, 0, 655478, 0, 0, 655479, 0, 0, 655480, 0, 0, 655481, 0, 0, 655482, 0, 0, 655483, 0, 0, 655484, 0, 0, 655485, 0, 0, 655486, 0, 0, 655487, 0, 0, 655488, 0, 0, 655489, 0, 0, 655490, 0, 0, 655491, 0, 0, 655492, 0, 0, 655493, 0, 0, 655496, 0, 0, 655497, 0, 0, 655498, 0, 0, 655499, 0, 0, 655500, 0, 0, 655501, 0, 0, 655502, 0, 0, 655503, 0, 0, 655504, 0, 0, 655505, 0, 0, 655506, 0, 0, 655507, 0, 0, 655508, 0, 0, 655509, 0, 0, 655510, 0, 0, 655511, 0, 0, 655512, 0, 0, 655513, 0, 0, 655514, 0, 0, 655515, 0, 0, 655516, 0, 0, 655517, 0, 0, 655518, 0, 0, 655522, 0, 0, 655523, 0, 0, 655524, 0, 0, 655525, 0, 0, 655526, 0, 0, 655527, 0, 0, 655528, 0, 0, 655529, 0, 0, 655530, 0, 0, 655531, 0, 0, 655532, 0, 0, 655533, 0, 0, 655534, 0, 0, 655535, 0, 0, 655536, 0, 0, 655537, 0, 0, 655538, 0, 0, 655539, 0, 0, 655540, 0, 0, 655541, 0, 0, 655542, 0, 0, 655543, 0, 0, 655544, 0, 0, 655545, 0, 0, 655546, 0, 0, 655547, 0, 0, 655548, 0, 0, 655551, 0, 0, 655552, 0, 0, 655553, 0, 0, 655554, 0, 0, 655556, 0, 0, 655557, 0, 0, 655558, 0, 0, 655559, 0, 0, 655564, 0, 0, 655565, 0, 0, 655566, 0, 0, 655567, 0, 0, 655600, 0, 0, 655601, 0, 0, 655602, 0, 0, 655603, 0, 0, 655604, 0, 0, 655605, 0, 0, 655606, 0, 0, 655607, 0, 0, 655608, 0, 0, 655609, 0, 0, 655610, 0, 0, 655611, 0, 0, 655612, 0, 0, 655613, 0, 0, 655614, 0, 0, 655615, 0, 0, 655616, 0, 0, 655617, 0, 0, 655618, 0, 0, 655619, 0, 0, 655620, 0, 0, 655621, 0, 0, 655622, 0, 0, 655623, 0, 0, 655624, 0, 0, 655627, 0, 0, 655628, 0, 0, 655629, 0, 0, 655630, 0, 0, 655631, 0, 0, 655632, 0, 0, 655633, 0, 0, 655634, 0, 0, 655635, 0, 0, 655636, 0, 0, 655637, 0, 0, 655638, 0, 0, 655639, 0, 0, 655640, 0, 0, 655641, 0, 0, 655642, 0, 0, 655643, 0, 0, 655644, 0, 0, 655645, 0, 0, 655646, 0, 0, 655647, 0, 0, 655648, 0, 0, 655649, 0, 0, 655650, 0, 0, 655651, 0, 0, 655654, 0, 0, 655655, 0, 0, 655656, 0, 0, 655657, 0, 0, 655658, 0, 0, 655659, 0, 0, 655660, 0, 0, 655661, 0, 0, 655662, 0, 0, 655663, 0, 0, 655664, 0, 0, 655667, 0, 0, 655668, 0, 0, 655669, 0, 0, 655670, 0, 0, 655671, 0, 0, 655672, 0, 0, 655673, 0, 0, 655674, 0, 0, 655675, 0, 0, 655676, 0, 0, 655677, 0, 0, 655678, 0, 0, 655679, 0, 0, 655680, 0, 0, 655681, 0, 0, 655682, 0, 0, 655683, 0, 0, 655684, 0, 0, 655685, 0, 0, 655686, 0, 0, 655687, 0, 0, 655688, 0, 0, 655689, 0, 0 )
+script = ExtResource( 21 )
 
 [node name="fire_stage_background" type="Sprite" parent="."]
-position = Vector2( 10686.3, -18.2611 )
+position = Vector2( 10688, -20.2541 )
 scale = Vector2( 0.95011, 0.968252 )
 z_index = -1
 texture = ExtResource( 12 )
@@ -456,7 +460,7 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 630, 150 )
 
 [node name="Player" type="KinematicBody2D" parent="."]
-position = Vector2( 19057.1, 79.1246 )
+position = Vector2( 20000, 568.641 )
 collision_layer = 3
 collision_mask = 4
 script = ExtResource( 9 )
@@ -495,6 +499,16 @@ zoom = Vector2( 1.15, 1.15 )
 limit_left = -35
 limit_smoothed = true
 smoothing_enabled = true
+
+[node name="teleport" parent="." instance=ExtResource( 17 )]
+position = Vector2( 20992, 509.746 )
+scene_path = "res://Phong/UI/ending.tscn"
+
+[node name="Fire_Falling_Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="flame2" parent="." instance=ExtResource( 18 )]
+position = Vector2( 264, -96 )
 
 [node name="Platforms" type="Node" parent="."]
 
@@ -897,21 +911,20 @@ rotation = 0.872665
 shape = SubResource( 48 )
 
 [node name="log1_h2" type="StaticBody2D" parent="logs"]
-position = Vector2( 14245.8, 410.319 )
+position = Vector2( 14248, 410.551 )
 rotation = 0.698132
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="Sprite" parent="logs/log1_h2"]
-position = Vector2( -50.676, 49.3299 )
-rotation = -0.698132
-scale = Vector2( 1.03404, 1.06232 )
-z_index = -1
-texture = ExtResource( 2 )
+position = Vector2( -43.1558, 59.5612 )
+rotation = 0.872665
+scale = Vector2( 0.760147, 1.15585 )
+texture = ExtResource( 19 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="logs/log1_h2"]
-position = Vector2( -43.3975, 59.5146 )
+position = Vector2( -43.21, 60.5176 )
 rotation = 0.872665
 shape = SubResource( 49 )
 
@@ -1005,7 +1018,7 @@ rotation = 0.872665
 shape = SubResource( 52 )
 
 [node name="log2_h2" type="StaticBody2D" parent="logs"]
-position = Vector2( 13861.3, 410.672 )
+position = Vector2( 13864, 410.695 )
 rotation = 0.698132
 __meta__ = {
 "_edit_group_": true
@@ -1456,15 +1469,18 @@ position = Vector2( 5268.85, 571.243 )
 
 [node name="Enemy_skeleton7" parent="ske" instance=ExtResource( 13 )]
 position = Vector2( 7591.37, 315.563 )
+attackDamage = 30
 
 [node name="Enemy_skeleton8" parent="ske" instance=ExtResource( 13 )]
 position = Vector2( 11375.7, 444.246 )
 
 [node name="Enemy_skeleton9" parent="ske" instance=ExtResource( 13 )]
 position = Vector2( 15399.3, 573.483 )
+attackDamage = 30
 
 [node name="Enemy_skeleton10" parent="ske" instance=ExtResource( 13 )]
 position = Vector2( 9864.2, 444.278 )
+attackDamage = 30
 
 [node name="Enemy_skeleton11" parent="ske" instance=ExtResource( 13 )]
 position = Vector2( 9252.46, 217.54 )
@@ -1495,59 +1511,96 @@ position = Vector2( 18649, 570.9 )
 
 [node name="Enemy_skeleton20" parent="ske" instance=ExtResource( 13 )]
 position = Vector2( 19720, 572.707 )
+attackDamage = 30
 
 [node name="Enemy_skeleton21" parent="ske" instance=ExtResource( 13 )]
 position = Vector2( 20693.8, 572.707 )
+attackDamage = 30
 
 [node name="bird" type="Node" parent="."]
 
 [node name="Enemy_FireBird15" parent="bird" instance=ExtResource( 14 )]
 position = Vector2( 18378.2, 597.055 )
+shootRange = 450
+projectileSpeed = 500
+cooldown = 1.0
+flip = true
 
 [node name="Enemy_FireBird12" parent="bird" instance=ExtResource( 14 )]
-position = Vector2( 18721.1, 282.435 )
+position = Vector2( 18723.5, 264 )
+shootRange = 400
+projectileSpeed = 500
+cooldown = 1.0
 
 [node name="Enemy_FireBird13" parent="bird" instance=ExtResource( 14 )]
 position = Vector2( 19575.3, 304.885 )
+shootRange = 350
+projectileSpeed = 500
+cooldown = 1.0
 
 [node name="Enemy_FireBird14" parent="bird" instance=ExtResource( 14 )]
 position = Vector2( 18381.2, 520.641 )
+shootRange = 450
+projectileSpeed = 500
+cooldown = 1.0
+flip = true
 
 [node name="Enemy_FireBird7" parent="bird" instance=ExtResource( 14 )]
 position = Vector2( 10398.2, 603.692 )
 
 [node name="Enemy_FireBird8" parent="bird" instance=ExtResource( 14 )]
 position = Vector2( 11654.5, 477.135 )
+shootRange = 350
+projectileSpeed = 450
 
 [node name="Enemy_FireBird9" parent="bird" instance=ExtResource( 14 )]
 position = Vector2( 17117.6, 609.278 )
+projectileSpeed = 350
 
 [node name="Enemy_FireBird10" parent="bird" instance=ExtResource( 14 )]
 position = Vector2( 19576.5, 381.212 )
+shootRange = 350
+projectileSpeed = 500
+cooldown = 1.0
 
 [node name="Enemy_FireBird11" parent="bird" instance=ExtResource( 14 )]
-position = Vector2( 18721.1, 377.845 )
+position = Vector2( 18721.1, 378.212 )
+shootRange = 400
+projectileSpeed = 500
+cooldown = 1.0
 
 [node name="Enemy_FireBird" parent="bird" instance=ExtResource( 14 )]
 position = Vector2( 4797.44, 483.597 )
+projectileSpeed = 450
 
 [node name="Enemy_FireBird5" parent="bird" instance=ExtResource( 14 )]
 position = Vector2( 7719.48, 346.517 )
+projectileSpeed = 350
 
 [node name="Enemy_FireBird3" parent="bird" instance=ExtResource( 14 )]
 position = Vector2( 7119.33, 465.607 )
+projectileSpeed = 450
+cooldown = 1.0
 
 [node name="Enemy_FireBird16" parent="bird" instance=ExtResource( 14 )]
 position = Vector2( 3430.76, 524.175 )
+shootRange = 600
+projectileSpeed = 450
 
 [node name="Enemy_FireBird2" parent="bird" instance=ExtResource( 14 )]
 position = Vector2( 5051.93, 482.408 )
+shootRange = 500
+projectileSpeed = 450
 
 [node name="Enemy_FireBird4" parent="bird" instance=ExtResource( 14 )]
 position = Vector2( 5332.58, 480.029 )
+shootRange = 600
+projectileSpeed = 400
 
 [node name="Enemy_FireBird6" parent="bird" instance=ExtResource( 14 )]
 position = Vector2( 8633.01, 418.483 )
+shootRange = 350
+projectileSpeed = 450
 
 [node name="spells" type="Node" parent="."]
 
@@ -1611,6 +1664,12 @@ position = Vector2( 6940.58, 675.909 )
 [node name="flame18" parent="flame" instance=ExtResource( 16 )]
 position = Vector2( 8608.01, 545.068 )
 
+[node name="flame52" parent="flame" instance=ExtResource( 16 )]
+position = Vector2( 8608.01, 609.278 )
+
+[node name="flame53" parent="flame" instance=ExtResource( 16 )]
+position = Vector2( 8608.01, 673.628 )
+
 [node name="flame21" parent="flame" instance=ExtResource( 16 )]
 position = Vector2( 10209.2, 673.628 )
 
@@ -1623,26 +1682,68 @@ position = Vector2( 10336.6, 673.628 )
 [node name="flame25" parent="flame" instance=ExtResource( 16 )]
 position = Vector2( 12128.6, 545.022 )
 
+[node name="flame38" parent="flame" instance=ExtResource( 16 )]
+position = Vector2( 12128.6, 609.278 )
+
+[node name="flame39" parent="flame" instance=ExtResource( 16 )]
+position = Vector2( 12128.6, 673.628 )
+
 [node name="flame26" parent="flame" instance=ExtResource( 16 )]
 position = Vector2( 12192.8, 545.651 )
+
+[node name="flame40" parent="flame" instance=ExtResource( 16 )]
+position = Vector2( 12192, 609.278 )
+
+[node name="flame41" parent="flame" instance=ExtResource( 16 )]
+position = Vector2( 12192, 673.994 )
 
 [node name="flame27" parent="flame" instance=ExtResource( 16 )]
 position = Vector2( 12512.1, 545.521 )
 
+[node name="flame42" parent="flame" instance=ExtResource( 16 )]
+position = Vector2( 12512.1, 609.278 )
+
+[node name="flame43" parent="flame" instance=ExtResource( 16 )]
+position = Vector2( 12512.1, 673.628 )
+
 [node name="flame28" parent="flame" instance=ExtResource( 16 )]
 position = Vector2( 12832, 544.666 )
+
+[node name="flame44" parent="flame" instance=ExtResource( 16 )]
+position = Vector2( 12832, 609.278 )
+
+[node name="flame45" parent="flame" instance=ExtResource( 16 )]
+position = Vector2( 12832, 673.628 )
 
 [node name="flame29" parent="flame" instance=ExtResource( 16 )]
 position = Vector2( 12896, 544.666 )
 
+[node name="flame46" parent="flame" instance=ExtResource( 16 )]
+position = Vector2( 12896, 609.278 )
+
+[node name="flame47" parent="flame" instance=ExtResource( 16 )]
+position = Vector2( 12896, 673.628 )
+
 [node name="flame30" parent="flame" instance=ExtResource( 16 )]
 position = Vector2( 12960, 544.668 )
 
+[node name="flame48" parent="flame" instance=ExtResource( 16 )]
+position = Vector2( 12960, 609.278 )
+
+[node name="flame49" parent="flame" instance=ExtResource( 16 )]
+position = Vector2( 12960, 673.628 )
+
 [node name="flame31" parent="flame" instance=ExtResource( 16 )]
-position = Vector2( 13024.2, 544.37 )
+position = Vector2( 13024.2, 544.668 )
+
+[node name="flame50" parent="flame" instance=ExtResource( 16 )]
+position = Vector2( 13024.2, 609.278 )
+
+[node name="flame51" parent="flame" instance=ExtResource( 16 )]
+position = Vector2( 13024.2, 673.628 )
 
 [node name="flame32" parent="flame" instance=ExtResource( 16 )]
-position = Vector2( 16992, 673.994 )
+position = Vector2( 16992, 673.628 )
 
 [node name="flame33" parent="flame" instance=ExtResource( 16 )]
 position = Vector2( 17056, 673.628 )
@@ -1661,6 +1762,12 @@ position = Vector2( 18784, 673.628 )
 
 [node name="flame22" parent="flame" instance=ExtResource( 16 )]
 position = Vector2( 8672.31, 545.068 )
+
+[node name="flame54" parent="flame" instance=ExtResource( 16 )]
+position = Vector2( 8672.31, 609.278 )
+
+[node name="flame55" parent="flame" instance=ExtResource( 16 )]
+position = Vector2( 8672.31, 673.994 )
 
 [node name="flame19" parent="flame" instance=ExtResource( 16 )]
 position = Vector2( 7252.53, 675.852 )
@@ -1826,11 +1933,31 @@ position = Vector2( 13536, 672 )
 [node name="flame37" parent="flameL" instance=ExtResource( 16 )]
 position = Vector2( 13600, 671.941 )
 
-[node name="teleport" parent="." instance=ExtResource( 17 )]
-position = Vector2( 20992, 509.746 )
-scene_path = "res://An/Stage_Storm.tscn"
+[node name="health" type="Node" parent="."]
 
-[node name="flame2" parent="." instance=ExtResource( 18 )]
-position = Vector2( 16322.4, -359.13 )
+[node name="health_potion" parent="health" instance=ExtResource( 20 )]
+position = Vector2( 3040, 542.472 )
+
+[node name="health_potion8" parent="health" instance=ExtResource( 20 )]
+position = Vector2( 7001.44, 483.065 )
+
+[node name="health_potion2" parent="health" instance=ExtResource( 20 )]
+position = Vector2( 9312, 258 )
+
+[node name="health_potion3" parent="health" instance=ExtResource( 20 )]
+position = Vector2( 10920, 288.683 )
+
+[node name="health_potion4" parent="health" instance=ExtResource( 20 )]
+position = Vector2( 15904, 354.139 )
+
+[node name="health_potion5" parent="health" instance=ExtResource( 20 )]
+position = Vector2( 19240, 117.54 )
+
+[node name="health_potion7" parent="health" instance=ExtResource( 20 )]
+position = Vector2( 17633.4, 488 )
+
+[node name="health_potion6" parent="health" instance=ExtResource( 20 )]
+position = Vector2( 20256, 609.278 )
 [connection signal="update_health" from="Player" to="Player" method="_on_player_update_health"]
 [connection signal="animation_finished" from="Player/AnimatedSprite" to="Player" method="_on_AnimatedSprite_animation_finished"]
+[connection signal="timeout" from="Fire_Falling_Timer" to="." method="_on_Fire_Falling_Timer_timeout"]

@@ -8,8 +8,15 @@ func _ready():
 
 func play_aud():
 	$aud.stream = aud
+	$aud.pitch_scale = 1
 	$aud.volume_db = -20
 	$aud.play()
 
 func stop_aud():
 	$aud.playing = false
+
+func lower_pitch():
+	$aud.pitch_scale = 0.5
+
+func higher_pitch():
+	$aud.pitch_scale = 1.5

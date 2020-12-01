@@ -8,6 +8,10 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	AudContainer.stop_aud()
 	SpellInventory.hide_inv()
-	pass # Replace with function body.
+	AudContainer.higher_pitch()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
