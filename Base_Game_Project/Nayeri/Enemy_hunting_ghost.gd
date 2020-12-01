@@ -35,7 +35,6 @@ func _set_health(value):
 			emit_signal("char_died")
 
 func dead():
-	print("dead called")
 	is_dead = true
 	velocity = Vector2(0,0)
 	$AnimatedSprite.play("dead")
@@ -113,16 +112,14 @@ func take_damage(value, spell):
 		_set_health(health)
 	else:
 			_set_health(health - value)
-	print(health)
+
 	
 func _on_Enemy_hunting_ghost_update_health(health):
 	health_bar.value = health
 
 func _on_Freeze_timer_timeout():
-	print("timed out ")
 	ice = false
 	velocity = old_velocity
-	print(velocity)
 	$AnimatedSprite.play("Walk")
 
 

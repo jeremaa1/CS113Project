@@ -15,14 +15,14 @@ animations = [ {
 "name": "dead",
 "speed": 3.0
 }, {
-"frames": [ ExtResource( 4 ) ],
-"loop": false,
-"name": "freeze",
-"speed": 1.0
-}, {
 "frames": [ ExtResource( 1 ) ],
 "loop": false,
 "name": "Walk",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": false,
+"name": "freeze",
 "speed": 1.0
 } ]
 

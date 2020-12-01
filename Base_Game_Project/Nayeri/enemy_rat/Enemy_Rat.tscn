@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Nayeri/enemy_rat/rat_4.png" type="Texture" id=1]
 [ext_resource path="res://Nayeri/enemy_rat/rat_1.png" type="Texture" id=2]
@@ -7,9 +7,16 @@
 [ext_resource path="res://Nayeri/enemy_rat/rat_5.png" type="Texture" id=5]
 [ext_resource path="res://Nayeri/enemy_rat/rat_6.png" type="Texture" id=6]
 [ext_resource path="res://Nayeri/enemy_rat/Enemy_Rat.gd" type="Script" id=7]
+[ext_resource path="res://Nayeri/enemy_rat/rat_dead1.png" type="Texture" id=8]
+[ext_resource path="res://Nayeri/enemy_rat/rat_dead2.png" type="Texture" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": false,
+"name": "dead",
+"speed": 3.0
+}, {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "run",
@@ -17,12 +24,12 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 3.1955
-height = 32.654
+radius = 2.37879
+height = 36.9602
 
 [sub_resource type="CapsuleShape2D" id=3]
 radius = 1.45238
-height = 41.9311
+height = 42.822
 
 [node name="Enemy_Rat" type="KinematicBody2D"]
 script = ExtResource( 7 )
@@ -30,16 +37,13 @@ script = ExtResource( 7 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 1 )
-animation = "run"
+animation = "dead"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.44545, -1.55907 )
+position = Vector2( 0, -1.67 )
 rotation = 1.5708
 scale = Vector2( 1.5, 1.5 )
 shape = SubResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="RatDetectRegion" type="Area2D" parent="."]
 
@@ -47,4 +51,8 @@ __meta__ = {
 rotation = 1.5708
 scale = Vector2( 1.5, 1.5 )
 shape = SubResource( 3 )
+
+[node name="Death_time" type="Timer" parent="."]
+wait_time = 0.5
 [connection signal="body_entered" from="RatDetectRegion" to="." method="_on_RatDetectRegion_body_entered"]
+[connection signal="timeout" from="Death_time" to="." method="_on_Death_time_timeout"]
