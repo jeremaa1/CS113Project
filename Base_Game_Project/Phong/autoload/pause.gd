@@ -31,3 +31,9 @@ func visible_off():
 	for node in get_children():
 		node.visible = false
 
+
+
+func _on_TextureButton_pressed():
+	visible_off()
+	Tutorial.tutorial_on = true
+	Tutorial.open_tutorial()	

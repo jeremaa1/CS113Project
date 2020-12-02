@@ -1,7 +1,6 @@
 extends Node
 
 const MAX_SPELL = 5
-#var init_position = Vector2(224, 448)
 
 var init_spells = {
 	0: ["base"]
@@ -16,6 +15,7 @@ var obt_earth = false
 var multiplier = 1
 
 var curr_scn = null
+var play_audio = false
 
 func add_spell(name):
 	for i in range(1, MAX_SPELL):
