@@ -18,7 +18,7 @@ func _on_Fire_Falling_Timer_timeout():
 		var random_location_num = RandomNumberGenerator.new()
 		var screen_dimensions = get_viewport().get_visible_rect().size
 		var player_position = get_node("Player").position
-		print("player position: ", player_position)
+		#print("player position: ", player_position)
 		
 		print(screen_dimensions)
 		var fire = falling_fire_scene.instance()
