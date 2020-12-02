@@ -1,11 +1,10 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://An/characters/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Miriya/GroundImages/fire_hydrant.png" type="Texture" id=2]
 [ext_resource path="res://Miriya/GroundImages/trash_can.png" type="Texture" id=3]
 [ext_resource path="res://Miriya/Object_Scripts/Tilemap_Sidewalk64.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Miriya/GroundImages/bench.png" type="Texture" id=5]
-[ext_resource path="res://Phong/objects/spellItem.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Nayeri/Enemy_FirstGhost.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Miriya/GroundImages/flat_stone.png" type="Texture" id=8]
 [ext_resource path="res://Miriya/BackgroundImages/ghost_town_background_pixelated.PNG" type="Texture" id=9]
@@ -17,6 +16,8 @@
 [ext_resource path="res://Miriya/GroundImages/potion.png" type="Texture" id=15]
 [ext_resource path="res://Nayeri/enemy_rat/Enemy_Rat.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Nayeri/trash/Trash.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Phong/objects/teleport.tscn" type="PackedScene" id=18]
+[ext_resource path="res://An/SpellPickup.tscn" type="PackedScene" id=19]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 20.9321
@@ -83,8 +84,7 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 5590, 856 )
 
 [node name="Player" parent="World" instance=ExtResource( 1 )]
-position = Vector2( 24.5813, 173.672 )
-GOD = true
+position = Vector2( 0, 438.748 )
 
 [node name="Tilemap_Sidewalk64" parent="World" instance=ExtResource( 4 )]
 position = Vector2( -3, 0 )
@@ -637,14 +637,12 @@ shape = SubResource( 14 )
 
 [node name="Spells" type="Node" parent="World"]
 
-[node name="spellItem" parent="World/Spells" instance=ExtResource( 6 )]
-position = Vector2( 166.741, 477.726 )
-the_sprite = "res://Phong/objects/spells_icon/ice.png"
+[node name="SpellPickup" parent="World/Spells" instance=ExtResource( 19 )]
+position = Vector2( 168.56, 482.455 )
 spell_name = "ice"
 
-[node name="spellItem2" parent="World/Spells" instance=ExtResource( 6 )]
-position = Vector2( 3000.92, 1201.69 )
-the_sprite = "res://Phong/objects/spells_icon/fire.png"
+[node name="SpellPickup2" parent="World/Spells" instance=ExtResource( 19 )]
+position = Vector2( 3000.84, 1247 )
 spell_name = "fire"
 
 [node name="Enemies" type="Node" parent="World"]
@@ -756,4 +754,8 @@ position = Vector2( 3630.12, 497.395 )
 [node name="Enemy_Rat4" parent="World/Enemies/Rats" instance=ExtResource( 16 )]
 position = Vector2( 759, 457 )
 direction = 1
+
+[node name="teleport" parent="World" instance=ExtResource( 18 )]
+position = Vector2( 8444.09, 382.491 )
+scene_path = "res://Phong/stage/tm.tscn"
 [connection signal="body_entered" from="World/Potions/health_potion" to="World/Potions/health_potion" method="_on_health_potion_body_entered"]

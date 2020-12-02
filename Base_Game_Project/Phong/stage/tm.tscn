@@ -14,13 +14,13 @@
 [ext_resource path="res://Miriya/BackgroundImages/fire_scene_larger_pixelated.png" type="Texture" id=12]
 [ext_resource path="res://An/enemies/Skeleton/skeleton.tscn" type="PackedScene" id=13]
 [ext_resource path="res://An/enemies/FireBird/FireBird.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Phong/objects/spellItem.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Phong/objects/flame.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Phong/objects/teleport.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Miriya/Object_Scripts/flame.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Phong/img/wood.png" type="Texture" id=19]
 [ext_resource path="res://Miriya/Object_Scripts/health_potion.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Phong/stage/fire_stage.gd" type="Script" id=21]
+[ext_resource path="res://An/SpellPickup.tscn" type="PackedScene" id=22]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
@@ -150,31 +150,31 @@ region = Rect2( 0, 0, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 5 )
-region = Rect2( 216, 0, 36, 36 )
+region = Rect2( 144, 0, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 5 )
-region = Rect2( 252, 0, 36, 36 )
+region = Rect2( 216, 0, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 5 )
-region = Rect2( 0, 0, 36, 36 )
+region = Rect2( 252, 0, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 5 )
-region = Rect2( 36, 0, 36, 36 )
+region = Rect2( 0, 0, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 5 )
-region = Rect2( 72, 0, 36, 36 )
+region = Rect2( 36, 0, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 5 )
-region = Rect2( 108, 0, 36, 36 )
+region = Rect2( 72, 0, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 5 )
-region = Rect2( 144, 0, 36, 36 )
+region = Rect2( 108, 0, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 6 )
@@ -195,20 +195,20 @@ animations = [ {
 "name": "idle",
 "speed": 0.0
 }, {
-"frames": [ SubResource( 8 ), SubResource( 9 ) ],
+"frames": [ SubResource( 8 ) ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [ SubResource( 9 ), SubResource( 10 ) ],
 "loop": true,
 "name": "fall",
 "speed": 8.0
 }, {
-"frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
+"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
 "loop": true,
 "name": "run",
 "speed": 6.0
-}, {
-"frames": [ SubResource( 14 ) ],
-"loop": false,
-"name": "jump",
-"speed": 0.0
 }, {
 "frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
 "loop": false,
@@ -442,7 +442,7 @@ tile_data = PoolIntArray( 131322, 0, 0, 131323, 0, 0, 131324, 0, 0, 131325, 0, 0
 script = ExtResource( 21 )
 
 [node name="fire_stage_background" type="Sprite" parent="."]
-position = Vector2( 10688, -20.2541 )
+position = Vector2( 10708.2, 52.063 )
 scale = Vector2( 0.95011, 0.968252 )
 z_index = -1
 texture = ExtResource( 12 )
@@ -460,14 +460,13 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 630, 150 )
 
 [node name="Player" type="KinematicBody2D" parent="."]
-position = Vector2( 20000, 568.641 )
+position = Vector2( 94.4353, 563.328 )
 collision_layer = 3
 collision_mask = 4
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_group_": true
 }
-GOD = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
 scale = Vector2( 4, 4 )
@@ -502,9 +501,10 @@ smoothing_enabled = true
 
 [node name="teleport" parent="." instance=ExtResource( 17 )]
 position = Vector2( 20992, 509.746 )
-scene_path = "res://Phong/UI/ending.tscn"
+scene_path = "res://An/Stage_Storm.tscn"
 
 [node name="Fire_Falling_Timer" type="Timer" parent="."]
+wait_time = 0.5
 one_shot = true
 
 [node name="flame2" parent="." instance=ExtResource( 18 )]
@@ -1604,15 +1604,13 @@ projectileSpeed = 450
 
 [node name="spells" type="Node" parent="."]
 
-[node name="spellItem" parent="spells" instance=ExtResource( 15 )]
-position = Vector2( 19257.4, 395.357 )
-the_sprite = "res://Phong/objects/spells_icon/lighting.png"
-spell_name = "lighting"
-
-[node name="spellItem2" parent="spells" instance=ExtResource( 15 )]
-position = Vector2( 18224.9, 567.408 )
-the_sprite = "res://Phong/objects/spells_icon/fire.png"
+[node name="SpellPickup" parent="spells" instance=ExtResource( 22 )]
+position = Vector2( 10864.7, 290.986 )
 spell_name = "fire"
+
+[node name="SpellPickup2" parent="spells" instance=ExtResource( 22 )]
+position = Vector2( 19238.8, 385.408 )
+spell_name = "lighting"
 
 [node name="flame" type="Node" parent="."]
 
@@ -1956,8 +1954,8 @@ position = Vector2( 19240, 117.54 )
 [node name="health_potion7" parent="health" instance=ExtResource( 20 )]
 position = Vector2( 17633.4, 488 )
 
-[node name="health_potion6" parent="health" instance=ExtResource( 20 )]
-position = Vector2( 20256, 609.278 )
+[node name="health_potion9" parent="health" instance=ExtResource( 20 )]
+position = Vector2( 18186.4, 607.817 )
 [connection signal="update_health" from="Player" to="Player" method="_on_player_update_health"]
 [connection signal="animation_finished" from="Player/AnimatedSprite" to="Player" method="_on_AnimatedSprite_animation_finished"]
 [connection signal="timeout" from="Fire_Falling_Timer" to="." method="_on_Fire_Falling_Timer_timeout"]

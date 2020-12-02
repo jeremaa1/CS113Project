@@ -22,7 +22,7 @@ func _physics_process(delta):
 func _on_Area2D_body_entered(body):
 	if 'Player' in body.name:
 		body.motion.y = body.JUMP_HEIGHT * 1.8
-		body.take_damage(10)
+		body.take_damage(5)
 		#body.global_position.y += body.JUMP_HEIGHT
 
 
