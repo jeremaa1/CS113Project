@@ -51,3 +51,6 @@ func _on_HitBox_body_entered(body):
 	if 'Player' in body.name:
 		body.take_damage(damage)
 		body.set_speed(slowSpeed, slowTime)
+
+func take_damage(dmg, type):
+	pass

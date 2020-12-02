@@ -42,3 +42,6 @@ func _on_RatDetectRegion_body_entered(body):
 
 func _on_Death_time_timeout():
 	queue_free()
+
+func take_damage(dmg, type):
+	pass

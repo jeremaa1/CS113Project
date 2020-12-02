@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Miriya/GroundImages/tree_branch.png" type="Texture" id=1]
 [ext_resource path="res://An/characters/Player.tscn" type="PackedScene" id=2]
@@ -15,9 +15,10 @@
 [ext_resource path="res://Miriya/GroundImages/thorns_bush.png" type="Texture" id=13]
 [ext_resource path="res://Miriya/GroundImages/Beware_sign.png" type="Texture" id=14]
 [ext_resource path="res://An/Tiles/Tall_Grass.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Phong/objects/teleport.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Miriya/GroundImages/right_arrow_sign.png" type="Texture" id=17]
 [ext_resource path="res://An/enemies/Skeleton/skeleton.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Phong/objects/spellItem.tscn" type="PackedScene" id=19]
+[ext_resource path="res://An/SpellPickup.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Miriya/Object_Scripts/poison_purple_mushroom.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Jeremy/TileMap64.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Miriya/Object_Scripts/TileMap_Underground_Dirt.tscn" type="PackedScene" id=22]
@@ -97,7 +98,7 @@ scale = Vector2( 39.3974, 8.92623 )
 texture = ExtResource( 5 )
 
 [node name="Player" parent="World" instance=ExtResource( 2 )]
-position = Vector2( 56, 400.461 )
+position = Vector2( 18.6091, 439.847 )
 
 [node name="Signs" type="Node" parent="World"]
 
@@ -980,24 +981,8 @@ flip = true
 
 [node name="Spells" type="Node" parent="World"]
 
-[node name="spellItem" parent="World/Spells" instance=ExtResource( 19 )]
-position = Vector2( 680, 400.461 )
-the_sprite = "res://Phong/objects/spells_icon/fire.png"
-spell_name = "fire"
-
-[node name="spellItem2" parent="World/Spells" instance=ExtResource( 19 )]
-position = Vector2( 768, 368 )
-the_sprite = "res://Phong/objects/spells_icon/ice.png"
-spell_name = "ice"
-
-[node name="spellItem3" parent="World/Spells" instance=ExtResource( 19 )]
-position = Vector2( 1120, 339.301 )
-the_sprite = "res://Phong/objects/spells_icon/lighting.png"
-spell_name = "lighting"
-
-[node name="spellItem4" parent="World/Spells" instance=ExtResource( 19 )]
-position = Vector2( 1288, 320 )
-the_sprite = "res://Phong/objects/spells_icon/earth.png"
+[node name="SpellPickup" parent="World/Spells" instance=ExtResource( 19 )]
+position = Vector2( 7083.44, 1404.24 )
 spell_name = "earth"
 
 [node name="TileMap64_Top_Side" parent="World" instance=ExtResource( 21 )]
@@ -1126,3 +1111,7 @@ position = Vector2( 4664, 240 )
 
 [node name="Tall_Grass6" parent="World/SlowedGrass" instance=ExtResource( 15 )]
 position = Vector2( 4720, 240 )
+
+[node name="teleport" parent="World" instance=ExtResource( 16 )]
+position = Vector2( 8534.29, 381.637 )
+scene_path = "res://Jeremy/tower.tscn"
