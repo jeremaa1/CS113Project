@@ -504,7 +504,6 @@ position = Vector2( 20992, 509.746 )
 scene_path = "res://An/Stage_Storm.tscn"
 
 [node name="Fire_Falling_Timer" type="Timer" parent="."]
-wait_time = 0.5
 one_shot = true
 
 [node name="flame2" parent="." instance=ExtResource( 18 )]
