@@ -154,27 +154,27 @@ region = Rect2( 144, 0, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 5 )
-region = Rect2( 216, 0, 36, 36 )
+region = Rect2( 0, 0, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 5 )
-region = Rect2( 252, 0, 36, 36 )
+region = Rect2( 36, 0, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 5 )
-region = Rect2( 0, 0, 36, 36 )
+region = Rect2( 72, 0, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 5 )
-region = Rect2( 36, 0, 36, 36 )
+region = Rect2( 108, 0, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 5 )
-region = Rect2( 72, 0, 36, 36 )
+region = Rect2( 216, 0, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 5 )
-region = Rect2( 108, 0, 36, 36 )
+region = Rect2( 252, 0, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 6 )
@@ -200,15 +200,15 @@ animations = [ {
 "name": "jump",
 "speed": 0.0
 }, {
-"frames": [ SubResource( 9 ), SubResource( 10 ) ],
-"loop": true,
-"name": "fall",
-"speed": 8.0
-}, {
-"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
+"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
 "loop": true,
 "name": "run",
 "speed": 6.0
+}, {
+"frames": [ SubResource( 13 ), SubResource( 14 ) ],
+"loop": true,
+"name": "fall",
+"speed": 8.0
 }, {
 "frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
 "loop": false,
@@ -1468,17 +1468,20 @@ position = Vector2( 5268.85, 571.243 )
 
 [node name="Enemy_skeleton7" parent="ske" instance=ExtResource( 13 )]
 position = Vector2( 7591.37, 315.563 )
-attackDamage = 30
+max_health = 70.0
+attackDamage = 20
 
 [node name="Enemy_skeleton8" parent="ske" instance=ExtResource( 13 )]
 position = Vector2( 11375.7, 444.246 )
 
 [node name="Enemy_skeleton9" parent="ske" instance=ExtResource( 13 )]
 position = Vector2( 15399.3, 573.483 )
+max_health = 70.0
 attackDamage = 30
 
 [node name="Enemy_skeleton10" parent="ske" instance=ExtResource( 13 )]
 position = Vector2( 9864.2, 444.278 )
+max_health = 70.0
 attackDamage = 30
 
 [node name="Enemy_skeleton11" parent="ske" instance=ExtResource( 13 )]
@@ -1575,6 +1578,7 @@ projectileSpeed = 450
 [node name="Enemy_FireBird5" parent="bird" instance=ExtResource( 14 )]
 position = Vector2( 7719.48, 346.517 )
 projectileSpeed = 350
+cooldown = 3.0
 
 [node name="Enemy_FireBird3" parent="bird" instance=ExtResource( 14 )]
 position = Vector2( 7119.33, 465.607 )
@@ -1604,7 +1608,7 @@ projectileSpeed = 450
 [node name="spells" type="Node" parent="."]
 
 [node name="SpellPickup" parent="spells" instance=ExtResource( 22 )]
-position = Vector2( 10864.7, 290.986 )
+position = Vector2( 10915.8, 292.636 )
 spell_name = "fire"
 
 [node name="SpellPickup2" parent="spells" instance=ExtResource( 22 )]
@@ -1938,11 +1942,20 @@ position = Vector2( 3040, 542.472 )
 [node name="health_potion8" parent="health" instance=ExtResource( 20 )]
 position = Vector2( 7001.44, 483.065 )
 
+[node name="health_potion11" parent="health" instance=ExtResource( 20 )]
+position = Vector2( 6491.67, 573.167 )
+
+[node name="health_potion10" parent="health" instance=ExtResource( 20 )]
+position = Vector2( 4569.51, 487.822 )
+
 [node name="health_potion2" parent="health" instance=ExtResource( 20 )]
 position = Vector2( 9312, 258 )
 
 [node name="health_potion3" parent="health" instance=ExtResource( 20 )]
-position = Vector2( 10920, 288.683 )
+position = Vector2( 10966.1, 290.421 )
+
+[node name="health_potion6" parent="health" instance=ExtResource( 20 )]
+position = Vector2( 10862.3, 289.442 )
 
 [node name="health_potion4" parent="health" instance=ExtResource( 20 )]
 position = Vector2( 15904, 354.139 )

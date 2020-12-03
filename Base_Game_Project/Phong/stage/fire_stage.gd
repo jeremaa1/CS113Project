@@ -28,4 +28,4 @@ func _on_Fire_Falling_Timer_timeout():
 		fire.position.x = x_coord
 		fire.position.y = -1.5 * player_position.y
 		add_child(fire)
-		print(fire.position)
+		#print(fire.position)

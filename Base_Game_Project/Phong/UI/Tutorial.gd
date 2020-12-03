@@ -14,12 +14,18 @@ func _input(event):
 			
 		get_tree().paused = false
 		tutorial_on = false
+		
+	if Global.play_audio == true:
 		AudContainer.play_aud()
+		Global.play_audio = false
 
 func tutorial_init():
 	yield(get_tree().create_timer(1.9), "timeout")
 	get_tree().paused = true
+	Global.play_audio = true
 	for node in get_children():
 		node.visible = true
 	
-	
+func open_tutorial():
+	for node in get_children():
+		node.visible = true
