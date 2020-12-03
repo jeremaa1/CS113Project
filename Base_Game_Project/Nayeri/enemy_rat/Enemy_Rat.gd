@@ -1,6 +1,5 @@
 extends KinematicBody2D
 
-
 const GRAVITY = 20
 export var speed = 100
 var motion = Vector2()
@@ -12,11 +11,16 @@ func _ready():
 	pass
 	
 func kill():
+	dead()
+	
+func dead():
 	is_dead = true 
 	$CollisionShape2D.set_deferred("disabled", true)
 	$RatDetectRegion/CollisionShape2D.set_deferred("disabled", true)
 	$AnimatedSprite.play("dead")
-	$Death_time.start()
+	yield($AnimatedSprite, "animation_finished")
+	queue_free()
+#	$Death_time.start()
 	
 func _physics_process(delta):
 	if is_dead:
@@ -31,9 +35,14 @@ func _physics_process(delta):
 	
 	motion.y += GRAVITY
 	motion = move_and_slide(motion, Vector2(0,1))
-
+	
 	if is_on_wall():
 		direction = direction * -1
+		if direction == -1:
+			self.position.x -=10
+		else:
+			self.position.x +=10 
+
 
 
 func _on_RatDetectRegion_body_entered(body):

@@ -44,8 +44,10 @@ func dead():
 	$FirstGhostDetectRange/CS2Drightside.set_deferred("disabled", true)
 	$FirstGhostDetectRange.set_deferred("disabled", true)
 	$AnimatedSprite.play("dead")
+	yield($AnimatedSprite, "animation_finished")
+	queue_free()
 	#$CollisionShape2D.disabled = true
-	$Timer.start()
+	#$Timer.start()
 
 func _walk():
 	if ice :

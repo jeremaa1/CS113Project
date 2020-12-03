@@ -10,6 +10,11 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 4 ) ],
+"loop": false,
+"name": "Walk",
+"speed": 1.0
+}, {
 "frames": [ ExtResource( 2 ) ],
 "loop": false,
 "name": "freeze",
@@ -19,11 +24,6 @@ animations = [ {
 "loop": false,
 "name": "dead",
 "speed": 4.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": false,
-"name": "Walk",
-"speed": 1.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]

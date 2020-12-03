@@ -14,7 +14,7 @@ onready var health = max_health setget _set_health
 const FLOOR = Vector2(0,-1)
 var rng = RandomNumberGenerator.new()
 
-onready var Player = get_parent().get_node("player")
+onready var Player = get_parent().get_node("Player")
 var velocity = Vector2()
 var max_dist = 300
 var react_time = 400
@@ -34,7 +34,7 @@ var old_velocity = velocity
 
 
 func _ready():
-	
+	print (get_parent())
 	velocity.x = x_direction * 100
 	velocity.y = y_direction * 100
 	set_process(true) 
@@ -116,6 +116,9 @@ func _hunt():
 
 
 func _physics_process(delta):
+	if Player == null:
+		return 
+	
 	if is_dead == false:
 		var follow = true if abs(Player.position.x - position.x) <= max_dist else false
 
