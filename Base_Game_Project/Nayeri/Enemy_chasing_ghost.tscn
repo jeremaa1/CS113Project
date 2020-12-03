@@ -56,6 +56,7 @@ margin_bottom = 5.07718
 rect_scale = Vector2( 0.03, 0.05 )
 
 [node name="Freeze_timer" type="Timer" parent="."]
+wait_time = 5.0
 
 [node name="DetectRange" type="Area2D" parent="."]
 
