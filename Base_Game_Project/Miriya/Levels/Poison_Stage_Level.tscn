@@ -1113,5 +1113,5 @@ position = Vector2( 4664, 240 )
 position = Vector2( 4720, 240 )
 
 [node name="teleport" parent="World" instance=ExtResource( 16 )]
-position = Vector2( 8534.29, 381.637 )
+position = Vector2( 7648, 384 )
 scene_path = "res://Jeremy/tower.tscn"
