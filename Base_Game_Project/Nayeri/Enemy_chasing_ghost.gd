@@ -34,9 +34,6 @@ var old_velocity = velocity
 
 
 func _ready():
-	print (Player)
-
-
 	velocity.x = x_direction * 100
 	velocity.y = y_direction * 100
 	set_process(true) 
@@ -54,7 +51,6 @@ func _set_health(value):
 			
 			
 func dead():
-	print("dead called")
 	is_dead = true
 	velocity = Vector2(0,0)
 	$AnimatedSprite.play("dead")

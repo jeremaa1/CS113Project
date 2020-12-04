@@ -22,11 +22,12 @@ var y_time = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	set_process(true) 
-	$AnimatedSprite.play("Walk")
-	if x_direction == -1:
-		$CollisionShape2D.position.x *= -1
-		$HuntingGhostDetectRange/CollisionShape2D.position.x *= -1
+	if is_dead == false:
+		set_process(true) 
+		$AnimatedSprite.play("Walk")
+		if x_direction == -1:
+			$CollisionShape2D.position.x *= -1
+			$HuntingGhostDetectRange/CollisionShape2D.position.x *= -1
 	
 func _set_health(value):
 	var prev_health = health

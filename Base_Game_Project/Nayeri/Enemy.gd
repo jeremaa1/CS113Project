@@ -7,7 +7,7 @@ onready var health_bar = $HealthBar/HealthBar
 export (float) var max_health = 100
 export (int) var hurt = 100
 onready var health = max_health setget _set_health
-const SPEED = 5
+const SPEED = 10
 const FLOOR = Vector2(0,-1)
 var velocity = Vector2()
 var is_dead = false
@@ -31,10 +31,8 @@ func _set_health(value):
 			emit_signal("char_died")
 
 func dead():
-	print("dead called")
 	is_dead = true
 	velocity = Vector2(0,0)
-
 	$CS2Dcolisionbody.set_deferred("disabled", true)
 	$CS2Dcollisionfeet.set_deferred("disabled", true)
 	$CS2Dcollisionsides.set_deferred("disabled", true)
