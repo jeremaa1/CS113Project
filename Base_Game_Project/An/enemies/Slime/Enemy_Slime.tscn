@@ -46,9 +46,9 @@ frames = SubResource( 6 )
 animation = "run"
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2( -7, 0 )
+position = Vector2( -7, 10 )
 enabled = true
-cast_to = Vector2( 0, 17 )
+cast_to = Vector2( 0, 8 )
 
 [node name="HitBox" type="Area2D" parent="."]
 
