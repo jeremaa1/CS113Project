@@ -5,7 +5,7 @@ var timer = 0.0
 var timer_active = false
 const TIMER_TIME = 4 # in seconds
 
-const SBALL = preload("res://Jeremy/ShadowBall.tscn")
+# const SBALL = preload("res://Jeremy/ShadowBall.tscn")
 
 func _ready():
 	pass # Replace with function body.

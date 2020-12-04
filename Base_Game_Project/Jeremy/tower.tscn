@@ -185,7 +185,7 @@ position = Vector2( 64, -960 )
 
 [node name="teleport" parent="World" instance=ExtResource( 10 )]
 position = Vector2( 4317.58, -1536.93 )
-scene_path = "res://Phong/UI/ending.tscn"
+scene_path = "res://Jeremy/BossRoom.tscn"
 
 [node name="Sign" type="Sprite" parent="World"]
 position = Vector2( 2752.32, -175.818 )

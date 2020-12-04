@@ -32,6 +32,7 @@ func _set_health(value):
 			
 func dead():
 	$AnimatedSprite.play('dead')
+	FadeEffect.scene_change("res://Phong/UI/ending.tscn", "fade")
 
 func take_damage(value, spell):
 	_set_health(health-value)
