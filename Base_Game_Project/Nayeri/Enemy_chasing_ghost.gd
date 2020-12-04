@@ -13,8 +13,8 @@ onready var health = max_health setget _set_health
 
 const FLOOR = Vector2(0,-1)
 var rng = RandomNumberGenerator.new()
-
-onready var Player = get_parent().get_node("player")
+export var Player_path = "Player"
+onready  var Player = get_tree().root.get_node("Node2D").get_node(Player_path)
 var velocity = Vector2()
 var max_dist = 300
 var react_time = 400
@@ -34,7 +34,9 @@ var old_velocity = velocity
 
 
 func _ready():
-	
+	print (Player)
+
+
 	velocity.x = x_direction * 100
 	velocity.y = y_direction * 100
 	set_process(true) 
@@ -56,8 +58,11 @@ func dead():
 	is_dead = true
 	velocity = Vector2(0,0)
 	$AnimatedSprite.play("dead")
-	#$CollisionShape2D.disabled = true
-	$Timer.start()
+	$CollisionShape2D.set_deferred("disabled", true)
+	$DetectRange/CollisionShape2D.set_deferred("disabled", true)
+	yield($AnimatedSprite, "animation_finished")
+	queue_free()
+#	$Timer.start()
 
 
 func set_dir(target_dir):
@@ -116,6 +121,9 @@ func _hunt():
 
 
 func _physics_process(delta):
+	if Player == null:
+		return 
+	
 	if is_dead == false:
 		var follow = true if abs(Player.position.x - position.x) <= max_dist else false
 

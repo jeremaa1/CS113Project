@@ -15,8 +15,8 @@ var is_dead = false
 var ice = false
 var freeze = false 
 var old_velocity = velocity 
-var x_direction = 1 # 
-var y_direction = -1 # 
+export var x_direction = 1 # 
+export var y_direction = -1 # 
 var x_time = 0
 var y_time = 0
 
@@ -24,6 +24,9 @@ var y_time = 0
 func _ready():
 	set_process(true) 
 	$AnimatedSprite.play("Walk")
+	if x_direction == -1:
+		$CollisionShape2D.position.x *= -1
+		$HuntingGhostDetectRange/CollisionShape2D.position.x *= -1
 	
 func _set_health(value):
 	var prev_health = health
@@ -41,7 +44,9 @@ func dead():
 	#$CollisionShape2D.disabled = true
 	$CollisionShape2D.set_deferred("disabled", true)
 	$HuntingGhostDetectRange/CollisionShape2D.set_deferred("disabled", true)
-	$Timer.start()
+	yield($AnimatedSprite, "animation_finished")
+	queue_free()
+#	$Timer.start()
 
 
 func _float():
