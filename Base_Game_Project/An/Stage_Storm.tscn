@@ -148,7 +148,7 @@ position = Vector2( 6072, 448 )
 position = Vector2( 7848, 456 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 328, 424 )
+position = Vector2( 192, 448 )
 
 [node name="Props" type="Node2D" parent="."]
 
@@ -200,14 +200,6 @@ spell_name = "lighting"
 [node name="SpellPickup2" parent="collectibles" instance=ExtResource( 12 )]
 position = Vector2( 1280, -680 )
 spell_name = "earth"
-
-[node name="SpellPickup3" parent="collectibles" instance=ExtResource( 12 )]
-position = Vector2( 600, 304 )
-spell_name = "lighting"
-
-[node name="SpellPickup4" parent="collectibles" instance=ExtResource( 12 )]
-position = Vector2( 520, 304 )
-spell_name = "fire"
 
 [node name="TornadoTimer" type="Timer" parent="."]
 wait_time = 3.0
