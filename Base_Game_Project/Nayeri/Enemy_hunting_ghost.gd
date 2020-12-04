@@ -1,26 +1,30 @@
 # Hunting Ghost
 extends KinematicBody2D
+
 signal update_health(health)
 signal char_died()
-onready var health_bar = $HealthBar/HealthBar
-export (float) var max_health = 100
-export (int) var hurt = 20
-onready var health = max_health setget _set_health
+
 const SPEED = 50
 const FLOOR = Vector2(0,-1)
 const X_MAX_TIME = 500
 const Y_MAX_TIME = 500
+
+export (float) var max_health = 100
+export (int) var hurt = 20
+export var x_direction = 1 # 
+export var y_direction = -1 # 
+
+onready var health_bar = $HealthBar/HealthBar
+onready var health = max_health setget _set_health
+
 var velocity = Vector2()
 var is_dead = false
 var ice = false
 var freeze = false 
 var old_velocity = velocity 
-export var x_direction = 1 # 
-export var y_direction = -1 # 
 var x_time = 0
 var y_time = 0
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	if is_dead == false:
 		set_process(true) 
@@ -42,13 +46,11 @@ func dead():
 	is_dead = true
 	velocity = Vector2(0,0)
 	$AnimatedSprite.play("dead")
-	#$CollisionShape2D.disabled = true
 	$CollisionShape2D.set_deferred("disabled", true)
 	$HuntingGhostDetectRange/CollisionShape2D.set_deferred("disabled", true)
 	yield($AnimatedSprite, "animation_finished")
 	queue_free()
 #	$Timer.start()
-
 
 func _float():
 	
@@ -119,7 +121,6 @@ func take_damage(value, spell):
 	else:
 			_set_health(health - value)
 
-	
 func _on_Enemy_hunting_ghost_update_health(health):
 	health_bar.value = health
 

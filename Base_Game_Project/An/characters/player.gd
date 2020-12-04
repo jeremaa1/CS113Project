@@ -49,7 +49,6 @@ func dead():
 	yield(get_tree().create_timer(0.7), "timeout")
 	get_tree().paused = false
 	FadeEffect.scene_change("res://Phong/UI/gameOver.tscn", 'fade')
-	print(Global.curr_scn)
 	
 	
 
@@ -167,7 +166,6 @@ func _physics_process(delta):
 	
 	
 	if motion.y > 2300:
-		print(motion.y)
 		set_physics_process(false)
 		dead()
 		
@@ -208,13 +206,12 @@ func take_damage(value):
 		$Invulnerable_Animation.play("Invulnerable")
 		FlashEffect.play_effect()
 		_set_health(health-value)
-		print("Health: ", health)
+
 		
 func heal_character(value):
 	if health != max_health:
 		emit_signal("update_health", health)
 		_set_health(health+value)
-		print("health: ", health)
 	else:
 		# Character health is maxed
 		pass

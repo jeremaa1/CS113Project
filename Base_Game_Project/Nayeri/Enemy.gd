@@ -44,7 +44,6 @@ func dead():
 	$AnimatedSprite.play("dead")
 	yield($AnimatedSprite, "animation_finished")
 	queue_free()
-	#$CollisionShape2D.disabled = true
 	#$Timer.start()
 
 func _walk():
