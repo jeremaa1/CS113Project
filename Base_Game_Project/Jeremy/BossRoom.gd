@@ -7,7 +7,7 @@ const TORNADO = preload("res://Jeremy/BossFire.tscn")
 var player_position
 var random_location_num
 export var tornado_offset = 170
-export var tornado_timer = 2.5
+export var tornado_timer = 1
 
 func _ready():
 	random_location_num = RandomNumberGenerator.new()
@@ -33,7 +33,7 @@ func _on_BallTimer_timeout():
 	ball.start_timer()
 	random_location_num.randomize()
 	var x_coord = random_location_num.randf_range(64, 1344)
-	var y_coord = 128
+	var y_coord = 384
 	ball.position.x = x_coord
 	ball.position.y = -1.5 * player_position.y
 	add_child(ball)
