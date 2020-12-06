@@ -7,7 +7,6 @@ signal update_max_health(max_health)
 
 onready var health_bar = $HealthBar/HealthBar
 export (float) var max_health = 100
-export var attackDamage = 50
 export var collisionDamage = 10
 onready var health = max_health setget _set_health
 
@@ -32,6 +31,7 @@ func _set_health(value):
 			
 func dead():
 	$AnimatedSprite.play('dead')
+	FadeEffect.scene_change("res://Phong/UI/ending.tscn", "fade")
 
 func take_damage(value, spell):
 	_set_health(health-value)
@@ -46,3 +46,8 @@ func _on_AnimatedSprite_animation_finished():
 func _on_EnemyDarkLord_update_max_health(max_health):
 	health_bar.max_value = max_health 
 	health_bar.value = max_health
+
+
+func _on_Area2D_body_entered(body):
+	if "Player" in body.name:
+		body.take_damage(collisionDamage)

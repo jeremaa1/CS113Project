@@ -22,10 +22,10 @@ const FIRE_SPELL = preload("res://Jeremy/FireSpell.tscn")
 const ICE_SPELL = preload("res://Jeremy/IceSpell.tscn")
 const ELEC_SPELL = preload("res://Jeremy/ElecSpell.tscn")
 const EARTH_SPELL = preload("res://Jeremy/EarthSpellPhysics.tscn")
-
+const SPEED = 300
 # Make the speed a variable instead of a constant
 # in order to slow down the player
-var run_speed = 300
+onready var run_speed = SPEED
 var motion = Vector2()
 #onready var animationPlayer = $AnimationPlayer
 
@@ -220,12 +220,10 @@ func _on_AnimatedSprite_animation_finished():
 	if $AnimatedSprite.animation == "attack":
 		is_attacking = false
 
-var pre_speed
 func set_speed(newSpeed, time):
 	"""
 	set player speed = 'newSpeed' for 'time' seconds
 	"""
-	pre_speed = run_speed
 	run_speed = newSpeed
 	if time <= 0:
 		return
@@ -236,5 +234,5 @@ func get_speed():
 	return run_speed
 
 func _on_Timer_timeout():
-	run_speed = pre_speed
+	run_speed = SPEED
 	$Timer.stop()

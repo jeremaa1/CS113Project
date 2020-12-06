@@ -149,44 +149,44 @@ atlas = ExtResource( 5 )
 region = Rect2( 0, 0, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 5 )
-region = Rect2( 144, 0, 36, 36 )
-
-[sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 5 )
+atlas = ExtResource( 6 )
 region = Rect2( 0, 0, 36, 36 )
 
-[sub_resource type="AtlasTexture" id=10]
-atlas = ExtResource( 5 )
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 6 )
 region = Rect2( 36, 0, 36, 36 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 6 )
+region = Rect2( 72, 0, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 5 )
-region = Rect2( 72, 0, 36, 36 )
+region = Rect2( 144, 0, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 5 )
-region = Rect2( 108, 0, 36, 36 )
+region = Rect2( 216, 0, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 5 )
-region = Rect2( 216, 0, 36, 36 )
+region = Rect2( 252, 0, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 5 )
-region = Rect2( 252, 0, 36, 36 )
-
-[sub_resource type="AtlasTexture" id=15]
-atlas = ExtResource( 6 )
 region = Rect2( 0, 0, 36, 36 )
 
-[sub_resource type="AtlasTexture" id=16]
-atlas = ExtResource( 6 )
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 5 )
 region = Rect2( 36, 0, 36, 36 )
 
-[sub_resource type="AtlasTexture" id=17]
-atlas = ExtResource( 6 )
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 5 )
 region = Rect2( 72, 0, 36, 36 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 5 )
+region = Rect2( 108, 0, 36, 36 )
 
 [sub_resource type="SpriteFrames" id=18]
 animations = [ {
@@ -195,25 +195,25 @@ animations = [ {
 "name": "idle",
 "speed": 0.0
 }, {
-"frames": [ SubResource( 8 ) ],
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
+"loop": false,
+"name": "attack",
+"speed": 9.0
+}, {
+"frames": [ SubResource( 11 ) ],
 "loop": false,
 "name": "jump",
 "speed": 0.0
 }, {
-"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
-"loop": true,
-"name": "run",
-"speed": 6.0
-}, {
-"frames": [ SubResource( 13 ), SubResource( 14 ) ],
+"frames": [ SubResource( 12 ), SubResource( 13 ) ],
 "loop": true,
 "name": "fall",
 "speed": 8.0
 }, {
-"frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
-"loop": false,
-"name": "attack",
-"speed": 9.0
+"frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
+"loop": true,
+"name": "run",
+"speed": 6.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=19]
