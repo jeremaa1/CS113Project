@@ -52,7 +52,7 @@ func _walk():
 	velocity.x = SPEED * x_direction 
 	velocity = move_and_slide(velocity, FLOOR)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if is_dead == false:
 		_walk()
 
@@ -79,8 +79,8 @@ func take_damage(value, spell):
 	else:
 		_set_health(health - value)
 
-func _on_Enemy_update_health(health):
-	health_bar.value = health
+func _on_Enemy_update_health(damage_health):
+	health_bar.value = damage_health
 
 func _on_Freeze_timer_timeout():
 	ice = false
@@ -92,7 +92,7 @@ func _on_FirstGhostDetectRange_body_entered(body):
 		body.take_damage(hurt)
 
 
-func _on_Enemy_FirstGhost_update_max_health(max_health):
-	health_bar.max_value = max_health 
-	health_bar.value = max_health
+func _on_Enemy_FirstGhost_update_max_health(given_max_health):
+	health_bar.max_value = given_max_health 
+	health_bar.value = given_max_health
 
