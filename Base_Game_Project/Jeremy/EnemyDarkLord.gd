@@ -22,7 +22,6 @@ func _ready():
 func _set_health(value):
 	var prev_health = health
 	health = clamp(value, 0, max_health)
-	print("Enemy Health: ", health)
 	if health != prev_health:
 		emit_signal("update_health", health)
 		if health == 0:

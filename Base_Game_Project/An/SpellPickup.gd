@@ -30,5 +30,5 @@ func _on_SpellPickup_body_entered(body):
 		Global.add_spell(spell_name)
 		Global.assign_spell()
 		SpellInventory.init_spells_inv()
-		print(Global.spells)
+		# print(Global.spells)
 		queue_free()

@@ -18,7 +18,7 @@ func _on_Button_Pressed():
 			Global.curr_scn = ref_path
 		FadeEffect.scene_change(ref_path, 'fade')
 		Global.re_init()
-		print(Global.spells)
+		# print(Global.spells)
 		SpellInventory.reveal_inv()
 		Tutorial.tutorial_on = true
 		Tutorial.tutorial_init()

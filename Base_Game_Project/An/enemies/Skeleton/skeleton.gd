@@ -59,7 +59,6 @@ func _physics_process(delta):
 func _set_health(value):
 	var prev_health = health
 	health = clamp(value, 0, max_health)
-	print("Enemy Health: ", health)
 	if health != prev_health:
 		emit_signal("update_health", health)
 		if health == 0:
@@ -125,7 +124,6 @@ func _on_AnimatedSprite_animation_finished():
 
 func _on_AttackSync_timeout():
 	if playerInAttackRange:
-		print("player takes dmg")
 		player.take_damage(attackDamage)
 	$DetectRange/AttackSync.stop()
 
