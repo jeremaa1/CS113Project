@@ -1020,7 +1020,7 @@ shootRange = 550
 projectileSpeed = 350
 
 [node name="Enemy_FireBird6" parent="World/Enemies" instance=ExtResource( 25 )]
-position = Vector2( 6152, 392 )
+position = Vector2( 6154, 408 )
 shootRange = 350
 
 [node name="Enemy_FireBird5" parent="World/Enemies" instance=ExtResource( 25 )]
