@@ -60,7 +60,7 @@ func y_set_dir(target_dir):
 		y_next_dir = target_dir
 		y_next_dir_time = OS.get_ticks_msec() + react_time
 
-func _chase(delta):
+func _chase(_delta):
 	if ice :
 		return 
 	
@@ -117,7 +117,7 @@ func _physics_process(delta):
 func _on_Timer_timeout():
 	queue_free()
 	
-func freeze():
+func _freeze():
 	ice = true
 	
 	old_velocity = velocity
@@ -131,15 +131,15 @@ func unfreeze():
 
 func take_damage(value, spell):
 	if spell == "ice":
-		freeze()
+		_freeze()
 	if ice == true and spell == "fire":
 		unfreeze()
 		_set_health(health)
 	else:
 			_set_health(health - value)
 	
-func _on_Enemy_chasing_ghost_update_health(health):
-	health_bar.value = health
+func _on_Enemy_chasing_ghost_update_health(damage_health):
+	health_bar.value = damage_health
 
 func _on_Freeze_timer_timeout():
 	ice = false
