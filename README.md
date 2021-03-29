@@ -4,12 +4,12 @@ This is the start of our 113 Project
 
 Members are:
 
-Jeremy Anderson
+**Jeremy Anderson**
 
-Nayeri Novasartians
+**Nayeri Novasartians**
 
-Phong Tran
+**Phong Tran**
 
-An Nguyen
+**An Nguyen**
 
-Miriya Higa
+**Miriya Higa**
